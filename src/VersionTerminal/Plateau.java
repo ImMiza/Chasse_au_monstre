@@ -64,6 +64,17 @@ public class Plateau {
 		}
 		System.out.println("╝");
 	}
+	
+	public boolean estDécouvert() {
+		for (int i = 0; i < plateau.length; i++) {
+			for (int j = 0; j < plateau[i].length; j++) {
+				if (!this.plateau[i][j].getEstDecouvert()) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 }
 
 
