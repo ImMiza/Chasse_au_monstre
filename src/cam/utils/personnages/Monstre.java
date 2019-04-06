@@ -98,4 +98,11 @@ public class Monstre extends Personnage{
 	public void setDeplacementDiagonal(int deplacementDiagonal) {
 		this.deplacementDiagonal = deplacementDiagonal;
 	}
+	
+	/**
+	 * Retourne la description du monstre.
+	 */
+	public String toString() {
+		return "Monstre [" + this.getNom() + ", [" + this.getPosition().getX() + ", " + this.getPosition().getY() + "], " + this.bloque + "]";
+	}
 }

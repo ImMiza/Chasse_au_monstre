@@ -43,4 +43,11 @@ public class Chasseur extends Personnage{
 	public void setEtourdi(boolean etourdi) {
 		this.etourdi = etourdi;
 	}
+	
+	/**
+	 * Retourne la description du chasseur.
+	 */
+	public String toString() {
+		return "Chasseur [" + this.getNom() + ", [" + this.getPosition().getX() + ", " + this.getPosition().getY() + "], " + this.etourdi + "]";
+	}
 }
