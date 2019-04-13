@@ -74,6 +74,7 @@ public class Plateau {
 		}
 		return null;
 	}
+	
 	/**
 	 * Methode privee permettant de renvoyer la case de coordonees rentrees en parametre
 	 * @exception renvoie null si les coordonnees ne sont pas valides(n'appartiennent pas au plateau)
@@ -87,4 +88,6 @@ public class Plateau {
 		}
 		return null;
 	}
+	
+	
 }
