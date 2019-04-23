@@ -12,7 +12,7 @@ public class Plateau {
 	 * Classe qui détermine le fonctionnement du plateau de jeu
 	 * @author Hugo Wieder
 	 */
-	
+	 
 	// ATTRIBUTS
 	private Monstre monstre;
 	private Chasseur chasseur;
