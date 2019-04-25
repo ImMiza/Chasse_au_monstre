@@ -30,6 +30,11 @@ public class Plateau {
 		this.monstre = monstre;
 		this.chasseur = chasseur;
 		this.plateau = new Case[nbLignes][nbColonnes];
+		for (int i = 0; i < plateau.length; i++) {
+			for (int j = 0; j < plateau[i].length; j++) {
+				plateau[i][j] = new Case(i, j);
+			}
+		}
 	}
 	/**
 	 * Constructeur d'une instance de Plateau
@@ -41,6 +46,10 @@ public class Plateau {
 		this.monstre = monstre;
 		this.chasseur = chasseur;
 		this.plateau = unPlateau;
+	}
+	
+	public Case[][] getPlateau() {
+		return plateau;
 	}
 	
 	// METHODES
@@ -127,5 +136,31 @@ public class Plateau {
 		return null;
 	}
 	
-	
+	public void printPlateau() {
+		char[][] plateau = new char[this.plateau.length][this.plateau[0].length];
+		
+		for(int i = 0; i < this.plateau.length; i++) {
+			for(int j = 0; j < this.plateau[0].length; j++) {
+				if(this.plateau[i][j].isVisited()) {
+					plateau[i][j] = 'V';
+				}
+				else {
+					plateau[i][j] = ' ';
+				}
+			}
+		}
+		
+//		for(Case cas : ) {
+//			plateau[cas.getPosition().getX()][cas.getPosition().getY()] = 'P';
+//		}
+		
+		plateau[monstre.getPosition().getX()][monstre.getPosition().getY()] = 'M';
+		
+		for(int i = 0; i < this.plateau.length; i++) {
+			for(int j = 0; j < this.plateau[0].length; j++) {
+				System.out.print("| " + plateau[i][j] + " |");
+			}
+			System.out.println();
+		}
+	}
 }
