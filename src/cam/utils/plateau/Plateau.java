@@ -32,7 +32,7 @@ public class Plateau {
 		this.plateau = new Case[nbLignes][nbColonnes];
 		for (int i = 0; i < plateau.length; i++) {
 			for (int j = 0; j < plateau[i].length; j++) {
-				plateau[i][j] = new Case(i, j);
+				plateau[i][j] = new Case();
 			}
 		}
 	}
@@ -192,6 +192,11 @@ public class Plateau {
 	public void printPlateau() {
 		char[][] plateau = new char[this.plateau.length][this.plateau[0].length];
 		
+		for(Case cas : deplacementsPossible()) {
+			int[] coord = chercheCase(cas);
+			plateau[coord[0]][coord[1]] = 'P';
+		}
+		
 		for(int i = 0; i < this.plateau.length; i++) {
 			for(int j = 0; j < this.plateau[0].length; j++) {
 				if(this.plateau[i][j].isVisited()) {
@@ -203,17 +208,32 @@ public class Plateau {
 			}
 		}
 		
-//		for(Case cas : ) {
-//			plateau[cas.getPosition().getX()][cas.getPosition().getY()] = 'P';
-//		}
-		
 		plateau[monstre.getPosition().getX()][monstre.getPosition().getY()] = 'M';
 		
-		for(int i = 0; i < this.plateau.length; i++) {
-			for(int j = 0; j < this.plateau[0].length; j++) {
-				System.out.print("| " + plateau[i][j] + " |");
-			}
-			System.out.println();
-		}
+		System.out.print("╔═══");
+        for (int i = 1; i < plateau[0].length; i++) {
+            System.out.print("╦═══");
+        }
+        System.out.println("╗");
+        for (int i = 1; i < plateau.length; i++) {
+            for (int j = 0; j < plateau[i].length; j++) {
+                System.out.print("║ " + plateau[i][j] + " ");
+            }
+            System.out.println("║");
+            System.out.print("╠═══");
+            for (int j = 1; j < plateau[i].length; j++) {
+                System.out.print("╬═══");
+            }
+            System.out.println("╣");
+        }
+        for (int i = 0; i < plateau[plateau.length - 1].length; i++) {
+            System.out.print("║ " + plateau[plateau.length - 1][i] + " ");
+        }
+        System.out.println("║");
+        System.out.print("╚═══");
+        for (int i = 1; i < plateau[plateau.length - 1].length; i++) {
+            System.out.print("╩═══");
+        }
+        System.out.println("╝");
 	}
 }

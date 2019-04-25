@@ -14,16 +14,16 @@ public class Case {
 	private int nbClick; // Pour le monstre
 	private Position position;
 
+
 	//CONSTRUCTEURS
 
 	/**
 	 * Constructeur sans parametres permettant de creer une case.
 	 */
-	public Case(int x, int y) {
+	public Case() {
 		this.visited = false;
 		this.tourVisited = -1;
 		this.nbClick = 0;
-		this.position = new Position(x, y);
 	}
 
 	//METHODES
@@ -53,14 +53,6 @@ public class Case {
 	 */
 	public int getTourVisited() {
 		return this.tourVisited;
-	}
-
-	/**
-	 * Permet de récupérer la position de la case
-	 * @return La position de la case
-	 */
-	public Position getPosition() {
-		return position;
 	}
 
 	/**
