@@ -9,9 +9,9 @@ import cam.utils.personnages.Position;
 
 public class Case {
 	//ATTRIBUTS
-	private boolean visited;
-	private int tourVisited;
-	private int nbClick;
+	private boolean visited; //Pour le monstre
+	private int tourVisited; //Pour le monstre
+	private int nbClick; // Pour le monstre
 	private Position position;
 
 	//CONSTRUCTEURS

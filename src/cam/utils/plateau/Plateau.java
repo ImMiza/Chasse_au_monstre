@@ -60,8 +60,7 @@ public class Plateau {
 	 */
 	public List<Case> deplacementsPossible(){
 		Case caseDeDepart = chercheCase(this.monstre.getPosition().getX(), this.monstre.getPosition().getY());
-		List<Case> res ;
-		res = new ArrayList<Case>();
+		ArrayList<Case> res = new ArrayList<Case>();
 		int[] coordonneesCase = this.chercheCase(caseDeDepart);
 		if (coordonneesCase == null) return null;
 		int i = coordonneesCase[0], j = coordonneesCase[1];
@@ -69,8 +68,34 @@ public class Plateau {
 		res.addAll(deplacementDiagonale(i, j));
 		res.addAll(deplacementVertical(i,j));
 		res.addAll(deplacementHorizontal(i, j));
+		
+		while(!sontToutesLibres(res)) {
+			boolean trouvee = false; int k = 0;
+			while (!trouvee && k<res.size()) {
+				if(res.get(k).isVisited()) {
+					trouvee=true;
+					res.remove(k);
+				}
+				k++;
+			}
+		}
+		
+		
 		return res;
 	}
+	
+	/**
+	 * Verifie que toutes les cases de maListe n'ont jamais etees visitees par le monstre
+	 * @param maListe
+	 * @return 
+	 */
+	private boolean sontToutesLibres(List<Case> maListe) {
+		for (int i = 0; i< maListe.size(); i++) {
+			if(maListe.get(i).isVisited()) return false;
+		}
+		return true;
+	}
+	
 	/**
 	 * Verifie l'appartenance d'une case au plateau
 	 * @param ligne
@@ -96,10 +121,10 @@ public class Plateau {
 	private List<Case> deplacementDiagonale(int ligne, int colonne){
 		List<Case> maListe = new ArrayList<Case>();
 		if (ligne == 0) {
-			if (colonne == 0) {
-				ajoute(maListe, ligne, colonne);
-			}
-			else if( colonne == this.plateau)
+			ajoute(maListe, ligne + this.monstre.getDeplacementDiagonal(), colonne + this.monstre.getDeplacementDiagonal());
+			ajoute(maListe, ligne + this.monstre.getDeplacementDiagonal(), colonne - this.monstre.getDeplacementDiagonal());
+			ajoute(maListe, ligne - this.monstre.getDeplacementDiagonal(), colonne + this.monstre.getDeplacementDiagonal());
+			ajoute(maListe, ligne - this.monstre.getDeplacementDiagonal(), colonne - this.monstre.getDeplacementDiagonal());
 		}
 		return maListe;
 	}
@@ -111,7 +136,10 @@ public class Plateau {
 	 */
 	private List<Case> deplacementVertical(int ligne, int colonne){
 		List<Case> maListe = new ArrayList<Case>();
-		
+		for (int i = 0; i<this.monstre.getDeplacementVertical(); i++) {
+			ajoute(maListe, ligne + i+1, colonne);
+			ajoute(maListe, ligne - (i+1), colonne);
+		}
 		return maListe;
 	}
 	/**
@@ -122,7 +150,10 @@ public class Plateau {
 	 */
 	private List<Case> deplacementHorizontal(int ligne, int colonne){
 		List<Case> maListe = new ArrayList<Case>();
-		
+		for (int i = 0; i<this.monstre.getDeplacementHorizontal(); i++) {
+			ajoute(maListe, ligne, colonne + i+1);
+			ajoute(maListe, ligne, colonne - (i+1));
+		}
 		
 		return maListe;
 	}
