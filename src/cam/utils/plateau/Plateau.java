@@ -30,6 +30,11 @@ public class Plateau {
 		this.monstre = monstre;
 		this.chasseur = chasseur;
 		this.plateau = new Case[nbLignes][nbColonnes];
+		for (int i = 0; i < plateau.length; i++) {
+			for (int j = 0; j < plateau[i].length; j++) {
+				plateau[i][j] = new Case(i, j);
+			}
+		}
 	}
 	/**
 	 * Constructeur d'une instance de Plateau
@@ -43,19 +48,61 @@ public class Plateau {
 		this.plateau = unPlateau;
 	}
 	
+	public Case[][] getPlateau() {
+		return plateau;
+	}
+	
 	// METHODES
 	/**
 	 * Renvoie la liste de toutes les cases où le déplacement est possible en partant de la case mise en paramètre
 	 * @param caseDeDepart
 	 * @return uneListe
 	 */
-	public List<Case> deplacementsPossible(Case caseDeDepart){
+	public List<Case> deplacementsPossible(){
+		Case caseDeDepart = chercheCase(this.monstre.getPosition().getX(), this.monstre.getPosition().getY());
 		List<Case> res = new ArrayList<Case>();
 		int[] coordonneesCase = this.chercheCase(caseDeDepart);
 		if (coordonneesCase == null) return null;
 		int i = coordonneesCase[0], j = coordonneesCase[1];
 		
+		res.addAll(deplacementDiagonale(i, j));
+		res.addAll(deplacementVertical(i,j));
+		res.addAll(deplacementHorizontal(i, j));
 		return res;
+	}
+	/**
+	 * 
+	 * @param i
+	 * @param j
+	 * @return Renvoie tous les deplacements diagonnaux possibles
+	 */
+	private List<Case> deplacementDiagonale(int i, int j){
+		List<Case> maListe = new ArrayList<Case>();
+		
+		return maListe;
+	}
+	/**7
+	 * 
+	 * @param i
+	 * @param j
+	 * @return Renvoie tous les deplacements Verticaux possibles
+	 */
+	private List<Case> deplacementVertical(int i, int j){
+		List<Case> maListe = new ArrayList<Case>();
+		
+		return maListe;
+	}
+	/**
+	 * 
+	 * @param i
+	 * @param j
+	 * @return Renvoie tous les deplacements horizontaux possibles
+	 */
+	private List<Case> deplacementHorizontal(int i, int j){
+		List<Case> maListe = new ArrayList<Case>();
+		
+		
+		return maListe;
 	}
 	
 	/**
@@ -89,5 +136,31 @@ public class Plateau {
 		return null;
 	}
 	
-	
+	public void printPlateau() {
+		char[][] plateau = new char[this.plateau.length][this.plateau[0].length];
+		
+		for(int i = 0; i < this.plateau.length; i++) {
+			for(int j = 0; j < this.plateau[0].length; j++) {
+				if(this.plateau[i][j].isVisited()) {
+					plateau[i][j] = 'V';
+				}
+				else {
+					plateau[i][j] = ' ';
+				}
+			}
+		}
+		
+//		for(Case cas : ) {
+//			plateau[cas.getPosition().getX()][cas.getPosition().getY()] = 'P';
+//		}
+		
+		plateau[monstre.getPosition().getX()][monstre.getPosition().getY()] = 'M';
+		
+		for(int i = 0; i < this.plateau.length; i++) {
+			for(int j = 0; j < this.plateau[0].length; j++) {
+				System.out.print("| " + plateau[i][j] + " |");
+			}
+			System.out.println();
+		}
+	}
 }
