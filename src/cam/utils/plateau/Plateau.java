@@ -32,7 +32,7 @@ public class Plateau {
 		this.plateau = new Case[nbLignes][nbColonnes];
 		for (int i = 0; i < plateau.length; i++) {
 			for (int j = 0; j < plateau[i].length; j++) {
-				plateau[i][j] = new Case(i, j);
+				plateau[i][j] = new Case();
 			}
 		}
 	}
@@ -112,9 +112,10 @@ public class Plateau {
 			}
 		}
 		
-//		for(Case cas : ) {
-//			plateau[cas.getPosition().getX()][cas.getPosition().getY()] = 'P';
-//		}
+		for(Case cas : ) {
+			int[] coord = chercheCase(cas);
+			plateau[coord[0]][coord[1]] = 'P';
+		}
 		
 		plateau[monstre.getPosition().getX()][monstre.getPosition().getY()] = 'M';
 		

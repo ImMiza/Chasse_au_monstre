@@ -19,11 +19,10 @@ public class Case {
 	/**
 	 * Constructeur permettant de cr�er une case.
 	 */
-	public Case(int x, int y) {
+	public Case() {
 		this.visited = false;
 		this.tourVisited = -1;
 		this.nbClick = 0;
-		this.position = new Position(x, y);
 	}
 	
 	//METHODES
@@ -55,13 +54,6 @@ public class Case {
 		return this.tourVisited;
 	}
 	
-	/**
-	 * Permet de récupérer la position de la case
-	 * @return La position de la case
-	 */
-	public Position getPosition() {
-		return position;
-	}
 	
 	/**
 	 * Permet de dire � la case � quel tour elle � �t� visit�e
