@@ -49,13 +49,51 @@ public class Plateau {
 	 * @param caseDeDepart
 	 * @return uneListe
 	 */
-	public List<Case> deplacementsPossible(Case caseDeDepart){
+	public List<Case> deplacementsPossible(){
+		Case caseDeDepart = chercheCase(this.monstre.getPosition().getX(), this.monstre.getPosition().getY());
 		List<Case> res = new ArrayList<Case>();
 		int[] coordonneesCase = this.chercheCase(caseDeDepart);
 		if (coordonneesCase == null) return null;
 		int i = coordonneesCase[0], j = coordonneesCase[1];
 		
+		res.addAll(deplacementDiagonale(i, j));
+		res.addAll(deplacementVertical(i,j));
+		res.addAll(deplacementHorizontal(i, j));
 		return res;
+	}
+	/**
+	 * 
+	 * @param i
+	 * @param j
+	 * @return Renvoie tous les deplacements diagonnaux possibles
+	 */
+	private List<Case> deplacementDiagonale(int i, int j){
+		List<Case> maListe = new ArrayList<Case>();
+		
+		return maListe;
+	}
+	/**7
+	 * 
+	 * @param i
+	 * @param j
+	 * @return Renvoie tous les deplacements Verticaux possibles
+	 */
+	private List<Case> deplacementVertical(int i, int j){
+		List<Case> maListe = new ArrayList<Case>();
+		
+		return maListe;
+	}
+	/**
+	 * 
+	 * @param i
+	 * @param j
+	 * @return Renvoie tous les deplacements horizontaux possibles
+	 */
+	private List<Case> deplacementHorizontal(int i, int j){
+		List<Case> maListe = new ArrayList<Case>();
+		
+		
+		return maListe;
 	}
 	
 	/**
