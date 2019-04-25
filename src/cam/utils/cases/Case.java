@@ -14,7 +14,7 @@ public class Case {
 	//CONSTRUCTEURS
 	
 	/**
-	 * Constructeur sans param�tres permettant de cr�er une case.
+	 * Constructeur sans parametres permettant de creer une case.
 	 */
 	public Case() {
 		this.visited = false;
@@ -26,8 +26,8 @@ public class Case {
 	
 	
 	/**
-	 * Permet de savoir si une case � �t� visit�e par le monstre
-	 * @return True si la case � d�j� �t� visit�e par le monstre, False sinon (boolean)
+	 * Permet de savoir si une case à ete visitee par le monstre
+	 * @return True si la case a deja ete visitee par le monstre, False sinon (boolean)
 	 */
 	public boolean isVisited() {
 		return this.visited;
@@ -35,7 +35,7 @@ public class Case {
 	
 	
 	/**
-	 * Met une case � l'�tat visit�.
+	 * Met une case a l'etat visite.
 	 */
 	public void setVisited() {
 		this.visited = true;
@@ -43,9 +43,9 @@ public class Case {
 	
 	
 	/**
-	 * Permet de savoir � quel tour la case � �t� visit�e par le monstre
-	 * -1 si la case n'as jamais �t� visit�e
-	 * @return Le tour auquel la case � �t� visit�e (int)
+	 * Permet de savoir a quel tour la case a ete visitee par le monstre
+	 * -1 si la case n'as jamais ete visitee
+	 * @return Le tour auquel la case a ete visitee (int)
 	 */
 	public int getTourVisited() {
 		return this.tourVisited;
@@ -53,8 +53,8 @@ public class Case {
 	
 	
 	/**
-	 * Permet de dire � la case � quel tour elle � �t� visit�e
-	 * @param tour : met tourVisited � la valeur de tour 
+	 * Permet de dire a la case a quel tour elle a ete visit�e
+	 * @param tour : met tourVisited a la valeur de tour 
 	 */
 	public void setTourVisited(int tour) {
 		this.tourVisited = tour;
@@ -62,7 +62,7 @@ public class Case {
 	
 	
 	/**
-	 * Permet d'incr�menter de 1 le combre de clicks effectu�s par le monstre
+	 * Permet d'incrementer de 1 le combre de clicks effectues par le monstre
 	 */
 	public void addClick() {
 		this.nbClick++;
@@ -70,8 +70,8 @@ public class Case {
 	
 	
 	/**
-	 * Permet de r�cup�rer le nombre de clicks effectu�s par le chasseur
-	 * @return le nombre de clicks effectu�s par le chasseur
+	 * Permet de recuperer le nombre de clicks effectues par le chasseur
+	 * @return le nombre de clicks effectues par le chasseur
 	 */
 	public int getNbClick() {
 		return this.nbClick;
