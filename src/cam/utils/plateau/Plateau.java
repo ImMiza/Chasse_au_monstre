@@ -60,7 +60,8 @@ public class Plateau {
 	 */
 	public List<Case> deplacementsPossible(){
 		Case caseDeDepart = chercheCase(this.monstre.getPosition().getX(), this.monstre.getPosition().getY());
-		List<Case> res = new ArrayList<Case>();
+		List<Case> res ;
+		res = new ArrayList<Case>();
 		int[] coordonneesCase = this.chercheCase(caseDeDepart);
 		if (coordonneesCase == null) return null;
 		int i = coordonneesCase[0], j = coordonneesCase[1];
@@ -71,14 +72,35 @@ public class Plateau {
 		return res;
 	}
 	/**
+	 * Verifie l'appartenance d'une case au plateau
+	 * @param ligne
+	 * @param colonne
+	 * @return Boolean true si la case d'indice [ligne][colonne] appartient au plateau
+	 */
+	private boolean appartientAuPlateau(int ligne, int colonne) {
+		return (ligne>=0 && ligne <this.plateau.length) && (colonne >=0 && colonne < this.plateau[0].length);
+	}
+	
+	private void ajoute(List<Case> uneListe, int ligne, int colonne) {
+		if (appartientAuPlateau(ligne, colonne)) {
+			uneListe.add(this.chercheCase(ligne, colonne));
+		}
+	}
+	
+	/**
 	 * 
 	 * @param i
 	 * @param j
 	 * @return Renvoie tous les deplacements diagonnaux possibles
 	 */
-	private List<Case> deplacementDiagonale(int i, int j){
+	private List<Case> deplacementDiagonale(int ligne, int colonne){
 		List<Case> maListe = new ArrayList<Case>();
-		
+		if (ligne == 0) {
+			if (colonne == 0) {
+				ajoute(maListe, ligne, colonne);
+			}
+			else if( colonne == this.plateau)
+		}
 		return maListe;
 	}
 	/**7
@@ -87,7 +109,7 @@ public class Plateau {
 	 * @param j
 	 * @return Renvoie tous les deplacements Verticaux possibles
 	 */
-	private List<Case> deplacementVertical(int i, int j){
+	private List<Case> deplacementVertical(int ligne, int colonne){
 		List<Case> maListe = new ArrayList<Case>();
 		
 		return maListe;
@@ -98,7 +120,7 @@ public class Plateau {
 	 * @param j
 	 * @return Renvoie tous les deplacements horizontaux possibles
 	 */
-	private List<Case> deplacementHorizontal(int i, int j){
+	private List<Case> deplacementHorizontal(int ligne, int colonne){
 		List<Case> maListe = new ArrayList<Case>();
 		
 		
