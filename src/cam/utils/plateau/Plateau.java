@@ -48,6 +48,8 @@ public class Plateau {
 		this.plateau = unPlateau;
 	}
 	
+	
+	
 	public Case[][] getPlateau() {
 		return plateau;
 	}
@@ -79,9 +81,11 @@ public class Plateau {
 				k++;
 			}
 		}
-		
-		
 		return res;
+	}
+	
+	public void deplacerMonstre(Case uneCase) {
+		
 	}
 	
 	/**
