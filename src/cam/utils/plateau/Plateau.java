@@ -5,6 +5,7 @@ import java.util.List;
 
 import cam.utils.cases.Case;
 import cam.utils.cases.IEffetCase;
+import cam.utils.cases.TrapCase;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
 
@@ -28,12 +29,19 @@ public class Plateau {
 	 * @param nbColonnes
 	 */
 	public Plateau(Monstre monstre, Chasseur chasseur, int nbLignes, int nbColonnes) {
+		double proba = Math.random();
+		
 		this.monstre = monstre;
 		this.chasseur = chasseur;
 		this.plateau = new Case[nbLignes][nbColonnes];
 		for (int i = 0; i < plateau.length; i++) {
 			for (int j = 0; j < plateau[i].length; j++) {
-				plateau[i][j] = new Case();
+				if (proba < 0.1) {
+					plateau[i][j] = new TrapCase();
+				} else {
+					plateau[i][j] = new Case();
+				}
+				proba = Math.random();
 			}
 		}
 	}
@@ -216,7 +224,7 @@ public class Plateau {
 		for(int i = 0; i < this.plateau.length; i++) {
 			for(int j = 0; j < this.plateau[0].length; j++) {
 				if(this.plateau[i][j] instanceof IEffetCase) {
-					
+					plateau[i][j] = 'E';
 				}
 			}
 		}
@@ -276,6 +284,16 @@ public class Plateau {
 			for(Case cas : deplacementsPossible()) {
 				int[] coord = chercheCase(cas);
 				plateau[coord[0]][coord[1]] = 'P';
+			}
+		}
+		
+		if (!isMonstre) {
+			for(int i = 0; i < this.plateau.length; i++) {
+				for(int j = 0; j < this.plateau[0].length; j++) {
+					if(this.plateau[i][j] instanceof IEffetCase) {
+						plateau[i][j] = 'E';
+					}
+				}
 			}
 		}
 		
