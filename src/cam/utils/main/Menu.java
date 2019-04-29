@@ -12,7 +12,7 @@ public class Menu {
 	private static int choix;
 	private static String nomChasseur;
 	private static String nomMonstre;
-	
+
 
 	/**
 	 * Codage du choix :
@@ -32,66 +32,67 @@ public class Menu {
 	public static int getChoixMenu() {
 		return choix;
 	}
-	
+
 	/**
 	 * @return Le nom que le Chasseur à choisi
 	 */
 	public static String getNomChasseur() {
 		return nomChasseur;
 	}
-	
+
 	/**
 	 * @return Le nom que le Monstre a choisi 
 	 */
 	public static String getNomMonstre() {
 		return nomMonstre;
 	}
-	
+
 	//METHODES
-	
+
 	/**
 	 * Affichage et choix sur le menu principal
 	 */
 	public static void menu() {
 		Scanner in = new Scanner(System.in);
-		int tmp;
-		
-		clearScreen();
-		System.out.println("..........CHASSE AU MONSTRE..........");
-		System.out.println("           MENU PRINCIPAL");
-		System.out.println("");
-		System.out.println(" Veuillez faire un choix : ");
-		System.out.println("     1. Jouer");
-		System.out.println("     2. Voir les règles");
-		System.out.println("     3. Quitter");
-		System.out.println("");
-		System.out.println(".....................................");
-		tmp = in.nextInt();
-		while (tmp !=1 && tmp !=2 && tmp !=3) {
-			tmp = in.nextInt();
+		String tmp = "";
+		boolean firstAff = false;
+
+		while(!tmp.equals("1") && !tmp.equals("2") && !tmp.equals("3") || firstAff == false) {
+			clearScreen();
+			firstAff = true;
+			System.out.println("..........CHASSE AU MONSTRE..........");
+			System.out.println("           MENU PRINCIPAL");
+			System.out.println("");
+			System.out.println(" Veuillez faire un choix : ");
+			System.out.println("     1. Jouer");
+			System.out.println("     2. Voir les règles");
+			System.out.println("     3. Quitter");
+			System.out.println("");
+			System.out.println(".....................................");
+			tmp = in.nextLine();
 		}
-		
-		if(tmp == 1) {
+
+		if(Integer.parseInt(tmp) == 1) {
 			gamemode();
 		}
-		else if(tmp == 2) {
+		else if(Integer.parseInt(tmp) == 2) {
 			regles();	
 		}
-		else if(tmp == 3) {
+		else if(Integer.parseInt(tmp) == 3) {
 			choix = 33;
 		}
 		else {
 			choix = 1;
 		}
 	}
-	
-	
+
+
 	/**
 	 * Affichage et choix dans les regles du jeu
 	 */
 	private static void regles() {
 		Scanner in = new Scanner(System.in);
-		
+
 		clearScreen();
 		System.out.println("..........CHASSE AU MONSTRE..........");
 		System.out.println("           REGLES DU JEU");
@@ -103,111 +104,111 @@ public class Menu {
 		in.nextLine();
 		menu();	
 	}
-	
+
 	/**
 	 * Affichage et choix du mode de jeu
 	 */
 	private static void gamemode() {
 		Scanner in = new Scanner(System.in);
-		int tmp;
+		String tmp = "";
+		boolean firstAff = false;
 
-		clearScreen();
-		System.out.println("..........CHASSE AU MONSTRE..........");
-		System.out.println("          CHOIX MODE DE JEU ");
-		System.out.println("");
-		System.out.println("     1.Solo");
-		System.out.println("     2.Multijoueur");
-		System.out.println("     3.Retour au menu principal");
-		System.out.println("");
-		System.out.println(".....................................");
-		tmp = in.nextInt();
-		while (tmp !=1 && tmp !=2 && tmp !=3) {
-			tmp = in.nextInt();
+		while(!tmp.equals("1") && !tmp.equals("2") && !tmp.equals("3") || firstAff == false) {
+			clearScreen();
+			firstAff = true;
+			System.out.println("..........CHASSE AU MONSTRE..........");
+			System.out.println("          CHOIX MODE DE JEU ");
+			System.out.println("");
+			System.out.println("     1.Solo");
+			System.out.println("     2.Multijoueur");
+			System.out.println("     3.Retour au menu principal");
+			System.out.println("");
+			System.out.println(".....................................");
+			tmp = in.nextLine();
 		}
-		
-		if(tmp == 1) {
-			choix = tmp;
+
+		if(Integer.parseInt(tmp) == 1) {
+			choix = Integer.parseInt(tmp);
 			choixPerso();
 		}
-		else if (tmp == 2) {
-			choix = tmp;
+		else if (Integer.parseInt(tmp) == 2) {
+			choix = Integer.parseInt(tmp);
 			noms();
 		}
-		else if (tmp == 3) {
+		else if (Integer.parseInt(tmp) == 3) {
 			menu();
 		}
 		else {
 			choix = 1;
 		}
 	}
-	
+
 	/**
 	 * Affichage et choix du personnage (multijoueur)
 	 */
 	private static void choixPerso() {
 		Scanner in = new Scanner(System.in);
-		int tmp;
+		String tmp = "";
+		boolean firstAff = false;
 
-		clearScreen();
-		System.out.println("..........CHASSE AU MONSTRE..........");
-		System.out.println("          CHOIX DU PERSONNAGE ");
-		System.out.println("");
-		System.out.println("     1.Monstre");
-		System.out.println("     2.Chasseur");
-		System.out.println("");
-		System.out.println(".....................................");
-		tmp = in.nextInt();
-		while (tmp !=1 && tmp !=2) {
-			tmp = in.nextInt();
+		while(!tmp.equals("1") && !tmp.equals("2") || firstAff == false) {
+			clearScreen();
+			firstAff = true;
+			System.out.println("..........CHASSE AU MONSTRE..........");
+			System.out.println("          CHOIX DU PERSONNAGE ");
+			System.out.println("");
+			System.out.println("     1.Monstre");
+			System.out.println("     2.Chasseur");
+			System.out.println("");
+			System.out.println(".....................................");
+			tmp = in.nextLine();
 		}
-		
-		if(tmp == 1) {
-			choix = choix*10 + tmp;
+		if(Integer.parseInt(tmp) == 1) {
+			choix = choix*10 + Integer.parseInt(tmp);
 			nomMonstre();
 			difficulte();
 		}
-		else if(tmp == 2) {
-			choix = choix*10 + tmp;
+		else if(Integer.parseInt(tmp) == 2) {
+			choix = choix*10 + Integer.parseInt(tmp);
 			nomChasseur();
 			difficulte();
 		}
 		else {
 			choix = 1;
 		}
-		
 	}
-	
+
 	/**
 	 * Affichage et choix de la difficulté (solo uniquement)
 	 */
 	private static void difficulte() {
 		Scanner in = new Scanner(System.in);
-		int tmp;
+		String tmp = "";
+		boolean firstAff = false;
 
-		clearScreen();
-		System.out.println("..........CHASSE AU MONSTRE..........");
-		System.out.println("        CHOIX DE LA DIFFICULTE ");
-		System.out.println("");
-		System.out.println("     1.Easy");
-		System.out.println("     2.Normal");
-		System.out.println("");
-		System.out.println(".....................................");
-		tmp = in.nextInt();
-		while (tmp !=1 && tmp !=2) {
-			tmp = in.nextInt();
+		while(!tmp.equals("1") && !tmp.equals("2") || firstAff == false) {
+			clearScreen();
+			firstAff = true;
+			System.out.println("..........CHASSE AU MONSTRE..........");
+			System.out.println("        CHOIX DE LA DIFFICULTE ");
+			System.out.println("");
+			System.out.println("     1.Easy");
+			System.out.println("     2.Normal");
+			System.out.println("");
+			System.out.println(".....................................");
+			tmp = in.nextLine();
 		}
-		
-		if(tmp == 1) {
-			choix = choix*10 + tmp;
+		if(Integer.parseInt(tmp) == 1) {
+			choix = choix*10 + Integer.parseInt(tmp);
 		}
-		else if(tmp == 2) {
-			choix = choix*10 + tmp;
+		else if(Integer.parseInt(tmp) == 2) {
+			choix = choix*10 + Integer.parseInt(tmp);
 		}
 		else {
 			choix = 1;
 		}
 	}
-	
+
 	/**
 	 * Affichage et choix des noms des personnages (multijoueur uniquement)
 	 */
@@ -215,7 +216,7 @@ public class Menu {
 		nomChasseur();
 		nomMonstre();
 	}
-	
+
 	/**
 	 * Choix du nom du chasseur 
 	 */
@@ -228,20 +229,20 @@ public class Menu {
 
 		nomChasseur = in.nextLine();
 	}
-	
+
 	/**
 	 * Choix du nom du monstre
 	 */
 	private static void nomMonstre() {
 		Scanner in = new Scanner(System.in); 
-		
+
 		clearScreen();
 		System.out.println("..........CHASSE AU MONSTRE..........");
 		System.out.println("   ENTREZ UN NOM POUR LE MONSTRE ");
-		
+
 		nomMonstre = in.nextLine();	
 	}
-	
+
 	/**
 	 * Permet de nettoyer l'écran avant d'afficher la suite du menu / sous-menu
 	 */
