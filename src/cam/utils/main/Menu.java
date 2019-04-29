@@ -1,5 +1,10 @@
 package cam.utils.main;
 
+/**
+ * Class permettant de creer le menu et recuperer les choix faits par le joueur
+ * @author Adrien BASSAIL
+ */
+
 import java.util.Scanner;
 
 public class Menu {
@@ -7,48 +12,50 @@ public class Menu {
 	private static int choix;
 	private static String nomChasseur;
 	private static String nomMonstre;
-
-	
-	public static void main(String[] args) {
-		menu();
-		System.out.println(getChoixMenu());
-		System.out.println(getNomChasseur());
-		System.out.println(getNomMonstre());
-	}
-	
 	
 
-	//GETTERS RECUPERATION DU CHOIX
+	/**
+	 * Codage du choix :
+	 * Exemples :
+	 * si 111 : solo / monstre / easy
+	 * si 122 : solo / chasseur / normal
+	 * si 2 : multijoueur
+	 * 
+	 * Premier chiffre    : mode de jeu solo/multijoueur 1/2
+	 * Second chiffre     : choix du personnage monstre/chasseur 1/2
+	 * Troisième chfiffre : choix de la difficulté easy/normal 1/2
+	 * Code 33            : quitter le jeu
+	 * Code 1             : erreur
+	 * 
+	 * @return Le code choix que la personne a fait dans le menu
+	 */
 	public static int getChoixMenu() {
 		return choix;
 	}
 	
+	/**
+	 * @return Le nom que le Chasseur à choisi
+	 */
 	public static String getNomChasseur() {
 		return nomChasseur;
 	}
 	
+	/**
+	 * @return Le nom que le Monstre a choisi 
+	 */
 	public static String getNomMonstre() {
 		return nomMonstre;
 	}
 	
 	//METHODES
 	
+	/**
+	 * Affichage et choix sur le menu principal
+	 */
 	public static void menu() {
 		Scanner in = new Scanner(System.in);
 		int tmp;
 		
-		//code du choix
-		//si 111 => solo monstre easy
-		//si 122 => solo chasseur normal
-		//si 2 => multijoueur 
-		
-		//premier chiffre   : mode de jeu solo/multi 1/2
-		//second chiffre    : difficulté (solo uniquement) easy/normal 1/2
-		//troisième chiffre : choix du perso (solo uniquement) monstre/chasseur 1/2
-		//code 33           : quitter le jeu
-		//code 1            : erreur
-		
-		//menu principal
 		clearScreen();
 		System.out.println("..........CHASSE AU MONSTRE..........");
 		System.out.println("           MENU PRINCIPAL");
@@ -60,6 +67,9 @@ public class Menu {
 		System.out.println("");
 		System.out.println(".....................................");
 		tmp = in.nextInt();
+		while (tmp !=1 && tmp !=2 && tmp !=3) {
+			tmp = in.nextInt();
+		}
 		
 		if(tmp == 1) {
 			gamemode();
@@ -76,7 +86,9 @@ public class Menu {
 	}
 	
 	
-	
+	/**
+	 * Affichage et choix dans les regles du jeu
+	 */
 	private static void regles() {
 		Scanner in = new Scanner(System.in);
 		
@@ -89,10 +101,12 @@ public class Menu {
 		System.out.println("");
 		System.out.println(".....................................");
 		in.nextLine();
-		menu();
-		
+		menu();	
 	}
 	
+	/**
+	 * Affichage et choix du mode de jeu
+	 */
 	private static void gamemode() {
 		Scanner in = new Scanner(System.in);
 		int tmp;
@@ -107,20 +121,29 @@ public class Menu {
 		System.out.println("");
 		System.out.println(".....................................");
 		tmp = in.nextInt();
+		while (tmp !=1 && tmp !=2 && tmp !=3) {
+			tmp = in.nextInt();
+		}
 		
 		if(tmp == 1) {
 			choix = tmp;
 			choixPerso();
 		}
-		if (tmp == 2) {
+		else if (tmp == 2) {
 			choix = tmp;
 			noms();
 		}
-		if (choix == 3) {
+		else if (tmp == 3) {
 			menu();
+		}
+		else {
+			choix = 1;
 		}
 	}
 	
+	/**
+	 * Affichage et choix du personnage (multijoueur)
+	 */
 	private static void choixPerso() {
 		Scanner in = new Scanner(System.in);
 		int tmp;
@@ -134,18 +157,29 @@ public class Menu {
 		System.out.println("");
 		System.out.println(".....................................");
 		tmp = in.nextInt();
+		while (tmp !=1 && tmp !=2) {
+			tmp = in.nextInt();
+		}
 		
 		if(tmp == 1) {
 			choix = choix*10 + tmp;
+			nomMonstre();
 			difficulte();
 		}
 		else if(tmp == 2) {
 			choix = choix*10 + tmp;
+			nomChasseur();
 			difficulte();
+		}
+		else {
+			choix = 1;
 		}
 		
 	}
 	
+	/**
+	 * Affichage et choix de la difficulté (solo uniquement)
+	 */
 	private static void difficulte() {
 		Scanner in = new Scanner(System.in);
 		int tmp;
@@ -159,6 +193,9 @@ public class Menu {
 		System.out.println("");
 		System.out.println(".....................................");
 		tmp = in.nextInt();
+		while (tmp !=1 && tmp !=2) {
+			tmp = in.nextInt();
+		}
 		
 		if(tmp == 1) {
 			choix = choix*10 + tmp;
@@ -166,9 +203,23 @@ public class Menu {
 		else if(tmp == 2) {
 			choix = choix*10 + tmp;
 		}
+		else {
+			choix = 1;
+		}
 	}
 	
+	/**
+	 * Affichage et choix des noms des personnages (multijoueur uniquement)
+	 */
 	private static void noms() {
+		nomChasseur();
+		nomMonstre();
+	}
+	
+	/**
+	 * Choix du nom du chasseur 
+	 */
+	private static void nomChasseur() {
 		Scanner in = new Scanner(System.in);
 
 		clearScreen();
@@ -176,24 +227,27 @@ public class Menu {
 		System.out.println("   ENTREZ UN NOM POUR LE CHASSEUR ");
 
 		nomChasseur = in.nextLine();
-
+	}
+	
+	/**
+	 * Choix du nom du monstre
+	 */
+	private static void nomMonstre() {
+		Scanner in = new Scanner(System.in); 
 		
+		clearScreen();
 		System.out.println("..........CHASSE AU MONSTRE..........");
 		System.out.println("   ENTREZ UN NOM POUR LE MONSTRE ");
 		
-		nomMonstre = in.nextLine();		
+		nomMonstre = in.nextLine();	
 	}
 	
-	
-	
-	
-	
-	
-	
+	/**
+	 * Permet de nettoyer l'écran avant d'afficher la suite du menu / sous-menu
+	 */
 	private static void clearScreen() {
 		for(int i=0 ; i<100 ; i++) {
 			System.out.println("\n");
 		}
 	}
-
 }
