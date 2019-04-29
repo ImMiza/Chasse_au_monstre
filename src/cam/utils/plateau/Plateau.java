@@ -5,7 +5,6 @@ import java.util.List;
 
 import cam.utils.cases.Case;
 import cam.utils.cases.IEffetCase;
-import cam.utils.cases.TrapCase;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
 
@@ -29,21 +28,9 @@ public class Plateau {
 	 * @param nbColonnes
 	 */
 	public Plateau(Monstre monstre, Chasseur chasseur, int nbLignes, int nbColonnes) {
-		double proba = Math.random();
-		
 		this.monstre = monstre;
 		this.chasseur = chasseur;
 		this.plateau = new Case[nbLignes][nbColonnes];
-		for (int i = 0; i < plateau.length; i++) {
-			for (int j = 0; j < plateau[i].length; j++) {
-				if (proba < 0.1) {
-					plateau[i][j] = new TrapCase();
-				} else {
-					plateau[i][j] = new Case();
-				}
-				proba = Math.random();
-			}
-		}
 	}
 	/**
 	 * Constructeur d'une instance de Plateau
