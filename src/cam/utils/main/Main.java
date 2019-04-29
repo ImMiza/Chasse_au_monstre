@@ -1,5 +1,9 @@
 package cam.utils.main;
 
+import cam.utils.personnages.Chasseur;
+import cam.utils.personnages.Monstre;
+import cam.utils.plateau.Plateau;
+
 /**
  * Class principale du programme
  * @author -
