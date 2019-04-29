@@ -8,9 +8,11 @@ public class TestPlateau {
 
 	public static void main(String[] args) {
 		Monstre m = new Monstre(5, 5, "Kevin");
-		Chasseur c = new Chasseur(0, 0, "Pierre");
+		Chasseur c = new Chasseur(1, 1, "Pierre");
 		Plateau p = new Plateau(m, c, 10, 10);
 		
-		p.printPlateau();
+		p.printPlateau(true);
+		p.printPlateau(false);
+		p.printPlateauDebug();
 	}
 }

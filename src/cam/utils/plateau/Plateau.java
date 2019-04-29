@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cam.utils.cases.Case;
+import cam.utils.cases.IEffetCase;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
 
@@ -193,7 +194,7 @@ public class Plateau {
 		return null;
 	}
 	
-	public void printPlateau() {
+	public void printPlateauDebug() {
 		char[][] plateau = new char[this.plateau.length][this.plateau[0].length];
 		
 		for(int i = 0; i < this.plateau.length; i++) {
@@ -212,6 +213,14 @@ public class Plateau {
 			plateau[coord[0]][coord[1]] = 'P';
 		}
 		
+		for(int i = 0; i < this.plateau.length; i++) {
+			for(int j = 0; j < this.plateau[0].length; j++) {
+				if(this.plateau[i][j] instanceof IEffetCase) {
+					
+				}
+			}
+		}
+		
 		plateau[monstre.getPosition().getX()][monstre.getPosition().getY()] = 'M';
 		plateau[chasseur.getPosition().getX()][chasseur.getPosition().getY()] = 'C';
 		
@@ -226,8 +235,69 @@ public class Plateau {
             System.out.print("╦═══");
         }
         System.out.println("╗");
-        for (int i = 1; i < plateau.length; i++) {
-        	System.out.print(" " + (i - 1) + " ");
+        for (int i = 0; i < plateau.length - 1; i++) {
+        	System.out.print(" " + i + " ");
+            for (int j = 0; j < plateau[i].length; j++) {
+                System.out.print("║ " + plateau[i][j] + " ");
+            }
+            System.out.println("║");
+            System.out.print("   ╠═══");
+            for (int j = 1; j < plateau[i].length; j++) {
+                System.out.print("╬═══");
+            }
+            System.out.println("╣");
+        }
+        System.out.print(" " + (plateau.length - 1) + " ");
+        for (int i = 0; i < plateau[plateau.length - 1].length; i++) {
+            System.out.print("║ " + plateau[plateau.length - 1][i] + " ");
+        }
+        System.out.println("║");
+        System.out.print("   ╚═══");
+        for (int i = 1; i < plateau[plateau.length - 1].length; i++) {
+            System.out.print("╩═══");
+        }
+        System.out.println("╝");
+	}
+	
+	public void printPlateau(boolean isMonstre) {
+		char[][] plateau = new char[this.plateau.length][this.plateau[0].length];
+		
+		for(int i = 0; i < this.plateau.length; i++) {
+			for(int j = 0; j < this.plateau[0].length; j++) {
+				if(this.plateau[i][j].isVisited()) {
+					plateau[i][j] = 'V';
+				}
+				else {
+					plateau[i][j] = ' ';
+				}
+			}
+		}
+		if (isMonstre) {
+			for(Case cas : deplacementsPossible()) {
+				int[] coord = chercheCase(cas);
+				plateau[coord[0]][coord[1]] = 'P';
+			}
+		}
+		
+		if (isMonstre) {
+			plateau[monstre.getPosition().getX()][monstre.getPosition().getY()] = 'M';
+		} else {
+			plateau[chasseur.getPosition().getX()][chasseur.getPosition().getY()] = 'C';
+		}
+		
+		System.out.print("   ");
+		for (int i = 0; i < plateau[0].length; i++) {
+			System.out.print("  " + i + " ");
+		}
+		System.out.println();
+		
+		System.out.print("   ╔═══");
+        for (int i = 1; i < plateau[0].length; i++) {
+            System.out.print("╦═══");
+        }
+        System.out.println("╗");
+        for (int i = 0; i < plateau.length - 1; i++) {
+        	System.out.print(" " + i + " ");
             for (int j = 0; j < plateau[i].length; j++) {
                 System.out.print("║ " + plateau[i][j] + " ");
             }
