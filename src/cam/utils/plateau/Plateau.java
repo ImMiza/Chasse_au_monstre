@@ -213,28 +213,37 @@ public class Plateau {
 		}
 		
 		plateau[monstre.getPosition().getX()][monstre.getPosition().getY()] = 'M';
+		plateau[chasseur.getPosition().getX()][chasseur.getPosition().getY()] = 'C';
 		
-		System.out.print("╔═══");
+		System.out.print("   ");
+		for (int i = 0; i < plateau[0].length; i++) {
+			System.out.print("  " + i + " ");
+		}
+		System.out.println();
+		
+		System.out.print("   ╔═══");
         for (int i = 1; i < plateau[0].length; i++) {
             System.out.print("╦═══");
         }
         System.out.println("╗");
         for (int i = 1; i < plateau.length; i++) {
+        	System.out.print(" " + (i - 1) + " ");
             for (int j = 0; j < plateau[i].length; j++) {
                 System.out.print("║ " + plateau[i][j] + " ");
             }
             System.out.println("║");
-            System.out.print("╠═══");
+            System.out.print("   ╠═══");
             for (int j = 1; j < plateau[i].length; j++) {
                 System.out.print("╬═══");
             }
             System.out.println("╣");
         }
+        System.out.print(" " + (plateau.length - 1) + " ");
         for (int i = 0; i < plateau[plateau.length - 1].length; i++) {
             System.out.print("║ " + plateau[plateau.length - 1][i] + " ");
         }
         System.out.println("║");
-        System.out.print("╚═══");
+        System.out.print("   ╚═══");
         for (int i = 1; i < plateau[plateau.length - 1].length; i++) {
             System.out.print("╩═══");
         }
