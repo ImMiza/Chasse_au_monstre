@@ -170,7 +170,7 @@ public class Plateau {
 	 */
 	private int[] chercheCase(Case uneCase) {
 		for (int i = 0; i<this.plateau.length; i++) {
-			for (int j=0; j<this.plateau[0].length; i++) {
+			for (int j=0; j<this.plateau[0].length; j++) {
 				if(this.plateau[i][j] == uneCase) {
 					return new int[] {i, j};
 				}
@@ -196,11 +196,6 @@ public class Plateau {
 	public void printPlateau() {
 		char[][] plateau = new char[this.plateau.length][this.plateau[0].length];
 		
-		for(Case cas : deplacementsPossible()) {
-			int[] coord = chercheCase(cas);
-			plateau[coord[0]][coord[1]] = 'P';
-		}
-		
 		for(int i = 0; i < this.plateau.length; i++) {
 			for(int j = 0; j < this.plateau[0].length; j++) {
 				if(this.plateau[i][j].isVisited()) {
@@ -210,6 +205,11 @@ public class Plateau {
 					plateau[i][j] = ' ';
 				}
 			}
+		}
+		
+		for(Case cas : deplacementsPossible()) {
+			int[] coord = chercheCase(cas);
+			plateau[coord[0]][coord[1]] = 'P';
 		}
 		
 		plateau[monstre.getPosition().getX()][monstre.getPosition().getY()] = 'M';
