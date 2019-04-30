@@ -32,6 +32,18 @@ public class Plateau {
 		this.chasseur = chasseur;
 		this.plateau = new Case[nbLignes][nbColonnes];
 	}
+	
+	public boolean deplacerMonstre(Case uneCase) {
+		List<Case> deplacement = deplacementsPossible();
+		if (deplacement.contains(uneCase)) {
+			chercheCase(monstre.getPosition().getX(), monstre.getPosition().getY()).setVisited();
+			this.monstre.getPosition().setX(this.chercheCase(uneCase)[0]);
+			this.monstre.getPosition().setY(this.chercheCase(uneCase)[1]);
+			return true;
+		}
+		return false;
+	}
+	
 	/**
 	 * Constructeur d'une instance de Plateau
 	 * @param monstre
@@ -78,10 +90,6 @@ public class Plateau {
 			}
 		}
 		return res;
-	}
-	
-	public void deplacerMonstre(Case uneCase) {
-		
 	}
 	
 	/**
@@ -182,7 +190,7 @@ public class Plateau {
 	 * @param j
 	 * @return
 	 */
-	private Case chercheCase(int i, int j) {
+	public Case chercheCase(int i, int j) {
 		if((i<this.plateau.length && j<this.plateau[0].length) && (i>=0 && j>=0)) {
 			return this.plateau[i][j];
 		}
@@ -219,7 +227,7 @@ public class Plateau {
 		plateau[monstre.getPosition().getX()][monstre.getPosition().getY()] = 'M';
 		plateau[chasseur.getPosition().getX()][chasseur.getPosition().getY()] = 'C';
 		
-		System.out.print("   ");
+		System.out.print("X\\\\Y");
 		for (int i = 0; i < plateau[0].length; i++) {
 			System.out.print("  " + i + " ");
 		}
@@ -290,7 +298,7 @@ public class Plateau {
 			plateau[chasseur.getPosition().getX()][chasseur.getPosition().getY()] = 'C';
 		}
 		
-		System.out.print("   ");
+		System.out.print("X\\Y");
 		for (int i = 0; i < plateau[0].length; i++) {
 			System.out.print("  " + i + " ");
 		}

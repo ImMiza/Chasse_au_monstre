@@ -33,19 +33,19 @@ public class Pieds {
 		System.out.println("Votre pseudo :");
 		pseudoChasseur = in.nextLine();
 		System.out.println("1er piege :");
-		System.out.println("x (entre 1 et 8) :");
+		System.out.println("Ligne (entre 1 et 8) :");
 		xPiege1 = Integer.parseInt(in.nextLine());
-		System.out.println("y (entre 1 et 8) :");
+		System.out.println("Colonne (entre 1 et 8) :");
 		yPiege1 = Integer.parseInt(in.nextLine());
 		System.out.println("2eme piege :");
-		System.out.println("x (entre 1 et 8) :");
+		System.out.println("Ligne (entre 1 et 8) :");
 		xPiege2 = Integer.parseInt(in.nextLine());
-		System.out.println("y (entre 1 et 8) :");
+		System.out.println("Colonne (entre 1 et 8) :");
 		yPiege2 = Integer.parseInt(in.nextLine());
 		System.out.println("3eme piege :");
-		System.out.println("x (entre 1 et 8) :");
+		System.out.println("Ligne (entre 1 et 8) :");
 		xPiege3 = Integer.parseInt(in.nextLine());
-		System.out.println("y (entre 1 et 8) :");
+		System.out.println("Colonne (entre 1 et 8) :");
 		yPiege3 = Integer.parseInt(in.nextLine());
 		clearScreen();
 		
@@ -56,7 +56,29 @@ public class Pieds {
 		plateau.getPlateau()[xPiege2][yPiege2] = new TrapCase();
 		plateau.getPlateau()[xPiege3][yPiege3] = new TrapCase();
 		
+		tourDuMonstre(plateau);
 		plateau.printPlateauDebug();
+		
+		in.close();
+	}
+	
+	public static void tourDuMonstre(Plateau plateau) {
+		Scanner in = new Scanner(System.in);
+		int nvX, nvY;
+		boolean finTour = false;
+		
+		System.out.println("Tour du monstre");
+		in.nextLine();
+		while (!finTour) {
+			plateau.printPlateau(true);
+			System.out.println("Coordonnees de la nouvelle case :");
+			System.out.println("Ligne :");
+			nvX = Integer.parseInt(in.nextLine());
+			System.out.println("Colonne :");
+			nvY = Integer.parseInt(in.nextLine());
+			finTour = plateau.deplacerMonstre(plateau.chercheCase(nvX, nvY));
+		}
+		
 		in.close();
 	}
 	
