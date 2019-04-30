@@ -15,18 +15,46 @@ public class Pieds {
 		Chasseur chasseur;
 		Plateau plateau;
 		Scanner in = new Scanner(System.in);
+		int xPiege1, yPiege1;
+		int xPiege2, yPiege2;
+		int xPiege3, yPiege3;
 		int xMonstre, yMonstre;
-		String pseudo;
+		String pseudoMonstre, pseudoChasseur;
 		
+		System.out.println("MONSTRE");
 		System.out.println("Votre pseudo :");
-		pseudo = in.nextLine();
+		pseudoMonstre = in.nextLine();
 		System.out.println("Ligne du monstre (0 ou 9) :");
 		xMonstre = Integer.parseInt(in.nextLine());
 		System.out.println("Colonne du monstre (0 ou 9) :");
 		yMonstre = Integer.parseInt(in.nextLine());
-		monstre = new Monstre(xMonstre, yMonstre, pseudo);
-		chasseur = new Chasseur(0, 0, "Robert");
+		clearScreen();
+		System.out.println("CHASSEUR");
+		System.out.println("Votre pseudo :");
+		pseudoChasseur = in.nextLine();
+		System.out.println("1er piege :");
+		System.out.println("x (entre 1 et 8) :");
+		xPiege1 = Integer.parseInt(in.nextLine());
+		System.out.println("y (entre 1 et 8) :");
+		yPiege1 = Integer.parseInt(in.nextLine());
+		System.out.println("2eme piege :");
+		System.out.println("x (entre 1 et 8) :");
+		xPiege2 = Integer.parseInt(in.nextLine());
+		System.out.println("y (entre 1 et 8) :");
+		yPiege2 = Integer.parseInt(in.nextLine());
+		System.out.println("3eme piege :");
+		System.out.println("x (entre 1 et 8) :");
+		xPiege3 = Integer.parseInt(in.nextLine());
+		System.out.println("y (entre 1 et 8) :");
+		yPiege3 = Integer.parseInt(in.nextLine());
+		clearScreen();
+		
+		monstre = new Monstre(xMonstre, yMonstre, pseudoMonstre);
+		chasseur = new Chasseur(0, 0, pseudoChasseur);
 		plateau = new Plateau(monstre, chasseur, initPlateau(10, 10));
+		plateau.getPlateau()[xPiege1][yPiege1] = new TrapCase();
+		plateau.getPlateau()[xPiege2][yPiege2] = new TrapCase();
+		plateau.getPlateau()[xPiege3][yPiege3] = new TrapCase();
 		
 		plateau.printPlateauDebug();
 		in.close();
@@ -38,7 +66,7 @@ public class Pieds {
 		
 		for (int i = 0; i < plateau.length; i++) {
 			for (int j = 0; j < plateau[i].length; j++) {
-				if (proba < 0.1) {
+				if (proba < 0.07) {
 					plateau[i][j] = new TrapCase();
 				} else {
 					plateau[i][j] = new Case();
@@ -47,5 +75,11 @@ public class Pieds {
 			}
 		}
 		return plateau;
+	}
+	
+	private static void clearScreen() {
+		for(int i=0 ; i<100 ; i++) {
+			System.out.println("\n");
+		}
 	}
 }
