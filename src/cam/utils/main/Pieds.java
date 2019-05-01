@@ -139,6 +139,13 @@ public class Pieds {
 			nvY = Integer.parseInt(in.nextLine());
 			finTour = plateau.deplacerMonstre(plateau.chercheCase(nvX, nvY));
 		}
+		for (int i = 0; i < plateau.getPlateau().length; i++) {
+			for (int j = 0; j < plateau.getPlateau()[i].length; j++) {
+				if (plateau.getPlateau()[i][j].isVisited()) {
+					plateau.getPlateau()[i][j].setTourVisited(plateau.getPlateau()[i][j].getTourVisited() + 1);
+				}
+			}
+		}
 		if (plateau.sontToutesVisitée()) {
 			finDuJeu = true;
 		}
@@ -168,13 +175,18 @@ public class Pieds {
 			if (x == monstre.getPosition().getX() && y == monstre.getPosition().getY()) {
 				PierreFeuilleCiseaux pfc = new PierreFeuilleCiseaux(monstre, chasseur);
 				pfc.startGame();
+				in.nextLine();
 				if (pfc.getWinner() instanceof Chasseur) {
 					finDuJeu = true;
 				}
 			} else {
-				System.out.println("Case visitée il y a " + plateau.getPlateau()[x][y].getTourVisited() + "tour(s)");
+				System.out.println("Case visitée il y a " + plateau.getPlateau()[x][y].getTourVisited() + " tour(s)");
 			}
+			in.nextLine();
 			finTour = true;
+		}
+		if (plateau.deplacementsPossible().isEmpty()) {
+			finDuJeu = true;
 		}
 	}
 	

@@ -42,6 +42,7 @@ public class Plateau {
 		List<Case> deplacement = deplacementsPossible();
 		if (deplacement.contains(uneCase)) {
 			chercheCase(monstre.getPosition().getX(), monstre.getPosition().getY()).setVisited();
+			chercheCase(monstre.getPosition().getX(), monstre.getPosition().getY()).setTourVisited(1);
 			this.monstre.getPosition().setX(this.chercheCase(uneCase)[0]);
 			this.monstre.getPosition().setY(this.chercheCase(uneCase)[1]);
 			return true;
