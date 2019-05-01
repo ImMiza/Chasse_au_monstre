@@ -10,13 +10,13 @@ import cam.utils.plateau.Plateau;
 
 public class Pieds {
 	
+	private static Scanner in = new Scanner(System.in);
 	private static boolean finDuJeu = false;
 
 	public static void main(String[] args) {
 		Monstre monstre;
 		Chasseur chasseur;
 		Plateau plateau;
-		Scanner in = new Scanner(System.in);
 		int xPiege1, yPiege1;
 		int xPiege2, yPiege2;
 		int xPiege3, yPiege3;
@@ -64,12 +64,10 @@ public class Pieds {
 			tourDuChasseur(plateau, monstre, chasseur);
 			clearScreen();
 		}
-		
-		in.close();
 	}
 	
 	public static void tourDuMonstre(Plateau plateau) {
-		Scanner in = new Scanner(System.in);
+		
 		int nvX, nvY;
 		boolean finTour = false;
 		
@@ -87,12 +85,9 @@ public class Pieds {
 		if (plateau.sontToutesVisitée()) {
 			finDuJeu = true;
 		}
-		
-		in.close();
 	}
 	
 	public static void tourDuChasseur(Plateau plateau, Monstre monstre, Chasseur chasseur) {
-		Scanner in = new Scanner(System.in);
 		int x, y;
 		boolean finTour = false;
 		
@@ -118,8 +113,6 @@ public class Pieds {
 			}
 			finTour = true;
 		}
-		
-		in.close();
 	}
 	
 	public static Case[][] initPlateau(int lig, int col) {
