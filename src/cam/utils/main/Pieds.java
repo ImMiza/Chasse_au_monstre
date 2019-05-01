@@ -9,6 +9,8 @@ import cam.utils.personnages.Monstre;
 import cam.utils.plateau.Plateau;
 
 public class Pieds {
+	
+	private static boolean finDuJeu = false;
 
 	public static void main(String[] args) {
 		Monstre monstre;
@@ -56,8 +58,12 @@ public class Pieds {
 		plateau.getPlateau()[xPiege2][yPiege2] = new TrapCase();
 		plateau.getPlateau()[xPiege3][yPiege3] = new TrapCase();
 		
-		tourDuMonstre(plateau);
-		plateau.printPlateauDebug();
+		while (!finDuJeu) {
+			tourDuMonstre(plateau);
+			clearScreen();
+			tourDuChasseur(plateau, monstre, chasseur);
+			clearScreen();
+		}
 		
 		in.close();
 	}
@@ -77,6 +83,40 @@ public class Pieds {
 			System.out.println("Colonne :");
 			nvY = Integer.parseInt(in.nextLine());
 			finTour = plateau.deplacerMonstre(plateau.chercheCase(nvX, nvY));
+		}
+		if (plateau.sontToutesVisitée()) {
+			finDuJeu = true;
+		}
+		
+		in.close();
+	}
+	
+	public static void tourDuChasseur(Plateau plateau, Monstre monstre, Chasseur chasseur) {
+		Scanner in = new Scanner(System.in);
+		int x, y;
+		boolean finTour = false;
+		
+		System.out.println("Tour du chasseur");
+		in.nextLine();
+		while (!finTour) {
+			do {
+				plateau.printPlateau(false);
+				System.out.println("Coordonnees de la case à chercher :");
+				System.out.println("Ligne :");
+				x = Integer.parseInt(in.nextLine());
+				System.out.println("Colonne :");
+				y = Integer.parseInt(in.nextLine());
+			} while(!plateau.appartientAuPlateau(x, y));
+			if (x == monstre.getPosition().getX() && y == monstre.getPosition().getY()) {
+				PierreFeuilleCiseaux pfc = new PierreFeuilleCiseaux(monstre, chasseur);
+				pfc.startGame();
+				if (pfc.getWinner() instanceof Chasseur) {
+					finDuJeu = true;
+				}
+			} else {
+				System.out.println("Case visitée il y a " + plateau.getPlateau()[x][y].getTourVisited() + "tour(s)");
+			}
+			finTour = true;
 		}
 		
 		in.close();

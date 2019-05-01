@@ -104,13 +104,24 @@ public class Plateau {
 		return true;
 	}
 	
+	public boolean sontToutesVisitée() {
+		for (int i = 0; i < plateau.length; i++) {
+			for (int j = 0; j < plateau[i].length; j++) {
+				if (!plateau[i][j].isVisited()) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
 	/**
 	 * Verifie l'appartenance d'une case au plateau
 	 * @param ligne
 	 * @param colonne
 	 * @return Boolean true si la case d'indice [ligne][colonne] appartient au plateau
 	 */
-	private boolean appartientAuPlateau(int ligne, int colonne) {
+	public boolean appartientAuPlateau(int ligne, int colonne) {
 		return (ligne>=0 && ligne <this.plateau.length) && (colonne >=0 && colonne < this.plateau[0].length);
 	}
 	
@@ -227,7 +238,7 @@ public class Plateau {
 		plateau[monstre.getPosition().getX()][monstre.getPosition().getY()] = 'M';
 		plateau[chasseur.getPosition().getX()][chasseur.getPosition().getY()] = 'C';
 		
-		System.out.print("X\\\\Y");
+		System.out.print("X\\Y");
 		for (int i = 0; i < plateau[0].length; i++) {
 			System.out.print("  " + i + " ");
 		}
