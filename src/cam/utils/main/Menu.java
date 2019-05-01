@@ -100,8 +100,29 @@ public class Menu {
 		System.out.println("           REGLES DU JEU");
 		System.out.println("Appuyez sur une touche pour revenir au menu principal");
 		System.out.println("");
-		System.out.println("coucou cest les regles du jeu");
+		System.out.println("Chasse au monstre est un jeu à 2 joueurs contenant un plateau de jeu, un monstre et un chasseur");
 		System.out.println("");
+		System.out.println("BUT DU JEU :");
+		System.out.println("Le but du MONSTRE est de parcourir toutes les cases de jeu sans se faire attraper par le chasseur");
+		System.out.println("Le but du CHASSEUR est d'attraper le monstre avant que celui-ci parcourt tout le plateau de jeu.");
+		System.out.println("");
+		System.out.println("DEROULEMENT DU JEU :");
+		System.out.println("Premièrement, avant de commencer la partie, le chasseur doit poser 3 pièges sur le plateau,");
+		System.out.println("en entrant les coordonnées de chacune d'entre elles.");
+		System.out.println("Ensuite, toujours avant le début du jeu, le monstre aura le choix de se positionner dans une extrémité");
+		System.out.println("du plateau.");
+		System.out.println("Place au jeu, le chasseur et le monstre vont jouer chacun leur tour, le monstre se déplacera en entrant des");
+		System.out.println("coordonnées (celles des cases possibles autour de lui), et le chasseur rentrera lui les coordonées de son choix");
+		System.out.println("sur le plateau, essayant de trouver le monstre.");
+		System.out.println("Si le chasseur trouve le monstre, il y aura un Pierre-Feuille-Ciseaux, si le chasseur gagne, alors la partie est terminée.");
+		System.out.println("Si le monstre gagne, alors la partie continue laissant un déplacement au monstre pour s'enfuir");
+		System.out.println("");
+		System.out.println("NOTATIONS DU PLATEAU :");
+		System.out.println("   - M : Monstre");
+		System.out.println("   - P : Possible (les cases possibles de déplacement pour le monstre");
+		System.out.println("   - C : Chasseur");
+		System.out.println("   - E : Effet (les cases avec un effet)");
+		System.out.println("   - V : Visité (les cases ou le monstre est déjà passé");
 		System.out.println(".....................................");
 		in.nextLine();
 		menu();	
@@ -122,23 +143,23 @@ public class Menu {
 			System.out.println("..........CHASSE AU MONSTRE..........");
 			System.out.println("          CHOIX MODE DE JEU ");
 			System.out.println("");
-			System.out.println("     1.Solo");
-			System.out.println("     2.Multijoueur");
-			System.out.println("     3.Retour au menu principal");
+			//System.out.println("     Solo");
+			System.out.println("     1.Multijoueur");
+			System.out.println("     2.Retour au menu principal");
 			System.out.println("");
 			System.out.println(".....................................");
 			tmp = in.nextLine();
 		}
 
-		if(Integer.parseInt(tmp) == 1) {
-			choix = Integer.parseInt(tmp);
-			choixPerso();
-		}
-		else if (Integer.parseInt(tmp) == 2) {
-			choix = Integer.parseInt(tmp);
+		//if(Integer.parseInt(tmp) == 1) {
+		//	choix = Integer.parseInt(tmp);
+		//	choixPerso();
+		//}
+		if (Integer.parseInt(tmp) == 1) {
+			choix = 2;
 			noms();
 		}
-		else if (Integer.parseInt(tmp) == 3) {
+		else if (Integer.parseInt(tmp) == 2) {
 			menu();
 		}
 		else {
@@ -149,6 +170,7 @@ public class Menu {
 	/**
 	 * Affichage et choix du personnage (multijoueur)
 	 */
+	@SuppressWarnings("unused")
 	private static void choixPerso() {
 		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
