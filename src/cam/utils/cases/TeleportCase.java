@@ -1,6 +1,9 @@
 package cam.utils.cases;
 
 import cam.utils.personnages.Personnage;
+import cam.utils.personnages.Position;
+import cam.utils.plateau.Biome;
+import cam.utils.plateau.Plateau;
 
 /**
  * Cases permettant au monstre de se téléporter entre deux cases tp 
@@ -15,8 +18,23 @@ import cam.utils.personnages.Personnage;
 public class TeleportCase extends Case  implements IEffetCase {
 
 	
+	public TeleportCase() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public TeleportCase(Position position, Biome biome) {
+		super(position, biome);
+		// TODO Auto-generated constructor stub
+	}
+
+	public TeleportCase(Position position) {
+		super(position);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
-	public void activeEffect(Personnage personnage) {
+	public void activeEffect(Personnage personnage, Plateau plateau) {
 		// TODO
 		
 	}

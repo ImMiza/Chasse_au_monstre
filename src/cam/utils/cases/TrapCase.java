@@ -2,6 +2,9 @@ package cam.utils.cases;
 
 import cam.utils.personnages.Monstre;
 import cam.utils.personnages.Personnage;
+import cam.utils.personnages.Position;
+import cam.utils.plateau.Biome;
+import cam.utils.plateau.Plateau;
 
 /**
  * Case de piège, le(s) pièges sont posés au début de la partie par le chasseur
@@ -10,20 +13,18 @@ import cam.utils.personnages.Personnage;
  *
  */
 
-public class TrapCase extends Case implements IEffetCase{
+public class TrapCase extends SlowCase {
 
-	/**
-	 * Active l'effet de personnage ralenti
-	 * @param monstre à ralentir
-	 */
-	public void activeEffect(Personnage personnage) {
-		if(personnage instanceof Monstre) {
-			Monstre monster = (Monstre) personnage;
-			monster.setDeplacementDiagonal(1);
-			monster.setDeplacementHorizontal(1);
-			monster.setDeplacementVertical(1);
-			
-			System.out.println("Monstre ralenti par un piège du chasseur !");
-		}
+	
+	public TrapCase() {
+		super();
+	}
+
+	public TrapCase(Position position, Biome biome) {
+		super(position, biome);
+	}
+
+	public TrapCase(Position position) {
+		super(position);
 	}
 }

@@ -27,6 +27,12 @@ public class TestPlateau {
 		System.out.println("=======");
 		
 		p.printPlateauDebug();
+		
+		System.out.println("=======");
+		System.out.println(p.appartientAuPlateau(11, 9));
+		System.out.println(p.appartientAuPlateau(-1, 5));
+		System.out.println(p.appartientAuPlateau(5, 8));
+		
 	}
 	
 	public static Case initCase() {

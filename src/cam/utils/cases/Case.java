@@ -22,12 +22,31 @@ public class Case {
 	/**
 	 * Constructeur sans parametres permettant de creer une case.
 	 * Le biome par défaut d'une case est Plaine (qui ne confère pas d'effet négatif)
+	 * la position par défaut est x:0 y:0
 	 */
 	public Case() {
+		this(new Position(0, 0), Biome.PLAINE);
+	}
+	
+	/**
+	 * Constructeur permettant de creer une case.
+	 * @param position la position a donner
+	 */
+	public Case(Position position) {
+		this(position, Biome.PLAINE);
+	}
+	
+	/**
+	 * Constructeur permettant de creer une case
+	 * @param position la position a donner
+	 * @param biome le biome a definir
+	 */
+	public Case(Position position, Biome biome) {
 		this.visited = false;
 		this.tourVisited = -1;
 		this.nbClick = 0;
-		this.biomeCase = Biome.PLAINE;
+		this.biomeCase = biome;
+		this.position = position;
 	}
 
 	//METHODES
@@ -76,6 +95,37 @@ public class Case {
 	}
 
 
+	/**
+	 * @return la position de la case
+	 */
+	public Position getPosition() {
+		return position;
+	}
+	
+	/**
+	 * Permet de changer la position de la case
+	 * @param position la nouvelle position
+	 */
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+	
+	/**
+	 * Permet de changer la position de la case
+	 * @param x la coordonnee x 
+	 * @param y la coordonnee y
+	 */
+	public void setPosition(int x, int y) {
+		this.position = new Position(x, y);
+	}
+	
+	/**
+	 * @return le biome de la case
+	 */
+	public Biome getBiome() {
+		return biomeCase;
+	}
+	
 	/**
 	 * Permet d'incrementer de 1 le combre de clicks effectues par le chasseur
 	 */
