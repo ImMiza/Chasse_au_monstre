@@ -1,5 +1,7 @@
 package cam.utils.cases;
 
+import cam.utils.personnages.Personnage;
+
 /**
  * Cases permettant au monstre de se téléporter entre deux cases tp 
  * La case sera visible par le monstre lors de son tour
@@ -10,10 +12,13 @@ package cam.utils.cases;
  *
  */
 
-public class TeleportCase extends Case  implements IEffetCase{
+public class TeleportCase extends Case  implements IEffetCase {
 
-	//ATTRIBUTS
-	public void test() {
+	
+	@Override
+	public void activeEffect(Personnage personnage) {
+		// TODO
+		
 	}
 
 }

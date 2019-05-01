@@ -1,6 +1,7 @@
 package cam.utils.cases;
 
 import cam.utils.personnages.Position;
+import cam.utils.plateau.Biome;
 
 /**
  * Classe qui difinit le fonctionnement d'une case
@@ -13,20 +14,31 @@ public class Case {
 	private int tourVisited; //Pour le monstre
 	private int nbClick; // Pour le monstre
 	private Position position;
+	private Biome biomeCase;
 
 
 	//CONSTRUCTEURS
 
 	/**
 	 * Constructeur sans parametres permettant de creer une case.
+	 * Le biome par défaut d'une case est Plaine (qui ne confère pas d'effet négatif)
 	 */
 	public Case() {
 		this.visited = false;
 		this.tourVisited = -1;
 		this.nbClick = 0;
+		this.biomeCase = Biome.PLAINE;
 	}
 
 	//METHODES
+	
+	/**
+	 * Permet de changer le biome d'une case 
+	 * @param nouveau biome
+	 */
+	public void setBiome(Biome b) {
+		this.biomeCase = b;
+	}
 
 
 	/**
@@ -56,7 +68,7 @@ public class Case {
 	}
 
 	/**
-	 * Permet de dire a la case a quel tour elle a ete visit�e
+	 * Permet de dire a la case a quel tour elle a ete visitee
 	 * @param tour : met tourVisited a la valeur de tour
 	 */
 	public void setTourVisited(int tour) {
@@ -65,7 +77,7 @@ public class Case {
 
 
 	/**
-	 * Permet d'incrementer de 1 le combre de clicks effectues par le monstre
+	 * Permet d'incrementer de 1 le combre de clicks effectues par le chasseur
 	 */
 	public void addClick() {
 		this.nbClick++;

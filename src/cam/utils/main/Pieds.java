@@ -3,6 +3,7 @@ package cam.utils.main;
 import java.util.Scanner;
 
 import cam.utils.cases.Case;
+import cam.utils.cases.SlowCase;
 import cam.utils.cases.TrapCase;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
@@ -121,8 +122,8 @@ public class Pieds {
 		
 		for (int i = 0; i < plateau.length; i++) {
 			for (int j = 0; j < plateau[i].length; j++) {
-				if (proba < 0.07) {
-					plateau[i][j] = new TrapCase();
+				if (proba < 0.10) {
+					plateau[i][j] = new SlowCase();
 				} else {
 					plateau[i][j] = new Case();
 				}

@@ -53,6 +53,7 @@ public class Menu {
 	 * Affichage et choix sur le menu principal
 	 */
 	public static void menu() {
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
 		String tmp = "";
 		boolean firstAff = false;
@@ -91,6 +92,7 @@ public class Menu {
 	 * Affichage et choix dans les regles du jeu
 	 */
 	private static void regles() {
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
 
 		clearScreen();
@@ -109,6 +111,7 @@ public class Menu {
 	 * Affichage et choix du mode de jeu
 	 */
 	private static void gamemode() {
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
 		String tmp = "";
 		boolean firstAff = false;
@@ -147,6 +150,7 @@ public class Menu {
 	 * Affichage et choix du personnage (multijoueur)
 	 */
 	private static void choixPerso() {
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
 		String tmp = "";
 		boolean firstAff = false;
@@ -182,6 +186,7 @@ public class Menu {
 	 * Affichage et choix de la difficulté (solo uniquement)
 	 */
 	private static void difficulte() {
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
 		String tmp = "";
 		boolean firstAff = false;
@@ -221,6 +226,7 @@ public class Menu {
 	 * Choix du nom du chasseur 
 	 */
 	private static void nomChasseur() {
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in);
 
 		clearScreen();
@@ -234,6 +240,7 @@ public class Menu {
 	 * Choix du nom du monstre
 	 */
 	private static void nomMonstre() {
+		@SuppressWarnings("resource")
 		Scanner in = new Scanner(System.in); 
 
 		clearScreen();
