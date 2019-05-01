@@ -7,27 +7,35 @@ import cam.utils.plateau.Plateau;
 
 /**
  * Cases permettant au monstre de se téléporter entre deux cases tp 
- * La case sera visible par le monstre lors de son tour
  * Le monstre, une fois sur cette case pourra se déplacer sur une autre cas teleporteur
- * A VOIR ? UNE TELEPORT CASE NE SERAIT PAS FORCEMENT UNE CASE SUR LAQUELLE LE MONSTRE DOIT PASSER 
- * POUR FAIRE GAGNER LE MONSTRE
  * @author Adrien BASSAIL
  *
  */
 
 public class TeleportCase extends Case  implements IEffetCase {
 
-	
+	/**
+	 * Crée une nouvelle case de téléportation
+	 */
 	public TeleportCase() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Cree une nouvelle case de teeleportation
+	 * @param position : position de la case de teleportation sur le plateau
+	 * @param biome    : biome dans lequel se trouve la case
+	 */
 	public TeleportCase(Position position, Biome biome) {
 		super(position, biome);
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * Cree une nouvelle case de teleportation
+	 * @param position : position de la case de teleportation sur le plateau
+	 */
 	public TeleportCase(Position position) {
 		super(position);
 		// TODO Auto-generated constructor stub
