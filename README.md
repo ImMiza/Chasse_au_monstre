@@ -1,4 +1,4 @@
-**Chasse_au_monstre**
+# **Chasse_au_monstre**
 *************************
 
 Projet S2 pour le DUT Informatique
