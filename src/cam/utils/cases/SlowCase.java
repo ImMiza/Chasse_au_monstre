@@ -8,28 +8,40 @@ import cam.utils.plateau.Plateau;
 
 
 /**
- * Crée une case qui ralentit le chasseur
+ * Crée une case qui ralentit le chasseur (diminue ses déplacements possibles)
  * @author Adrien BASSAIL
- *
  */
 
 public class SlowCase extends Case implements IEffetCase{
 
+	/**
+	 * Crée une nouvelle case à effet
+	 */
 	public SlowCase() {
 		super();
 	}
 
+	/**
+	 * Crée une nouvelle case à effet
+	 * @param position : position de la base
+	 * @param biome    : biome dans lequel se trouve la case
+	 */
 	public SlowCase(Position position, Biome biome) {
 		super(position, biome);
 	}
 
+	/**
+	 * Cree une nouvelle case à effet
+	 * @param position : position de la case
+	 */
 	public SlowCase(Position position) {
 		super(position);
 	}
 
 	/**
-	 * Active l'effet de personnage ralenti
-	 * @param monstre à ralentir
+	 * Active la case à effet 
+	 * @param personnage : Personnage qui est affecté par l'effet de la case
+	 * @param plateau    : Plateau de la partie
 	 */
 	public void activeEffect(Personnage personnage, Plateau plateau) {
 		if(personnage instanceof Monstre) {
