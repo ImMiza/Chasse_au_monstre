@@ -11,7 +11,7 @@ import cam.utils.personnages.Monstre;
 public class Plateau {
 	/**
 	 * Classe qui détermine le fonctionnement du plateau de jeu
-	 * @author Hugo Wieder
+	 * @author Hugo Wieder et Aymeric Defossez
 	 */
 	 
 	// ATTRIBUTS
@@ -33,10 +33,16 @@ public class Plateau {
 		this.plateau = new Case[nbLignes][nbColonnes];
 	}
 	
+	/**
+	 * permet de deplacer le monstre
+	 * @param uneCase case de destination du monstre
+	 * @return true si réussite ou false si echec
+	 */
 	public boolean deplacerMonstre(Case uneCase) {
 		List<Case> deplacement = deplacementsPossible();
 		if (deplacement.contains(uneCase)) {
 			chercheCase(monstre.getPosition().getX(), monstre.getPosition().getY()).setVisited();
+			chercheCase(monstre.getPosition().getX(), monstre.getPosition().getY()).setTourVisited(1);
 			this.monstre.getPosition().setX(this.chercheCase(uneCase)[0]);
 			this.monstre.getPosition().setY(this.chercheCase(uneCase)[1]);
 			return true;
@@ -56,8 +62,10 @@ public class Plateau {
 		this.plateau = unPlateau;
 	}
 	
-	
-	
+	/**
+	 * retourne le plateau de jeu
+	 * @return le plateau de jeu
+	 */
 	public Case[][] getPlateau() {
 		return plateau;
 	}
@@ -104,6 +112,10 @@ public class Plateau {
 		return true;
 	}
 	
+	/**
+	 * retourne si le monstre a visite toutes les case
+	 * @return true si toutes les cases sont visite et false le cas echeant
+	 */
 	public boolean sontToutesVisitée() {
 		for (int i = 0; i < plateau.length; i++) {
 			for (int j = 0; j < plateau[i].length; j++) {
@@ -125,6 +137,12 @@ public class Plateau {
 		return (ligne>=0 && ligne <this.plateau.length) && (colonne >=0 && colonne < this.plateau[0].length);
 	}
 	
+	/**
+	 * permet d ajouter a une liste donnee la case de coordonnee donnee
+	 * @param uneListe la liste a remplire
+	 * @param ligne de la case a ajouter
+	 * @param colonne de la case a ajouter
+	 */
 	private void ajoute(List<Case> uneListe, int ligne, int colonne) {
 		if (appartientAuPlateau(ligne, colonne)) {
 			uneListe.add(this.chercheCase(ligne, colonne));
@@ -208,6 +226,9 @@ public class Plateau {
 		return null;
 	}
 	
+	/**
+	 * permert d afficher le plateau en mode debugage
+	 */
 	public void printPlateauDebug() {
 		char[][] plateau = new char[this.plateau.length][this.plateau[0].length];
 		
@@ -273,6 +294,10 @@ public class Plateau {
         System.out.println("╝");
 	}
 	
+	/**
+	 * permet d afficher la vu du plateau selon si on est le monstre ou le chasseur
+	 * @param isMonstre afficher la version du monstre (true) ou du chasseur (false)
+	 */
 	public void printPlateau(boolean isMonstre) {
 		char[][] plateau = new char[this.plateau.length][this.plateau[0].length];
 		
