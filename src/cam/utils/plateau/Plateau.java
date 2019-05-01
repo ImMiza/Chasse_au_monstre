@@ -157,12 +157,10 @@ public class Plateau {
 	 */
 	private List<Case> deplacementDiagonale(int ligne, int colonne){
 		List<Case> maListe = new ArrayList<Case>();
-		if (ligne == 0) {
-			ajoute(maListe, ligne + this.monstre.getDeplacementDiagonal(), colonne + this.monstre.getDeplacementDiagonal());
-			ajoute(maListe, ligne + this.monstre.getDeplacementDiagonal(), colonne - this.monstre.getDeplacementDiagonal());
-			ajoute(maListe, ligne - this.monstre.getDeplacementDiagonal(), colonne + this.monstre.getDeplacementDiagonal());
-			ajoute(maListe, ligne - this.monstre.getDeplacementDiagonal(), colonne - this.monstre.getDeplacementDiagonal());
-		}
+		ajoute(maListe, ligne + this.monstre.getDeplacementDiagonal(), colonne + this.monstre.getDeplacementDiagonal());
+		ajoute(maListe, ligne + this.monstre.getDeplacementDiagonal(), colonne - this.monstre.getDeplacementDiagonal());
+		ajoute(maListe, ligne - this.monstre.getDeplacementDiagonal(), colonne + this.monstre.getDeplacementDiagonal());
+		ajoute(maListe, ligne - this.monstre.getDeplacementDiagonal(), colonne - this.monstre.getDeplacementDiagonal());
 		return maListe;
 	}
 	/**7
