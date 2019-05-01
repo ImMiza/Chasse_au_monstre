@@ -23,11 +23,11 @@ Déroulement du jeu:
   Ensuite, toujours avant de commencer la partie, le monstre lui doit définir où il souhaite commencer sur le plateau (il pourra choisir que aux extrémités du plateau)  
    
   Une fois terminé, le jeu commence, sur le plateau nous pouvons voir plusieurs notations:  
-    + M: Monstre
-    + P: Possible (les cases possibles de déplacements pour le monstre)
-    + C: Chasseur
-    + E: Effect (les cases avec un effet)
-    + V: Visité (les cases où le monstre est déjà passé)
+    - M: Monstre
+    - P: Possible (les cases possibles de déplacements pour le monstre)
+    - C: Chasseur
+    - E: Effect (les cases avec un effet)
+    - V: Visité (les cases où le monstre est déjà passé)
   
   Le chasseur et le monstres vont joueur chacun leurs tours, le monstre se déplacera en entrant des coordonnées (et aux cases possibles autour de lui), et le chasseur rentrera lui aussi des coordonnées essayant de trouver le monstre.  
   
