@@ -141,13 +141,13 @@ public class Main {
 		do {
 			System.out.print("Ligne du monstre (0 ou 9) : ");
 			X = getSecureInt(0, 9);
-		}while(X != 0 || X != 9);
+		}while(X != 0 && X != 9);
 		
 		int Y;
 		do {
 			System.out.print("Colonne du monstre (0 ou 9) : ");
 			Y = getSecureInt(0, 9);
-		}while(Y != 0 || Y != 9);
+		}while(Y != 0 && Y != 9);
 		
 		monstre.setX(X);
 		monstre.setY(Y);
