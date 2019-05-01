@@ -40,6 +40,14 @@ public class Personnage {
 	}
 	
 	/**
+	 * Permet de changer le nom du personnage
+	 * @param nom le nouveau nom
+	 */
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	
+	/**
 	 * Retourne la position du personnage.
 	 * @return la position du personnage.
 	 */

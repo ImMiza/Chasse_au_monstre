@@ -7,6 +7,7 @@ import cam.utils.cases.SlowCase;
 import cam.utils.cases.TrapCase;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
+import cam.utils.personnages.Position;
 import cam.utils.plateau.Plateau;
 
 /**
@@ -36,91 +37,38 @@ public class Main {
 	}
 	
 	public static void startMulti() {
-		Monstre monstre;
-		Chasseur chasseur;
-		Plateau plateau;
-		int xPiege1, yPiege1;
-		int xPiege2, yPiege2;
-		int xPiege3, yPiege3;
-		int xMonstre, yMonstre;
-		String pseudoMonstre, pseudoChasseur;
-		String xPiege1String, yPiege1String;
-		String xPiege2String, yPiege2String;
-		String xPiege3String, yPiege3String;
-		String xMonstreString, yMonstreString;
+		Monstre monstre = new Monstre(0, 0, "");
+		Chasseur chasseur = new Chasseur(0, 0, "");
+		Plateau plateau = new Plateau(monstre, chasseur, initPlateau(10, 10));;
 		
+		Position piege1;
+		Position piege2;
+		Position piege3;
+
 		System.out.println("MONSTRE : " + Menu.getNomMonstre());
-		pseudoMonstre = Menu.getNomMonstre();
-		System.out.println("Ligne du monstre (0 ou 9) :");
-		xMonstreString = in.nextLine();
-		while (xMonstreString.charAt(0) != '0' && xMonstreString.charAt(0) != '9' || xMonstreString.length() != 1) {
-			System.out.println("Ligne du monstre (0 ou 9) :");
-			xMonstreString = in.nextLine();
-		}
-		xMonstre = Integer.parseInt(xMonstreString);
-		System.out.println("Colonne du monstre (0 ou 9) :");
-		yMonstreString = in.nextLine();
-		while (yMonstreString.charAt(0) != '0' && yMonstreString.charAt(0) != '9' || yMonstreString.length() != 1) {
-			System.out.println("Colonne du monstre (0 ou 9) :");
-			yMonstreString = in.nextLine();
-		}
-		yMonstre = Integer.parseInt(yMonstreString);
-		clearScreen();
-		System.out.println("CHASSEUR : " + Menu.getNomChasseur());
-		pseudoChasseur = Menu.getNomChasseur();
-		System.out.println("1er piege :");
-		System.out.println("Ligne (entre 1 et 8) :");
-		xPiege1String = in.nextLine();
-		while (xPiege1String.charAt(0) < '1' || xPiege1String.charAt(0) > '8' || xPiege1String.length() != 1) {
-			System.out.println("Ligne (entre 1 et 8) :");
-			xPiege1String = in.nextLine();
-		}
-		xPiege1 = Integer.parseInt(xPiege1String);
-		System.out.println("Colonne (entre 1 et 8) :");
-		yPiege1String = in.nextLine();
-		while (yPiege1String.charAt(0) < '1' || yPiege1String.charAt(0) > '8' || yPiege1String.length() != 1) {
-			System.out.println("Colonne (entre 1 et 8) :");
-			yPiege1String = in.nextLine();
-		}
-		yPiege1 = Integer.parseInt(yPiege1String);
-		System.out.println("2eme piege :");
-		System.out.println("Ligne (entre 1 et 8) :");
-		xPiege2String = in.nextLine();
-		while (xPiege2String.charAt(0) < '1' || xPiege2String.charAt(0) > '8' || xPiege2String.length() != 1) {
-			System.out.println("Ligne (entre 1 et 8) :");
-			xPiege2String = in.nextLine();
-		}
-		xPiege2 = Integer.parseInt(xPiege2String);
-		System.out.println("Colonne (entre 1 et 8) :");
-		yPiege2String = in.nextLine();
-		while (yPiege2String.charAt(0) < '1' || yPiege2String.charAt(0) > '8' || yPiege2String.length() != 1) {
-			System.out.println("Colonne (entre 1 et 8) :");
-			yPiege2String = in.nextLine();
-		}
-		yPiege2 = Integer.parseInt(yPiege2String);
-		System.out.println("3eme piege :");
-		System.out.println("Ligne (entre 1 et 8) :");
-		xPiege3String = in.nextLine();
-		while (xPiege3String.charAt(0) < '1' || xPiege3String.charAt(0) > '8' || xPiege3String.length() != 1) {
-			System.out.println("Ligne (entre 1 et 8) :");
-			xPiege3String = in.nextLine();
-		}
-		xPiege3 = Integer.parseInt(xPiege3String);
-		System.out.println("Colonne (entre 1 et 8) :");
-		yPiege3String = in.nextLine();
-		while (yPiege3String.charAt(0) < '1' || yPiege3String.charAt(0) > '8' || yPiege3String.length() != 1) {
-			System.out.println("Ligne (entre 1 et 8) :");
-			yPiege3String = in.nextLine();
-		}
-		yPiege3 = Integer.parseInt(yPiege3String);
+		monstre.setNom(Menu.getNomMonstre());
+		
+		placeMonstre(monstre, plateau);
+		
 		clearScreen();
 		
-		monstre = new Monstre(xMonstre, yMonstre, pseudoMonstre);
-		chasseur = new Chasseur(0, 0, pseudoChasseur);
-		plateau = new Plateau(monstre, chasseur, initPlateau(10, 10));
-		plateau.getPlateau()[xPiege1][yPiege1] = new TrapCase();
-		plateau.getPlateau()[xPiege2][yPiege2] = new TrapCase();
-		plateau.getPlateau()[xPiege3][yPiege3] = new TrapCase();
+		System.out.println("CHASSEUR : " + Menu.getNomChasseur());
+		chasseur.setNom(Menu.getNomChasseur());
+		
+		System.out.println("1er piege :");
+		piege1 = posePiege();
+		
+		System.out.println("2eme piege :");
+		piege2 = posePiege();
+
+		System.out.println("3eme piege :");
+		piege3 = posePiege();
+
+		clearScreen();
+		
+		plateau.getPlateau()[piege1.getX()][piege1.getY()] = new TrapCase();
+		plateau.getPlateau()[piege2.getX()][piege2.getY()] = new TrapCase();
+		plateau.getPlateau()[piege3.getX()][piege3.getY()] = new TrapCase();
 		
 		while (!finDuJeu) {
 			tourDuMonstre(plateau);
@@ -161,6 +109,87 @@ public class Main {
 			finDuJeu = true;
 		}
 	}
+	
+	/**
+	 * Permet de poser un piege pour le chasseur
+	 * @return la position du piege
+	 */
+	public static Position posePiege() {
+		int X;
+		do {
+			System.out.print("Ligne (entre 1 et 8) : ");
+			X = getSecureInt(1, 8);
+		}while(X < 1 || X > 8);
+		
+		int Y;
+		do {
+			System.out.print("Colonne (entre 1 et 8) : ");
+			Y = getSecureInt(1, 8);
+		}while(Y < 1 || Y > 8);
+		
+		return new Position(X, Y);
+	}
+	
+	/**
+	 * Permet de placer le monstre sur les extremites du plateau
+	 * @param monstre le monstre a placer
+	 * @param plateau le plateau sur lequel le placer
+	 */
+	public static void placeMonstre(Monstre monstre, Plateau plateau) {
+		
+		int X;
+		do {
+			System.out.print("Ligne du monstre (0 ou 9) : ");
+			X = getSecureInt(0, 9);
+		}while(X != 0 || X != 9);
+		
+		int Y;
+		do {
+			System.out.print("Colonne du monstre (0 ou 9) : ");
+			Y = getSecureInt(0, 9);
+		}while(Y != 0 || Y != 9);
+		
+		monstre.setX(X);
+		monstre.setY(Y);
+	}
+	
+	/**
+	 * Permet de recuperer un entier de facon securise et de 
+	 * façon delimitee
+	 * @param min la borne minimum
+	 * @param max la borne maximum
+	 * @return un entier
+	 */
+	public static int getSecureInt(int min, int max) {
+		String entry;
+		int n = min - 1;
+		
+		do {
+			entry = in.nextLine();
+			if(isNumber(entry))
+				n = Integer.parseInt(entry);
+			
+		}while(n < min || n > max);
+		
+		return n;
+	}
+	
+	/**
+	 * Permet de verifier si une phrase est aussi un chiffre
+	 * @param number la phrase a tester
+	 * @return true si c'est que des chiffres, sinon false
+	 */
+	public static boolean isNumber(String number) {
+		if(number.equals(""))
+			return false;
+		
+        for(int i = 0; i < number.length(); i++) {
+            if(number.charAt(i) < '0' || number.charAt(i) > '9') {
+                return false;
+            }
+        }
+        return true;
+    }
 	
 	/**
 	 * procede au tour du chasseur.
@@ -228,8 +257,8 @@ public class Main {
 	 * effacer tout ce que contient le terminal.
 	 */
 	private static void clearScreen() {
-		for(int i=0 ; i<100 ; i++) {
-			System.out.println("\n");
+		for(int i=0 ; i<50 ; i++) {
+			System.out.println();
 		}
 	}
 }
