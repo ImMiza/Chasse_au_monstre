@@ -25,7 +25,7 @@ Ensuite, toujours avant de commencer la partie, le monstre lui doit définir où
 Une fois terminé, le jeu commence, sur le plateau nous pouvons voir plusieurs notations:  
 - *M*: __Monstre__  
 - *P*: __Possible__ (les cases possibles de déplacements pour le monstre)  
-- *C*: __Chasseur  
+- *C*: __Chasseur__  
 - *E*: __Effect__ (les cases avec un effet)  
 - *V*: __Visité__ (les cases où le monstre est déjà passé)  
   
