@@ -278,7 +278,7 @@ public class Plateau {
 		
 		for(int i = 0; i < this.plateau.length; i++) {
 			for(int j = 0; j < this.plateau[0].length; j++) {
-				if(this.plateau[i][j].isVisited()) {
+				if(this.plateau[i][j].isVisited() && isMonstre) {
 					plateau[i][j] = 'V';
 				}
 				else {

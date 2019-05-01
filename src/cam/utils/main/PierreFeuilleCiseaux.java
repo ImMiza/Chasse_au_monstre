@@ -49,7 +49,7 @@ public class PierreFeuilleCiseaux
 			System.out.println(list());
 			choixPerso1 = getEntry();
 			
-			for(int i = 0 ; i < 25; i++)
+			for(int i = 0 ; i < 100; i++)
 				System.out.println();
 			
 			System.out.println(this.perso2.getNom() + ", c'est à votre tour !");
