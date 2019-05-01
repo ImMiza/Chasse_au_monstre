@@ -24,6 +24,18 @@ public class Pieds {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		//Menu menu = new Menu();
+		Menu.menu();
+		int i = Menu.getChoixMenu();
+		if(i == 2) {
+			clearScreen();
+			startMulti();
+		}
+		
+		
+	}
+	
+	public static void startMulti() {
 		Monstre monstre;
 		Chasseur chasseur;
 		Plateau plateau;
@@ -37,9 +49,8 @@ public class Pieds {
 		String xPiege3String, yPiege3String;
 		String xMonstreString, yMonstreString;
 		
-		System.out.println("MONSTRE");
-		System.out.println("Votre pseudo :");
-		pseudoMonstre = in.nextLine();
+		System.out.println("MONSTRE : " + Menu.getNomMonstre());
+		pseudoMonstre = Menu.getNomMonstre();
 		System.out.println("Ligne du monstre (0 ou 9) :");
 		xMonstreString = in.nextLine();
 		while (xMonstreString.charAt(0) != '0' && xMonstreString.charAt(0) != '9' || xMonstreString.length() != 1) {
@@ -55,9 +66,8 @@ public class Pieds {
 		}
 		yMonstre = Integer.parseInt(yMonstreString);
 		clearScreen();
-		System.out.println("CHASSEUR");
-		System.out.println("Votre pseudo :");
-		pseudoChasseur = in.nextLine();
+		System.out.println("CHASSEUR : " + Menu.getNomChasseur());
+		pseudoChasseur = Menu.getNomChasseur();
 		System.out.println("1er piege :");
 		System.out.println("Ligne (entre 1 et 8) :");
 		xPiege1String = in.nextLine();
