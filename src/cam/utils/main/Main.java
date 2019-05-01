@@ -83,7 +83,6 @@ public class Main {
 	 * @param plateau de jeu.
 	 */
 	public static void tourDuMonstre(Plateau plateau) {
-		
 		int nvX, nvY;
 		boolean finTour = false;
 		
@@ -93,9 +92,9 @@ public class Main {
 			plateau.printPlateau(true);
 			System.out.println("Coordonnees de la nouvelle case :");
 			System.out.println("Ligne :");
-			nvX = Integer.parseInt(in.nextLine());
+			nvX = getSecureInt(0, 9);
 			System.out.println("Colonne :");
-			nvY = Integer.parseInt(in.nextLine());
+			nvY = getSecureInt(0, 9);
 			finTour = plateau.deplacerMonstre(plateau.chercheCase(nvX, nvY));
 		}
 		for (int i = 0; i < plateau.getPlateau().length; i++) {
@@ -208,9 +207,9 @@ public class Main {
 				plateau.printPlateau(false);
 				System.out.println("Coordonnees de la case à chercher :");
 				System.out.println("Ligne :");
-				x = Integer.parseInt(in.nextLine());
+				x = getSecureInt(0, 9);
 				System.out.println("Colonne :");
-				y = Integer.parseInt(in.nextLine());
+				y = getSecureInt(0, 9);
 			} while(!plateau.appartientAuPlateau(x, y));
 			if (x == monstre.getPosition().getX() && y == monstre.getPosition().getY()) {
 				PierreFeuilleCiseaux pfc = new PierreFeuilleCiseaux(monstre, chasseur);
