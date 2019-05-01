@@ -12,7 +12,7 @@ Développeurs:
 
 Principe du jeu:  
 -
-Chasse au monstre est un jeu à 1/2 joueurs, contenant un plateau de jeu, un monstre et un chasseur.  
+Chasse au monstre est un jeu à 2 joueurs, contenant un plateau de jeu, un monstre et un chasseur.  
 Le but du monstre est de parcourir toutes les cases du plateau de jeu sans se faire attraper par le chasseur.  
 Le but du chasseur est d'attraper le monstre avant que celui-ci parcour tout le plateau de jeu.  
   
@@ -20,7 +20,7 @@ Déroulement du jeu:
 -
 Premièrement, avant de commencer la partie, le chasseur doit poser 3 pièges sur le plateau de jeu en entrant les coordonnées pour chacune.  
  
-Ensuite, toujours avant de commencer la partie, le monstre lui doit définir où il souhaite commencer sur le plateau (il pourra choisir que aux extrémités du plateau)  
+Ensuite, toujours avant de commencer la partie, le monstre lui doit définir où il souhaite commencer sur le plateau (il ne pourra se placer qu'aux extrémités du plateau).
    
 Une fois terminé, le jeu commence, sur le plateau nous pouvons voir plusieurs notations:  
 - *M*: __Monstre__  
@@ -31,4 +31,4 @@ Une fois terminé, le jeu commence, sur le plateau nous pouvons voir plusieurs n
   
 Le chasseur et le monstres vont joueur chacun leurs tours, le monstre se déplacera en entrant des coordonnées (et aux cases possibles autour de lui), et le chasseur rentrera lui aussi des coordonnées essayant de trouver le monstre.  
   
-Si le chasseur trouve le monstre, il y aura un Pierre-Feuille-Ciseaux; si le chasseur gagne, alors le jeu est terminé. Si le monstre gagne, alors la partie continue laissant un déplacement au monstre pour s'enfuir  
+Si le chasseur trouve le monstre, il y aura un Pierre-Feuille-Ciseaux; si le chasseur gagne, alors le jeu est terminé. Si le monstre gagne, alors la partie continue laissant un déplacement au monstre pour s'enfuir.
