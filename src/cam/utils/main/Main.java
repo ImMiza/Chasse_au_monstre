@@ -211,6 +211,8 @@ public class Main {
 				System.out.println("Colonne :");
 				y = getSecureInt(0, 9);
 			} while(!plateau.appartientAuPlateau(x, y));
+			chasseur.getPosition().setX(x);
+			chasseur.getPosition().setY(y);
 			if (x == monstre.getPosition().getX() && y == monstre.getPosition().getY()) {
 				PierreFeuilleCiseaux pfc = new PierreFeuilleCiseaux(monstre, chasseur);
 				pfc.startGame();
