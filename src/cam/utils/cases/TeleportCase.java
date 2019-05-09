@@ -41,7 +41,6 @@ public class TeleportCase extends Case  implements IEffetCase {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
 	public void activeEffect(Personnage personnage, Plateau plateau) {
 		// TODO
 		

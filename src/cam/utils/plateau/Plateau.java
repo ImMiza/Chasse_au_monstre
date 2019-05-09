@@ -127,6 +127,10 @@ public class Plateau {
 		return true;
 	}
 	
+	public boolean monstreBloquer() {
+		return deplacementsPossible().isEmpty();
+	}
+	
 	/**
 	 * Verifie l'appartenance d'une case au plateau
 	 * @param ligne

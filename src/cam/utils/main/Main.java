@@ -104,7 +104,7 @@ public class Main {
 				}
 			}
 		}
-		if (plateau.sontToutesVisitée()) {
+		if (plateau.sontToutesVisitée() || plateau.monstreBloquer()) {
 			finDuJeu = true;
 		}
 	}
@@ -135,18 +135,15 @@ public class Main {
 	 * @param plateau le plateau sur lequel le placer
 	 */
 	public static void placeMonstre(Monstre monstre, Plateau plateau) {
-		
 		int X;
+		int Y;
+		
 		do {
 			System.out.print("Ligne du monstre (0 ou 9) : ");
-			X = getSecureInt(0, 9);
-		}while(X != 0 && X != 9);
-		
-		int Y;
-		do {
+			X = getSecureInt(0, 9);		
 			System.out.print("Colonne du monstre (0 ou 9) : ");
 			Y = getSecureInt(0, 9);
-		}while(Y != 0 && Y != 9);
+		}while(Y != 0 && Y != 9 && X != 0 && X != 9);
 		
 		monstre.setX(X);
 		monstre.setY(Y);
