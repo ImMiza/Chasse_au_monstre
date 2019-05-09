@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cam.utils.cases.Case;
-import cam.utils.cases.IEffetCase;
+import cam.utils.cases.EffectCase;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
 
@@ -45,6 +45,10 @@ public class Plateau {
 			chercheCase(monstre.getPosition().getX(), monstre.getPosition().getY()).setTourVisited(1);
 			this.monstre.getPosition().setX(this.chercheCase(uneCase)[0]);
 			this.monstre.getPosition().setY(this.chercheCase(uneCase)[1]);
+			
+			if(this.plateau[this.monstre.getPosition().getX()][this.monstre.getPosition().getY()] instanceof EffectCase)
+				((EffectCase) this.plateau[this.monstre.getPosition().getX()][this.monstre.getPosition().getY()]).activeEffect(monstre, this);
+			
 			return true;
 		}
 		return false;
@@ -248,7 +252,7 @@ public class Plateau {
 		
 		for(int i = 0; i < this.plateau.length; i++) {
 			for(int j = 0; j < this.plateau[0].length; j++) {
-				if(this.plateau[i][j] instanceof IEffetCase) {
+				if(this.plateau[i][j] instanceof EffectCase) {
 					plateau[i][j] = 'E';
 				}
 			}
@@ -319,7 +323,7 @@ public class Plateau {
 		if (!isMonstre) {
 			for(int i = 0; i < this.plateau.length; i++) {
 				for(int j = 0; j < this.plateau[0].length; j++) {
-					if(this.plateau[i][j] instanceof IEffetCase) {
+					if(this.plateau[i][j] instanceof EffectCase) {
 						plateau[i][j] = 'E';
 					}
 				}

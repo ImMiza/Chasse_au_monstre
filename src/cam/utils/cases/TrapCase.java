@@ -10,29 +10,4 @@ import cam.utils.plateau.Biome;
  *
  */
 
-public class TrapCase extends SlowCase {
-
-	/**
-	 * Cree une nouvelle case de piege
-	 */
-	public TrapCase() {
-		super();
-	}
-
-	/**
-	 * Cree une nouvelle case de piege
-	 * @param position : position de la case de piege sur le plateau
-	 * @param biome    : biome dans lequel se trouve la case
-	 */
-	public TrapCase(Position position, Biome biome) {
-		super(position, biome);
-	}
-
-	/**
-	 * Cree une nouvelle case de piege
-	 * @param position : position de la case de piege sur le plateau
-	 */
-	public TrapCase(Position position) {
-		super(position);
-	}
-}
+public class TrapCase extends SlowCase {}

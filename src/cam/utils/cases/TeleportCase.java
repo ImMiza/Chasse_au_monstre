@@ -12,39 +12,11 @@ import cam.utils.plateau.Plateau;
  *
  */
 
-public class TeleportCase extends Case  implements IEffetCase {
-
-	/**
-	 * Crée une nouvelle case de téléportation
-	 */
-	public TeleportCase() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * Cree une nouvelle case de teeleportation
-	 * @param position : position de la case de teleportation sur le plateau
-	 * @param biome    : biome dans lequel se trouve la case
-	 */
-	public TeleportCase(Position position, Biome biome) {
-		super(position, biome);
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * Cree une nouvelle case de teleportation
-	 * @param position : position de la case de teleportation sur le plateau
-	 */
-	public TeleportCase(Position position) {
-		super(position);
-		// TODO Auto-generated constructor stub
-	}
+public class TeleportCase extends EffectCase {
 
 	@Override
-	public void activeEffect(Personnage personnage, Plateau plateau) {
-		// TODO
+	public void activeEffect(Personnage perso, Plateau pl) {
 		
 	}
-
+	
 }
