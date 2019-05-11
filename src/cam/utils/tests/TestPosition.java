@@ -2,6 +2,11 @@ package cam.utils.tests;
 
 import cam.utils.personnages.Position;
 
+/**
+ * Classe de test de Position
+ * @author Boukhebza Allan
+ *
+ */
 public class TestPosition {
 
 	public static void main(String[] args) {

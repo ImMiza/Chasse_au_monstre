@@ -4,7 +4,6 @@ package cam.utils.main;
  * Class permettant de creer le menu et recuperer les choix faits par le joueur
  * @author Adrien BASSAIL
  */
-
 import java.util.Scanner;
 
 public class Menu {

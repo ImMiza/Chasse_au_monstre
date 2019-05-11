@@ -6,6 +6,10 @@ import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
 import cam.utils.plateau.Plateau;
 
+/**
+ * Classe de test du plateau
+ * @author Boukhebza Allan
+ */
 public class TestPlateau {
 
 	public static void main(String[] args) {

@@ -1,11 +1,14 @@
 package cam.utils.tests;
 
-import cam.utils.cases.Case;
 
+/**
+ * Classe de test des cases
+ * @author Boukhebza Allan
+ */
 public class TestCase {
 
 	public static void main(String[] args) {
-		Case c1 = new Case();
+		//Case c1 = new Case();
 		
 	}
 }

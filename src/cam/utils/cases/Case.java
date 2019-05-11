@@ -7,7 +7,6 @@ import cam.utils.plateau.Biome;
  * Classe qui difinit le fonctionnement d'une case
  * @author Adrien BASSAIL
  */
-
 public class Case {
 	//ATTRIBUTS
 	private boolean visited; //Pour le monstre

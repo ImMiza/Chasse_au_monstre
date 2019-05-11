@@ -2,6 +2,10 @@ package cam.utils.tests;
 
 import cam.utils.main.Menu;
 
+/**
+ * Classe de test du Menu
+ * @author Bassard Adrien
+ */
 public class TestMenu {
 
 	public static void main(String[] args) {

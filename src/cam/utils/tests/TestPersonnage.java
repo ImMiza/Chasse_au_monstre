@@ -4,6 +4,10 @@ import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
 import cam.utils.personnages.Personnage;
 
+/**
+ * Classe de test des classes Personnages, Monstre et Chasseur
+ * @author Boukhebza Allan
+ */
 public class TestPersonnage {
 
 	public static void main(String[] args) {

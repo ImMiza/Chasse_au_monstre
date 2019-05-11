@@ -4,6 +4,10 @@ import cam.utils.main.PierreFeuilleCiseaux;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
 
+/**
+ * Classe de test du Pierre-Feuille-Ciseaux
+ * @author Boukhebza Allan
+ */
 public class TestPierreFeuilleCiseaux
 {
 
