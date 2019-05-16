@@ -11,7 +11,7 @@ import cam.utils.plateau.Plateau;
  */
 
 public class TeleportCase extends EffectCase {
-	
+
 	@Override
 	public void activeEffect (Personnage perso, Plateau pl){
 
