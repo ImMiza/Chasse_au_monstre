@@ -39,7 +39,7 @@ public class Main {
 	public static void startMulti() {
 		Monstre monstre = new Monstre(0, 0, "");
 		Chasseur chasseur = new Chasseur(0, 0, "");
-		Plateau plateau = new Plateau(monstre, chasseur, initPlateau(10, 10));;
+		Plateau plateau = new Plateau(monstre, chasseur, initPlateau(10, 10));
 		
 		Position piege1;
 		Position piege2;
