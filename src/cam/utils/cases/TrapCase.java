@@ -1,7 +1,5 @@
 package cam.utils.cases;
 
-import cam.utils.personnages.Position;
-import cam.utils.plateau.Biome;
 
 /**
  * Case de piège, le(s) pièges sont posés au début de la partie par le chasseur
