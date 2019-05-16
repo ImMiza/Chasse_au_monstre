@@ -10,4 +10,6 @@ import cam.utils.plateau.Biome;
  *
  */
 
-public class TrapCase extends SlowCase {}
+public class TrapCase extends SlowCase {
+
+}
