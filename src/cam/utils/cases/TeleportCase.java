@@ -1,12 +1,10 @@
 package cam.utils.cases;
 
 import cam.utils.personnages.Personnage;
-import cam.utils.personnages.Position;
-import cam.utils.plateau.Biome;
 import cam.utils.plateau.Plateau;
 
 /**
- * Cases permettant au monstre de se téléporter entre deux cases tp 
+ * Cases permettant au monstre de se téléporter entre deux cases tp
  * Le monstre, une fois sur cette case pourra se déplacer sur une autre cas teleporteur
  * @author Adrien BASSAIL
  *
@@ -15,7 +13,7 @@ import cam.utils.plateau.Plateau;
 public class TeleportCase extends EffectCase {
 
 	@Override
-	public void activeEffect(Personnage perso, Plateau pl) {
+	public void activeEffect (Personnage perso, Plateau pl){
+
 	}
-	
 }
