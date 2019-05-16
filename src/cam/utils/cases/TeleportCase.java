@@ -14,13 +14,8 @@ import cam.utils.plateau.Plateau;
 
 public class TeleportCase extends EffectCase {
 
-<<<<<<< HEAD
-	public void activeEffect(Personnage personnage, Plateau plateau) {
-		// TODO
-=======
 	@Override
 	public void activeEffect(Personnage perso, Plateau pl) {
->>>>>>> 4a5e2eaaea28690bdac39bce219c8e2fa9845c8b
 		
 	}
 	
