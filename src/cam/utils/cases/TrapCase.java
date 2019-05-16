@@ -8,4 +8,6 @@ package cam.utils.cases;
  *
  */
 
-public class TrapCase extends SlowCase {}
+public class TrapCase extends SlowCase {
+
+}
