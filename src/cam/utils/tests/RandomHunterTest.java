@@ -1,24 +1,25 @@
 package cam.utils.tests;
 
 import cam.utils.cases.Case;
-import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Position;
+import cam.utils.personnages.ia.RandomHunter;
 import cam.utils.personnages.ia.RandomMonster;
 import cam.utils.plateau.Plateau;
 
-public class RandomMonsterTest {
+public class RandomHunterTest {
 
 	public static void main(String[] args) {
 		RandomMonster monster = new RandomMonster(0, 0, "Adrien");
+		RandomHunter chasseur = new RandomHunter(0, 0, "Allan");
 		
-		Chasseur chasseur = new Chasseur(0, 0, "");
 		Plateau plateau = new Plateau(monster, chasseur, initPlateau(10, 10));
 		
-		while(!plateau.sontToutesVisitée() && !plateau.monstreBloquer()) {
+		for(int i = 0; i < 50; i++) {
 			plateau.printPlateauDebug();
-			Position pos = monster.ChoosePosition(plateau);
+			Position pos = chasseur.ChoosePosition(plateau);
 			
-			plateau.deplacerMonstre(plateau.chercheCase(pos.getX(), pos.getY()));
+			chasseur.setX(pos.getX());
+			chasseur.setY(pos.getY());
 			
 			try {
 				Thread.sleep(500);

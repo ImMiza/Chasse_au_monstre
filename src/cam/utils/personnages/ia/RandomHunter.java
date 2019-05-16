@@ -13,7 +13,6 @@ public class RandomHunter extends ChasseurIA{
 	//CONSTRUCTEURS
 	public RandomHunter(int x, int y, String nom) {
 		super(x, y, nom);
-		// TODO Auto-generated constructor stub
 	}
 
 	public RandomHunter(Position p, String nom) {
