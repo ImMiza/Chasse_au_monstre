@@ -1,4 +1,4 @@
-package cam.utils.main;
+package cam.main;
 
 import java.util.Scanner;
 

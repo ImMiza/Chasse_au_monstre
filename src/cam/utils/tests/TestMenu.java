@@ -1,6 +1,6 @@
 package cam.utils.tests;
 
-import cam.utils.main.Menu;
+import cam.main.Menu;
 
 /**
  * Classe de test du Menu

@@ -1,4 +1,4 @@
-package cam.utils.main;
+package cam.main;
 
 /**
  * Class permettant de creer le menu et recuperer les choix faits par le joueur
