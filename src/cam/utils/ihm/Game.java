@@ -8,12 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class Game extends Application {
 	
-	List<Rectangle> lesCases = new ArrayList<Rectangle>();
+	List<CaseIHM> lesCases = new ArrayList<>();
 
 	public void start(Stage primaryStage) throws Exception {
 		BorderPane groot = new BorderPane();
@@ -23,17 +22,23 @@ public class Game extends Application {
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		
 		groot.setCenter(canvas);
-		
+
 		for (int i = 0; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
-				Rectangle r = new Rectangle(i, j, 50, 50);
-				r.setOnMouseClicked(e -> {
-					
-				});
-				lesCases.add(r);
+				CaseIHM c = new CaseIHM(50 * j + 10, 50 * i + 10, 50, 50);
+				lesCases.add(c);
 				gc.strokeRect(50 * j + 10, 50 * i + 10, 50, 50);
 			}
 		}
+		canvas.setOnMouseClicked(e->{
+			double x =e.getX();
+			double y = e.getY();
+			for (int i = 0; i<lesCases.size(); i++) {
+				if (lesCases.get(i).getRectangle().contains(x, y)) {
+					System.out.println(lesCases.get(i).getRectangle().getX() + ", " + lesCases.get(i).getRectangle().getY());
+				}
+			}
+		});
 		
 		primaryStage.setTitle("Game");
 		primaryStage.setScene(s);
