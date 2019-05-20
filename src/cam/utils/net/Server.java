@@ -40,11 +40,8 @@ public class Server implements Connexion{
     
     @Override
     public String read() throws IOException {
-    	if(reader.ready()) {
-    		String s = reader.readLine();
-            return s;
-    	}
-        return null;
+    	String s = reader.readLine();
+    	return s;
     }
     
     @Override
