@@ -36,8 +36,11 @@ public class Client implements Connexion {
     
     @Override
     public String read() throws IOException {
-        String s = reader.readLine();
-        return s;
+    	if(reader.ready()) {
+    		String s = reader.readLine();
+            return s;
+    	}
+        return null;
     }
     
     @Override

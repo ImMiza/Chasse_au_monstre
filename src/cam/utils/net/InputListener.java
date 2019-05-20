@@ -15,7 +15,9 @@ public class InputListener implements Runnable{
 		while(true) {
 			try {
 				String s = connexion.read();
-				System.out.println(s);
+				if(s != null)
+					System.out.println(s);
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
