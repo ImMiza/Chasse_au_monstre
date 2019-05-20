@@ -12,7 +12,7 @@ import cam.utils.plateau.Plateau;
 
 public class TeleportCase extends EffectCase {
 
-	public void activeEffect (Personnage perso, Plateau pl){
-
+	public void activeEffect(Personnage personnage, Plateau plateau) {
+		
 	}
 }

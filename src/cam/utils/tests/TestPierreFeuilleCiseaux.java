@@ -1,6 +1,6 @@
 package cam.utils.tests;
 
-import cam.utils.main.PierreFeuilleCiseaux;
+import cam.main.PierreFeuilleCiseaux;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
 
