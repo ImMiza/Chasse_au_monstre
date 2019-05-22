@@ -20,7 +20,7 @@ public class Server implements Connexion{
     private BufferedReader reader;
     
     public Server(int port) throws IOException {
-    	this.server = new ServerSocket(port, 1);
+    	this.server = new ServerSocket(port);
     	this.serverAddress = this.server.getInetAddress().getAddress();
     	this.port = port;
     }
