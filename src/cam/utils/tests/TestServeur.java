@@ -11,8 +11,10 @@ public class TestServeur {
 	public static void main(String[] args) {
 
 		try {
-			Server server = new Server(5005);
-
+			Server server = new Server(5007);
+			server.listen();
+			
+			System.out.println("connecte");
 			Thread output = new Thread(new OutputListener(server));
 			Thread input = new Thread(new InputListener(server));
 			
