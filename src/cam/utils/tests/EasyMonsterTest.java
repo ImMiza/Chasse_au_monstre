@@ -1,33 +1,24 @@
 package cam.utils.tests;
 
 import cam.utils.cases.Case;
-import cam.utils.cases.TrapCase;
+import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Position;
-import cam.utils.personnages.ia.RandomHunter;
-import cam.utils.personnages.ia.RandomMonster;
+import cam.utils.personnages.ia.EasyMonster;
 import cam.utils.plateau.Plateau;
 
-public class RandomHunterTest {
-
+public class EasyMonsterTest {
+	
 	public static void main(String[] args) {
-		RandomMonster monster = new RandomMonster(0, 0, "Adrien");
-		RandomHunter chasseur = new RandomHunter(0, 0, "Allan");
+		EasyMonster monster = new EasyMonster(0, 0, "Adrien");
 		
+		Chasseur chasseur = new Chasseur(0, 0, "");
 		Plateau plateau = new Plateau(monster, chasseur, initPlateau(10, 10));
-		Position pi1 = chasseur.posePiege(plateau);
-		Position pi2 = chasseur.posePiege(plateau);
-		Position pi3 = chasseur.posePiege(plateau);
 		
-		plateau.getPlateau()[pi1.getX()][pi1.getY()] = new TrapCase();
-		plateau.getPlateau()[pi2.getX()][pi2.getY()] = new TrapCase();
-		plateau.getPlateau()[pi3.getX()][pi3.getY()] = new TrapCase();
-		
-		for(int i = 0; i < 50; i++) {
+		while(!plateau.sontToutesVisitée() && !plateau.monstreBloquer()) {
 			plateau.printPlateauDebug();
-			Position pos = chasseur.ChoosePosition(plateau);
+			Position pos = monster.ChoosePosition(plateau);
 			
-			chasseur.setX(pos.getX());
-			chasseur.setY(pos.getY());
+			plateau.deplacerMonstre(plateau.chercheCase(pos.getX(), pos.getY()));
 			
 			try {
 				Thread.sleep(500);
@@ -37,8 +28,17 @@ public class RandomHunterTest {
 			
 			clearScreen();
 		}
-
+		
+		
+		
+		
 	}
+	
+	
+	
+	
+	
+	
 	
 	public static Case[][] initPlateau(int lig, int col) {
 		Case[][] plateau = new Case[lig][col];
@@ -56,4 +56,5 @@ public class RandomHunterTest {
 			System.out.println();
 		}
 	}
+
 }
