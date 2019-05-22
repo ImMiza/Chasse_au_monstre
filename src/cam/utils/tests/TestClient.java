@@ -11,7 +11,7 @@ public class TestClient {
 	public static void main(String[] args) {
 
 		try {
-			Client client = new Client("10.21.50.219", 5006);
+			Client client = new Client("192.168.43.26", 5006);
 
 			Thread output = new Thread(new OutputListener(client));
 			Thread input = new Thread(new InputListener(client));
