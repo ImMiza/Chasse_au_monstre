@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cam.utils.ihm.menu.events.ChoixPersoEvent">
+   <bottom>
+      <VBox alignment="TOP_CENTER" prefHeight="288.0" prefWidth="600.0" spacing="15.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="monstre" mnemonicParsing="false" onMousePressed="#clickMonstre" prefHeight="26.0" prefWidth="88.0" text="Monstre" />
+            <Button mnemonicParsing="false" onAction="#chasseur" onMousePressed="#clickChasseur" prefHeight="26.0" prefWidth="89.0" text="Chasseur" />
+         </children>
+      </VBox>
+   </bottom>
+   <top>
+      <Label text="Choisisser un personnage" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+   </top>
+</BorderPane>
