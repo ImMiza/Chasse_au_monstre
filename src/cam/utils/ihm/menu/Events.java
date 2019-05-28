@@ -1,7 +1,6 @@
 package cam.utils.ihm.menu;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 
@@ -18,8 +17,9 @@ public class Events {
 
     @FXML
     void GoToSolo(MouseEvent event) {
-    	Scene scene = new Scene(Test.getChoosePerso());
-    	Test.getPrimaryStage().setScene(scene);
+    	System.out.println("test");
+//    	Scene scene = new Scene(Test.getChoosePerso());
+//    	Test.getPrimaryStage().setScene(scene);
     }
 
     @FXML
