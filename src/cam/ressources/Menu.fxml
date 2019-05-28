@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cam.utils.ihm.menu.events.AccueilEvent">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cam.utils.ihm.menu.events.AccueilEvent">
    <top>
       <Label text="Chasse au monstre" BorderPane.alignment="CENTER">
          <font>
@@ -19,8 +22,8 @@
       <VBox alignment="TOP_CENTER" prefHeight="271.0" prefWidth="600.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="solo" mnemonicParsing="false" onMousePressed="#GoToSolo" prefHeight="26.0" prefWidth="88.0" text="Solo" />
-            <Button mnemonicParsing="false" onAction="#multijoueur" onMousePressed="#goToMultijoueur" text="Multijoueur" />
-            <Button fx:id="Aide" mnemonicParsing="false" onMousePressed="#goToAide" prefHeight="26.0" prefWidth="94.0" text="Aide" />
+            <Button fx:id="multijoueur" mnemonicParsing="false" onMousePressed="#goToMultijoueur" text="Multijoueur" />
+            <Button fx:id="aide" mnemonicParsing="false" onMousePressed="#goToAide" prefHeight="26.0" prefWidth="94.0" text="Aide" />
             <Button fx:id="quitter" mnemonicParsing="false" onMousePressed="#quit" prefHeight="26.0" prefWidth="94.0" text="Quitter" />
          </children>
       </VBox>

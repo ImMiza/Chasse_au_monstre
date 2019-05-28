@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cam.utils.ihm.menu.events.ChoixPersoEvent">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cam.utils.ihm.menu.events.ChoixPersoEvent">
    <bottom>
-      <VBox alignment="TOP_CENTER" prefHeight="288.0" prefWidth="600.0" spacing="15.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="276.0" prefWidth="600.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="monstre" mnemonicParsing="false" onMousePressed="#clickMonstre" prefHeight="26.0" prefWidth="88.0" text="Monstre" />
-            <Button mnemonicParsing="false" onAction="#chasseur" onMousePressed="#clickChasseur" prefHeight="26.0" prefWidth="89.0" text="Chasseur" />
+            <Button mnemonicParsing="false" onMousePressed="#clickMonstre" prefHeight="26.0" prefWidth="88.0" text="Monstre" />
+            <Button mnemonicParsing="false" onMousePressed="#clickChasseur" prefHeight="26.0" prefWidth="89.0" text="Chasseur" />
+            <Button mnemonicParsing="false" onMousePressed="#retourAuMenu" prefHeight="28.0" prefWidth="89.0" text="Retour" />
          </children>
       </VBox>
    </bottom>
