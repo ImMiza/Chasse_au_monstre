@@ -120,7 +120,7 @@ public class Plateau {
 	 * retourne si le monstre a visite toutes les case
 	 * @return true si toutes les cases sont visite et false le cas echeant
 	 */
-	public boolean sontToutesVisitée() {
+	public boolean sontToutesVisitee() {
 		for (int i = 0; i < plateau.length; i++) {
 			for (int j = 0; j < plateau[i].length; j++) {
 				if (!plateau[i][j].isVisited()) {
