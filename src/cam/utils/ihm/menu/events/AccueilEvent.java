@@ -39,8 +39,12 @@ public class AccueilEvent {
     }
 
     @FXML
-    void goToAide(MouseEvent event) {
-
+    void goToAide(MouseEvent event) throws IOException {
+    	FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/cam/ressources/ReglesDuJeu.fxml"));
+        Parent perso = loader.load();
+    	Scene scene = new Scene(perso);
+     	Test.getPrimaryStage().setScene(scene);
     }
 
     @FXML
