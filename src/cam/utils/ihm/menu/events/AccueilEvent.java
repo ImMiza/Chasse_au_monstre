@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 
 public class AccueilEvent {
 
@@ -21,24 +22,25 @@ public class AccueilEvent {
     private Button solo;
 
     @FXML
-    void GoToSolo(ActionEvent event) {
+    void goToSolo(MouseEvent event) {
     	Scene scene = new Scene(Test.getChoosePerso());
-    	Test.getPrimaryStage().setScene(scene);
+     	Test.getPrimaryStage().setScene(scene);
     }
 
     @FXML
-    void goToMultijoueur(ActionEvent event) {
+    void goToMultijoueur(MouseEvent event) {
+    	System.out.println("test");
+    }
+
+    @FXML
+    void goToAide(MouseEvent event) {
 
     }
 
     @FXML
-    void goToAide(ActionEvent event) {
-
-    }
-
-    @FXML
-    void quit(ActionEvent event) {
-
+    void quitter(MouseEvent event) {
+    	System.exit(0);
     }
 
 }
+

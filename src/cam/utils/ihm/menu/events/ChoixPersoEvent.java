@@ -1,8 +1,12 @@
+
 package cam.utils.ihm.menu.events;
 
+import cam.utils.ihm.menu.Test;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 
 public class ChoixPersoEvent {
 
@@ -10,23 +14,26 @@ public class ChoixPersoEvent {
     private Button monstre;
 
     @FXML
-    void clickMonstre(ActionEvent event) {
+    private Button retour;
+
+    @FXML
+    private Button chasseur;
+
+    @FXML
+    void clickMonstre(MouseEvent event) {
 
     }
 
     @FXML
-    void chasseur(ActionEvent event) {
-
+    void clickChasseur(MouseEvent event) {
+    	System.out.println("essai");
     }
 
     @FXML
-    void clickChasseur(ActionEvent event) {
-
-    }
-
-    @FXML
-    void retourAuMenu(ActionEvent event) {
-    	
+    void retourAuMenu(MouseEvent event) {
+    	System.out.println("test");
+    	Scene scene = new Scene(Test.getMain());
+     	Test.getPrimaryStage().setScene(scene);
     }
 
 }

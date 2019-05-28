@@ -30,7 +30,7 @@ public class Test extends Application{
         
         scene = new Scene(main);
         primary.setScene(scene);
-        primary.setTitle("FXML demo");
+        primary.setTitle("Menu");
         primary.show();
 
 	}

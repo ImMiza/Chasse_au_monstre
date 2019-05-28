@@ -21,10 +21,10 @@
    <bottom>
       <VBox alignment="TOP_CENTER" prefHeight="271.0" prefWidth="600.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="solo" mnemonicParsing="false" onMousePressed="#GoToSolo" prefHeight="26.0" prefWidth="88.0" text="Solo" />
+            <Button fx:id="solo" mnemonicParsing="false" onMousePressed="#goToSolo" prefHeight="26.0" prefWidth="88.0" text="Solo" />
             <Button fx:id="multijoueur" mnemonicParsing="false" onMousePressed="#goToMultijoueur" text="Multijoueur" />
             <Button fx:id="aide" mnemonicParsing="false" onMousePressed="#goToAide" prefHeight="26.0" prefWidth="94.0" text="Aide" />
-            <Button fx:id="quitter" mnemonicParsing="false" onMousePressed="#quit" prefHeight="26.0" prefWidth="94.0" text="Quitter" />
+            <Button fx:id="quitter" mnemonicParsing="false" onMousePressed="#quitter" prefHeight="26.0" prefWidth="94.0" text="Quitter" />
          </children>
       </VBox>
    </bottom>

@@ -14,9 +14,9 @@
    <bottom>
       <VBox alignment="TOP_CENTER" prefHeight="276.0" prefWidth="600.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onMousePressed="#clickMonstre" prefHeight="26.0" prefWidth="88.0" text="Monstre" />
-            <Button mnemonicParsing="false" onMousePressed="#clickChasseur" prefHeight="26.0" prefWidth="89.0" text="Chasseur" />
-            <Button mnemonicParsing="false" onMousePressed="#retourAuMenu" prefHeight="28.0" prefWidth="89.0" text="Retour" />
+            <Button fx:id="monstre" mnemonicParsing="false" onMousePressed="#clickMonstre" prefHeight="26.0" prefWidth="88.0" text="Monstre" />
+            <Button fx:id="chasseur" mnemonicParsing="false" onMousePressed="#clickChasseur" prefHeight="26.0" prefWidth="89.0" text="Chasseur" />
+            <Button fx:id="retour" mnemonicParsing="false" onMousePressed="#retourAuMenu" prefHeight="28.0" prefWidth="89.0" text="Retour" />
          </children>
       </VBox>
    </bottom>
