@@ -23,13 +23,21 @@ public class ChoixPersoEvent {
     private Button chasseur;
 
     @FXML
-    void clickMonstre(MouseEvent event) {
-
+    void clickMonstre(MouseEvent event) throws IOException {
+    	FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/cam/ressources/MenuChoixDifficulte.fxml"));
+        Parent perso = loader.load();
+    	Scene scene = new Scene(perso);
+     	Test.getPrimaryStage().setScene(scene);
     }
 
     @FXML
-    void clickChasseur(MouseEvent event) {
-    	System.out.println("essai");
+    void clickChasseur(MouseEvent event) throws IOException {
+    	FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/cam/ressources/MenuChoixDifficulte.fxml"));
+        Parent perso = loader.load();
+    	Scene scene = new Scene(perso);
+     	Test.getPrimaryStage().setScene(scene);
     }
 
     @FXML

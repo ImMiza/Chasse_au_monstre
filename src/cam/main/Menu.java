@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Menu {
 	//ATTRIBUTS
-	private static int choix;
+	private static int choix = 000;
 	private static String nomChasseur;
 	private static String nomMonstre;
 
@@ -278,5 +278,14 @@ public class Menu {
 		for(int i=0 ; i<100 ; i++) {
 			System.out.println("\n");
 		}
+	}
+	
+	public static void setGameMode(int i) {
+		choix = i;
+	}
+	
+	public static void setPersonnage(int i) {
+		
+
 	}
 }

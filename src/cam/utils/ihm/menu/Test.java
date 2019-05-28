@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 public class Test extends Application{
 
 	private static Parent main;
-	private static Parent choosePerso;
 	
 	private static Stage primary;
 	private static Scene scene;
@@ -23,10 +22,6 @@ public class Test extends Application{
 		FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/cam/ressources/Menu.fxml"));
         main = loader.load();
-        
-        FXMLLoader loader2 = new FXMLLoader();
-        loader2.setLocation(getClass().getResource("/cam/ressources/MenuChoixPersonnage.fxml"));
-        choosePerso = loader2.load();
         
         scene = new Scene(main);
         primary.setScene(scene);
@@ -41,10 +36,6 @@ public class Test extends Application{
 	
 	public static Parent getMain() {
 		return main;
-	}
-	
-	public static Parent getChoosePerso() {
-		return choosePerso;
 	}
 	
 	public static Scene getScene() {
