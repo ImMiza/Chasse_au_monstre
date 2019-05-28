@@ -7,7 +7,7 @@ import java.util.Random;
 import cam.utils.personnages.Position;
 import cam.utils.plateau.Plateau;
 
-public class RandomHunter extends ChasseurIA{
+public class RandomHunter extends HunterIA{
 	//ATTRIBUTS
 	private List<Position> doublon = new ArrayList<>();
 	
