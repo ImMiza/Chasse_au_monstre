@@ -14,7 +14,7 @@ public class EasyMonsterTest {
 		Chasseur chasseur = new Chasseur(0, 0, "");
 		Plateau plateau = new Plateau(monster, chasseur, initPlateau(10, 10));
 		
-		while(!plateau.sontToutesVisitée() && !plateau.monstreBloquer()) {
+		while(!plateau.sontToutesVisitee() && !plateau.monstreBloquer()) {
 			plateau.printPlateauDebug();
 			Position pos = monster.ChoosePosition(plateau);
 			
