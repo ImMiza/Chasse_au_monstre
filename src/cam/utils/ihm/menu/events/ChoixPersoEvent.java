@@ -3,7 +3,6 @@ package cam.utils.ihm.menu.events;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 
 public class ChoixPersoEvent {
 
@@ -11,18 +10,23 @@ public class ChoixPersoEvent {
     private Button monstre;
 
     @FXML
+    void clickMonstre(ActionEvent event) {
+
+    }
+
+    @FXML
     void chasseur(ActionEvent event) {
 
     }
 
     @FXML
-    void clickChasseur(MouseEvent event) {
+    void clickChasseur(ActionEvent event) {
 
     }
 
     @FXML
-    void clickMonstre(MouseEvent event) {
-
+    void retourAuMenu(ActionEvent event) {
+    	
     }
 
 }
