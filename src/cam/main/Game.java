@@ -9,6 +9,10 @@ import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
 import cam.utils.personnages.Personnage;
 import cam.utils.personnages.Position;
+import cam.utils.personnages.ia.EasyHunter;
+import cam.utils.personnages.ia.EasyMonster;
+import cam.utils.personnages.ia.RandomHunter;
+import cam.utils.personnages.ia.RandomMonster;
 import cam.utils.plateau.Plateau;
 
 public abstract class Game {
@@ -18,6 +22,8 @@ public abstract class Game {
 
 	private CaseIHM[][] cases;
 	private Personnage joueur1;
+	private boolean joueur1IsMonster;
+	
 	private Personnage joueur2;
 
 	private Plateau plateau;
@@ -35,7 +41,40 @@ public abstract class Game {
 	public abstract void start();
 
 	public void initByMenu() {
-
+		int choix = Menu.getChoixMenu();
+		
+		if(Integer.toString(choix).charAt(0) == '1') { // game en solo
+			
+			if(Integer.toString(choix).charAt(1) == '1') { // c'est un monstre
+				this.joueur1 = new Monstre(0, 0, Menu.getNomMonstre());
+				this.joueur1IsMonster = true;
+				
+				if(Integer.toString(choix).charAt(2) == '1') { // choix easy
+					this.joueur2 = new RandomHunter(0, 0, "Chasseur");
+				}
+				else {
+					this.joueur2 = new EasyHunter(0, 0, "Chasseur");
+				}
+				
+				this.plateau = new Plateau((Monstre) this.joueur1, (Chasseur) this.joueur2, initPlateau(this.cases.length, this.cases[0].length));
+			}
+			else { // c'est un chasseur
+				this.joueur1 = new Chasseur(0, 0, Menu.getNomChasseur());
+				this.joueur1IsMonster = false;
+				
+				if(Integer.toString(choix).charAt(2) == '1') { // choix easy
+					this.joueur2 = new RandomMonster(0, 0, "Chasseur");
+				}
+				else {
+					this.joueur2 = new EasyMonster(0, 0, "Chasseur");
+				}
+				
+				this.plateau = new Plateau((Monstre) this.joueur2, (Chasseur) this.joueur1, initPlateau(this.cases.length, this.cases[0].length));
+			}
+			
+		}
+		
+		
 	}
 
 	/**
@@ -172,6 +211,7 @@ public abstract class Game {
 			nvY = getSecureInt(0, 9);
 			finTour = plateau.deplacerMonstre(plateau.chercheCase(nvX, nvY));
 		}
+		
 		for (int i = 0; i < plateau.getPlateau().length; i++) {
 			for (int j = 0; j < plateau.getPlateau()[i].length; j++) {
 				if (plateau.getPlateau()[i][j].isVisited()) {
@@ -179,6 +219,7 @@ public abstract class Game {
 				}
 			}
 		}
+		
 		if (plateau.sontToutesVisitee() || plateau.monstreBloquer()) {
 			this.gameFinish = true;
 		}
@@ -227,5 +268,45 @@ public abstract class Game {
 		if (plateau.deplacementsPossible().isEmpty()) {
 			this.gameFinish = true;
 		}
+	}
+
+	public boolean isGameFinish() {
+		return gameFinish;
+	}
+
+	public void setGameFinish(boolean gameFinish) {
+		this.gameFinish = gameFinish;
+	}
+
+	public CaseIHM[][] getCases() {
+		return cases;
+	}
+
+	public void setCases(CaseIHM[][] cases) {
+		this.cases = cases;
+	}
+
+	public Plateau getPlateau() {
+		return plateau;
+	}
+
+	public void setPlateau(Plateau plateau) {
+		this.plateau = plateau;
+	}
+
+	public Scanner getIn() {
+		return in;
+	}
+
+	public Personnage getJoueur1() {
+		return joueur1;
+	}
+
+	public boolean isJoueur1IsMonster() {
+		return joueur1IsMonster;
+	}
+
+	public Personnage getJoueur2() {
+		return joueur2;
 	}
 }

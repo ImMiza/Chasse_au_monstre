@@ -22,7 +22,7 @@ public class Menu {
 	 * 
 	 * Premier chiffre    : mode de jeu solo/multijoueur 1/2
 	 * Second chiffre     : choix du personnage monstre/chasseur 1/2
-	 * Troisième chfiffre : choix de la difficulté easy/normal 1/2
+	 * Troisième chiffre  : choix de la difficulté easy/normal 1/2
 	 * Code 33            : quitter le jeu
 	 * Code 1             : erreur
 	 * 
