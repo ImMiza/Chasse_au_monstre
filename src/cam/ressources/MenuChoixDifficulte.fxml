@@ -17,6 +17,7 @@
             <Button fx:id="easy" mnemonicParsing="false" onMousePressed="#diff1" prefHeight="26.0" prefWidth="88.0" text="Easy" />
             <Button fx:id="normal" mnemonicParsing="false" onMousePressed="#diff2" prefHeight="26.0" prefWidth="89.0" text="Normal" />
             <Button fx:id="difficile" mnemonicParsing="false" onMousePressed="#diff3" prefHeight="28.0" prefWidth="89.0" text="Difficile" />
+            <Button fx:id="retour" mnemonicParsing="false" onMousePressed="#retourChoixPerso" prefHeight="28.0" prefWidth="89.0" text="Retour" />
          </children>
       </VBox>
    </bottom>
