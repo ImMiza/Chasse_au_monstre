@@ -19,7 +19,6 @@ public class GameSolo {
 	private Plateau plateau;
 	
 	public GameSolo(int width, int height) {
-		this.cases = new CaseIHM[width][height];
 		init();
 		
 		
@@ -30,6 +29,6 @@ public class GameSolo {
 	}
 	
 	public void init() {
-		
+		this.cases = new CaseIHM[width][height];
 	}
 }
