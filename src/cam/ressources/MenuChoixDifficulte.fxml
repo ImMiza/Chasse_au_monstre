@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -10,22 +11,53 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cam.utils.ihm.menu.events.ChoixDifficulteEvent">
-   <bottom>
-      <VBox alignment="TOP_CENTER" prefHeight="276.0" prefWidth="600.0" spacing="15.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="easy" mnemonicParsing="false" onMousePressed="#diff1" prefHeight="26.0" prefWidth="88.0" text="Easy" />
-            <Button fx:id="normal" mnemonicParsing="false" onMousePressed="#diff2" prefHeight="26.0" prefWidth="89.0" text="Normal" />
-            <Button fx:id="difficile" mnemonicParsing="false" onMousePressed="#diff3" prefHeight="28.0" prefWidth="89.0" text="Difficile" />
-            <Button fx:id="retour" mnemonicParsing="false" onMousePressed="#retourChoixPerso" prefHeight="28.0" prefWidth="89.0" text="Retour" />
-         </children>
-      </VBox>
-   </bottom>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="anchor" stylesheets="@backgroundCssMenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cam.utils.ihm.menu.events.ChoixDifficulteEvent">
    <top>
-      <Label text="Choisissez la difficulté " textAlignment="CENTER" BorderPane.alignment="CENTER">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choix de la difficulté" BorderPane.alignment="CENTER">
          <font>
-            <Font size="27.0" />
+            <Font size="30.0" />
          </font>
-      </Label>
+      </Text>
    </top>
+   <center>
+      <VBox id="kl" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="easy" mnemonicParsing="false" onMousePressed="#diff1" prefHeight="30.0" prefWidth="100.0" text="Easy">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+            <Button fx:id="normal" mnemonicParsing="false" onMousePressed="#diff2" prefHeight="30.0" prefWidth="100.0" text="Normal">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+            <Button fx:id="difficile" mnemonicParsing="false" onMousePressed="#diff3" prefHeight="30.0" prefWidth="100.0" text="Difficile">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+            <Button fx:id="retour" mnemonicParsing="false" onMousePressed="#retour" prefHeight="30.0" prefWidth="100.0" text="Retour">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </center>
 </BorderPane>

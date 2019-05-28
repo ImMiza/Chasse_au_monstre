@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Test extends Application{
+public class Launcher extends Application{
 
 	private static Parent main;
 	

@@ -2,8 +2,8 @@ package cam.utils.ihm.menu.events;
 
 import java.io.IOException;
 
-import cam.utils.ihm.menu.Test;
-import javafx.event.ActionEvent;
+import cam.main.MenuIHM;
+import cam.utils.ihm.menu.Launcher;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,33 +20,46 @@ public class ChoixDifficulteEvent {
     private Button difficile;
 
     @FXML
-    private Button easy;
-    
-    @FXML
     private Button retour;
 
     @FXML
+    private Button easy;
+
+    @FXML
     void diff1(MouseEvent event) {
-    	System.out.println("diff 1");
+    	MenuIHM.setDifficulte(1);
+    	
+    	System.out.println("REDIRIGER VERS PLATEAU DE JEU ADAPTE");
+    	System.out.println(MenuIHM.getNomChasseur());
+    	System.out.println(MenuIHM.getNomMonstre());
     }
 
     @FXML
     void diff2(MouseEvent event) {
-    	System.out.println("diff 2");
+    	MenuIHM.setDifficulte(2);
+    	
+    	System.out.println("REDIRIGER VERS PLATEAU DE JEU ADAPTE");
     }
 
     @FXML
     void diff3(MouseEvent event) {
-    	System.out.println("diff 3");
+    	MenuIHM.setDifficulte(3);
+    	
+    	System.out.println("REDIRIGER VERS PLATEAU DE JEU ADAPTE");
     }
-    
+
     @FXML
-    void retourChoixPerso(MouseEvent event) throws IOException {
+    void retour(MouseEvent event) throws IOException {
+    	MenuIHM.setDifficulte(0);
+    	MenuIHM.setNomChasseur("");
+    	MenuIHM.setNomMonstre("");
+    	
     	FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/cam/ressources/MenuChoixPersonnage.fxml"));
+        loader.setLocation(getClass().getResource("/cam/ressources/Menu.fxml"));
         Parent perso = loader.load();
     	Scene scene = new Scene(perso);
-     	Test.getPrimaryStage().setScene(scene);
+     	Launcher.getPrimaryStage().setScene(scene);
     }
 
 }
+

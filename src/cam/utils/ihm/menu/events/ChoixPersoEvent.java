@@ -3,7 +3,8 @@ package cam.utils.ihm.menu.events;
 
 import java.io.IOException;
 
-import cam.utils.ihm.menu.Test;
+import cam.main.MenuIHM;
+import cam.utils.ihm.menu.Launcher;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,29 +25,35 @@ public class ChoixPersoEvent {
 
     @FXML
     void clickMonstre(MouseEvent event) throws IOException {
+    	MenuIHM.setModeDeJeu(1);
+    	
     	FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/cam/ressources/MenuChoixDifficulte.fxml"));
+        loader.setLocation(getClass().getResource("/cam/ressources/MenuNomMonstre.fxml"));
         Parent perso = loader.load();
     	Scene scene = new Scene(perso);
-     	Test.getPrimaryStage().setScene(scene);
+     	Launcher.getPrimaryStage().setScene(scene);
     }
 
     @FXML
     void clickChasseur(MouseEvent event) throws IOException {
+    	MenuIHM.setModeDeJeu(2);
+    	
     	FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/cam/ressources/MenuChoixDifficulte.fxml"));
+        loader.setLocation(getClass().getResource("/cam/ressources/MenuNomChasseur.fxml"));
         Parent perso = loader.load();
     	Scene scene = new Scene(perso);
-     	Test.getPrimaryStage().setScene(scene);
+     	Launcher.getPrimaryStage().setScene(scene);
     }
 
     @FXML
     void retourAuMenu(MouseEvent event) throws IOException {
+    	MenuIHM.setDifficulte(0);
+    	
     	FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/cam/ressources/Menu.fxml"));
         Parent main = loader.load();
         Scene scene = new Scene(main);
-        Test.getPrimaryStage().setScene(scene);
+        Launcher.getPrimaryStage().setScene(scene);
     }
 
 }
