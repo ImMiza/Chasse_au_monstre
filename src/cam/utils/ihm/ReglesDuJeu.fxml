@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cam.utils.ihm.reglesDuJeu.ReglesController">
+  <children>
+    <VBox layoutX="0.0" layoutY="0.0" prefHeight="400.0000999999975" prefWidth="600.0">
+      <children>
+        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="70.0" prefWidth="600.0" text="Chasse au monstre : les règles du jeu !" textAlignment="CENTER" wrapText="true">
+          <font>
+            <Font size="20.0" />
+          </font>
+        </Label>
+        <SplitPane dividerPositions="0.5" focusTraversable="true" prefHeight="331.0" prefWidth="600.0">
+          <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+              <children>
+                <StackPane layoutX="2.0" layoutY="0.0" prefHeight="329.0" prefWidth="293.0">
+                  <children>
+                    <TextArea id="regleMonstre" fx:id="textMonstre" editable="false" focusTraversable="true" onMouseClicked="#clickSurTextMonstre" prefHeight="302.0" prefWidth="269.0" text="Vous etes un monstre, mais très &#10;spécial... car vous avez envie de &#10;parcourir le monde !&#10;C'est pourquoi vous avez pour objectif&#10;de parcourir l'ensemble des cases du&#10;plateau sans passer deux fois sur une&#10;meme case.&#10;Mais attention ! Un chasseur vient de&#10;vous remarquer du haut de sa&#10;montagne ! Comme à son habitude il&#10;essaiera de vous tirer dessus avec son&#10;fusil ! S'il vous touche, un violent duel&#10;de Pierre / Feuille / Ciseaux &#10;commencera. Si vous gagnez le duel,&#10;le chasseur sera étourdi et vous pourrez&#10;continuer votre périple, dans le cas&#10;contraire vous serez capturé et votre&#10;aventure s'arretera là...&#10;Attention, je suis sur que le chasseur a eu&#10;la bonne idée de placer des pièges...!&#10;Bon courage !" visible="false" wrapText="false" />
+                    <ImageView fx:id="imgMonstre" fitHeight="274.40113830566406" fitWidth="294.98121913467475" onMouseClicked="#clickSurImgMonstre" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@../../ressources/monstre.png" />
+                      </image>
+                    </ImageView>
+                  </children>
+                </StackPane>
+              </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+              <children>
+                <StackPane fx:id="reglesChasseur" layoutX="2.0" layoutY="0.0" prefHeight="329.0" prefWidth="293.0">
+                  <children>
+                    <TextArea fx:id="textChasseur" editable="false" focusTraversable="true" onMouseClicked="#clickSurTextChasseur" prefHeight="302.0" prefWidth="269.0" text="Vous etes un chasseur se balladant dans &#10;la montagne. Tout à coup, vous voyez au&#10;loin en contrebas de votre montagne un&#10;monstre se balladant tranquillement.&#10;Heureusement, vous avez placé des &#10;pièges auparavent !&#10;Vous allez donc essayer de lui tirer dessus&#10;afin de le capturer, si vous arrivez à le &#10;toucher un violent duel de&#10;Pierre / Feuille / Ciseaux commencera. Si&#10;vous gagnez le duel, vous aurez alors &#10;capturé le monstre, autrement vous serez&#10;étourdi et la traque continuera.. !&#10;Bon courage !&#10;" visible="false" wrapText="false" />
+                    <ImageView fx:id="imgChasseur" fitHeight="323.61998822911534" fitWidth="260.98387145996094" onMouseClicked="#clickSurImgChasseur" pickOnBounds="true" preserveRatio="true" visible="true">
+                      <image>
+                        <Image url="@../../ressources/chasseur.png" />
+                      </image>
+                    </ImageView>
+                  </children>
+                </StackPane>
+              </children>
+            </AnchorPane>
+          </items>
+        </SplitPane>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>
