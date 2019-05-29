@@ -57,8 +57,12 @@ public class AccueilEvent {
     }
     
     @FXML
-    void goToParametres(MouseEvent event) {
-    	System.out.println("TODO");
+    void goToParametres(MouseEvent event) throws IOException {
+    	FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/cam/ressources/MenuParamètres.fxml"));
+        Parent perso = loader.load();
+    	Scene scene = new Scene(perso);
+     	Launcher.getPrimaryStage().setScene(scene);
     }
 
     @FXML

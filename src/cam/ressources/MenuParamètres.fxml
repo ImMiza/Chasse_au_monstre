@@ -26,22 +26,22 @@
             <HBox>
                <children>
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Taille plateau" HBox.hgrow="ALWAYS" />
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Taille plateau horizontal" HBox.hgrow="ALWAYS" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Obstacles" HBox.hgrow="ALWAYS" />
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Taille plateau vertical" HBox.hgrow="ALWAYS" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
             <HBox>
                <children>
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <Slider fx:id="sliderTaillePlateau" max="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" min="4.0" value="10.0" HBox.hgrow="ALWAYS" />
+                  <Slider fx:id="sliderXPlateau" max="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" min="4.0" value="10.0" HBox.hgrow="ALWAYS" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Slider fx:id="sliderObstaclePlateau" max="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" value="5.0" HBox.hgrow="ALWAYS" />
+                  <Slider fx:id="sliderYPlateau" max="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" min="4.0" value="10.0" HBox.hgrow="ALWAYS" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
                </children>
                <VBox.margin>
@@ -55,9 +55,9 @@
                         <Insets bottom="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtFieldTaillePlateau" prefHeight="31.0" prefWidth="100.0" text="10" />
+                  <TextField fx:id="txtFieldXPlateau" prefHeight="31.0" prefWidth="100.0" text="10" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <TextField fx:id="txtFieldObstacle" prefHeight="31.0" prefWidth="100.0" text="5" />
+                  <TextField fx:id="txtFieldYPlateau" prefHeight="31.0" prefWidth="100.0" text="10" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="31.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
                </children>
                <VBox.margin>
@@ -78,15 +78,26 @@
             <HBox>
                <children>
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <TextField fx:id="txtFieldHorisontalMonstre" prefWidth="100.0" text="Horizontal" />
+                  <TextField fx:id="txtFieldHorisontalMonstre" prefWidth="100.0" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <TextField fx:id="txtFieldVerticalMonstre" prefWidth="100.0" text="Vertical" />
+                  <TextField fx:id="txtFieldVerticalMonstre" prefWidth="100.0" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <TextField fx:id="txtFieldDiagonaleMonstre" prefWidth="100.0" text="Diagonale" />
+                  <TextField fx:id="txtFieldDiagonaleMonstre" prefWidth="100.0" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
-            <Button fx:id="retour" mnemonicParsing="false" onMousePressed="#retourMenu" prefHeight="30.0" prefWidth="100.0" text="Quitter">
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+               <children>
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                  <Label text="Horizontal" HBox.hgrow="ALWAYS" />
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                  <Label text="Vertical" HBox.hgrow="ALWAYS" />
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                  <Label text="Diagonale" HBox.hgrow="ALWAYS" />
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <Button fx:id="retour" mnemonicParsing="false" onMousePressed="#retourMenu" prefHeight="30.0" prefWidth="100.0" text="Retour">
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="75.0" />
                </VBox.margin>

@@ -7,9 +7,9 @@ public class MenuIHM {
 	private static int modeDeJeu = 0;
 	private static String nomMonstre = "";
 	private static String nomChasseur = "";
-	private static int deplacementVerticalMonstre;
-	private static int deplacementHorizontalMonstre;
-	private static int deplacementDiagonaleMonstre;
+	private static int deplacementVerticalMonstre = 2;
+	private static int deplacementHorizontalMonstre = 2;
+	private static int deplacementDiagonaleMonstre = 1;
 	private static int tailleXPlateau;
 	private static int tailleYPlateau;
 	
@@ -67,7 +67,7 @@ public class MenuIHM {
 		if(i > 4) {
 			deplacementVerticalMonstre = 4;
 		}
-		if(i < 1) {
+		else if(i < 1) {
 			deplacementVerticalMonstre = 1;
 		}
 		else {
@@ -84,7 +84,7 @@ public class MenuIHM {
 		if(i > 4) {
 			deplacementHorizontalMonstre = 4;
 		}
-		if(i < 1) {
+		else if(i < 1) {
 			deplacementHorizontalMonstre = 1;
 		}
 		else {
@@ -97,11 +97,11 @@ public class MenuIHM {
 	 * Maximum égal à 4
 	 * Minimum égal à 0
 	 */
-	public static void setDeplacementDiagonale(int i) {
+	public static void setDeplacementDiagonaleMonstre(int i) {
 		if (i > 4) {
 			deplacementDiagonaleMonstre = 4;
 		}
-		if(i < 0) {
+		else if(i < 0) {
 			deplacementDiagonaleMonstre = 0;
 		}
 		else {
@@ -118,7 +118,7 @@ public class MenuIHM {
 		if(i < 4) {
 			tailleXPlateau = 4;
 		}
-		if(i > 20) {
+		else if(i > 20) {
 			tailleXPlateau = 20;
 		}
 		else {
@@ -134,7 +134,7 @@ public class MenuIHM {
 		if(i < 4) {
 			tailleYPlateau = 4;
 		}
-		if(i > 20) {
+		else if(i > 20) {
 			tailleYPlateau = 20;
 		}
 		else {
