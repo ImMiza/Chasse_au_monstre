@@ -97,7 +97,7 @@ public class MenuIHM {
 	 * Maximum égal à 4
 	 * Minimum égal à 0
 	 */
-	public static void setDeplacementDiagonale(int i) {
+	public static void setDeplacementDiagonaleMonstre(int i) {
 		if (i > 4) {
 			deplacementDiagonaleMonstre = 4;
 		}
