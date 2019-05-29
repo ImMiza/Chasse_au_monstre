@@ -30,8 +30,10 @@
             </Label>
           </children>
         </HBox>
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" VBox.vgrow="ALWAYS" />
         <HBox minHeight="274.0" minWidth="517.0" prefHeight="274.0" prefWidth="604.0">
           <children>
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
             <StackPane prefHeight="265.0" prefWidth="295.0">
               <children>
                 <TextArea id="regleMonstre" fx:id="textMonstre" editable="false" focusTraversable="true" onMouseClicked="#clickSurTextMonstre" text="Vous etes un monstre, mais très spécial... car vous avez envie de parcourir le monde !&#10;C'est pourquoi vous avez pour objectif de parcourir l'ensemble des cases du plateau sans passer deux fois sur une meme case.&#10;Mais attention ! Un chasseur vient de vous remarquer du haut de sa montagne ! Comme à son habitude il essaiera de vous tirer dessus avec son fusil ! S'il vous touche, un violent duel de Pierre / Feuille / Ciseaux commencera. Si vous gagnez le duel, le chasseur sera étourdi et vous pourrez continuer votre périple, dans le cas contraire vous serez capturé et votre aventure s'arretera là... Attention, je suis sur que le chasseur a eu&#10;la bonne idée de placer des pièges...!&#10;Bon courage !" visible="false" wrapText="true">
@@ -59,6 +61,7 @@
                 </ImageView>
               </children>
             </StackPane>
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
           </children>
         </HBox>
       </children>
