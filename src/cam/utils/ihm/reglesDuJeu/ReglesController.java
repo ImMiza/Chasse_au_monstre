@@ -17,6 +17,9 @@ public class ReglesController {
     @FXML
     private URL location;
 
+
+
+
     @FXML
     private ImageView imgChasseur;
 
@@ -64,8 +67,6 @@ public class ReglesController {
         assert reglesChasseur != null : "fx:id=\"reglesChasseur\" was not injected: check your FXML file 'ReglesDuJeu.fxml'.";
         assert textChasseur != null : "fx:id=\"textChasseur\" was not injected: check your FXML file 'ReglesDuJeu.fxml'.";
         assert textMonstre != null : "fx:id=\"textMonstre\" was not injected: check your FXML file 'ReglesDuJeu.fxml'.";
-
-
     }
 
 }
