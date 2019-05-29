@@ -7,9 +7,15 @@ public class MenuIHM {
 	private static int modeDeJeu = 0;
 	private static String nomMonstre = "";
 	private static String nomChasseur = "";
+	private static int deplacementVerticalMonstre;
+	private static int deplacementHorizontalMonstre;
+	private static int deplacementDiagonaleMonstre;
+	private static int tailleXPlateau;
+	private static int tailleYPlateau;
+	
 	
 	//METHODES
-	
+
 	/**
 	 * 0 Non défini
 	 * 1 Solo
@@ -38,12 +44,102 @@ public class MenuIHM {
 		personnage = i;
 	}
 	
+	/**
+	 * Nom du monstre, par défaut vide ""
+	 */
 	public static void setNomMonstre(String nom) {
 		nomMonstre = nom;
 	}
 	
+	/**
+	 * Nom du chasseur, par défaut vide ""
+	 */
 	public static void setNomChasseur(String nom) {
 		nomChasseur = nom;
+	}
+	
+	/**
+	 * Donne les deplacements possibles pour le monstre verticalement
+	 * Maximum égal à 4
+	 * Minimum égal à 1
+	 */
+	public static void setDeplacementVerticalMonstre(int i) {
+		if(i > 4) {
+			deplacementVerticalMonstre = 4;
+		}
+		if(i < 1) {
+			deplacementVerticalMonstre = 1;
+		}
+		else {
+			deplacementVerticalMonstre = i;
+		}
+	}
+	
+	/**
+	 * Donne les deplacements possibles pour le monstre horizontalement
+	 * Maximum égal à 4
+	 * Minimum égal à 1
+	 */
+	public static void setDeplacementHorizontalMonstre(int i) {
+		if(i > 4) {
+			deplacementHorizontalMonstre = 4;
+		}
+		if(i < 1) {
+			deplacementHorizontalMonstre = 1;
+		}
+		else {
+			deplacementHorizontalMonstre = i;
+		}
+	}
+	
+	/**
+	 * Donne les dplacements possibles pour le monstre en diagonale
+	 * Maximum égal à 4
+	 * Minimum égal à 0
+	 */
+	public static void setDeplacementDiagonale(int i) {
+		if (i > 4) {
+			deplacementDiagonaleMonstre = 4;
+		}
+		if(i < 0) {
+			deplacementDiagonaleMonstre = 0;
+		}
+		else {
+			deplacementDiagonaleMonstre = i;
+		}
+	}
+	
+	/**
+	 * Donne la taille du plateau en X
+	 * Minimum égal à 4
+	 * Maximum égal à 20
+	 */
+	public static void setTailleXPlateau(int i) {
+		if(i < 4) {
+			tailleXPlateau = 4;
+		}
+		if(i > 20) {
+			tailleXPlateau = 20;
+		}
+		else {
+			tailleXPlateau = i;
+		}
+	}
+	
+	/**
+	 * Minimum égal à 4
+	 * Maximum égal à 20
+	 */
+	public static void setTailleYPlateau(int i) {
+		if(i < 4) {
+			tailleYPlateau = 4;
+		}
+		if(i > 20) {
+			tailleYPlateau = 20;
+		}
+		else {
+			tailleYPlateau = i;
+		}
 	}
 	
 	//GETTERS
@@ -67,5 +163,23 @@ public class MenuIHM {
 		return nomChasseur;
 	}
 	
+	public static int getDeplacementVerticalMonstre() {
+		return deplacementVerticalMonstre;
+	}
 
+	public static int getDeplacementHorizontalMonstre() {
+		return deplacementHorizontalMonstre;
+	}
+
+	public static int getDeplacementDiagonaleMonstre() {
+		return deplacementDiagonaleMonstre;
+	}
+
+	public static int getTailleXPlateau() {
+		return tailleXPlateau;
+	}
+
+	public static int getTailleYPlateau() {
+		return tailleYPlateau;
+	}
 }
