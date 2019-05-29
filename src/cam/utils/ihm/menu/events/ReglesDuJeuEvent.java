@@ -44,22 +44,37 @@ public class ReglesDuJeuEvent {
     }
 
     @FXML
-    void clickSurTextMonstre(ActionEvent event) {
-
+    void clickSurImgChasseur(MouseEvent event) {
+        textChasseur.setVisible(true);
+        imgChasseur.setVisible(false);
     }
 
     @FXML
-    void clickSurImgMonstre(ActionEvent event) {
-
+    void clickSurImgMonstre(MouseEvent event) {
+        textMonstre.setVisible(true);
+        imgMonstre.setVisible(false);
     }
 
     @FXML
-    void clickSurTextChasseur(ActionEvent event) {
-
+    void clickSurTextChasseur(MouseEvent event) {
+        textChasseur.setVisible(false);
+        imgChasseur.setVisible(true);
     }
 
     @FXML
-    void clickSurImgChasseur(ActionEvent event) {
+    void clickSurTextMonstre(MouseEvent event) {
+        textMonstre.setVisible(false);
+        imgMonstre.setVisible(true);
+    }
+
+    @FXML
+    void initialize() {
+        assert imgChasseur != null : "fx:id=\"imgChasseur\" was not injected: check your FXML file 'ReglesDuJeu.fxml'.";
+        assert imgMonstre != null : "fx:id=\"imgMonstre\" was not injected: check your FXML file 'ReglesDuJeu.fxml'.";
+        assert reglesChasseur != null : "fx:id=\"reglesChasseur\" was not injected: check your FXML file 'ReglesDuJeu.fxml'.";
+        assert textChasseur != null : "fx:id=\"textChasseur\" was not injected: check your FXML file 'ReglesDuJeu.fxml'.";
+        assert textMonstre != null : "fx:id=\"textMonstre\" was not injected: check your FXML file 'ReglesDuJeu.fxml'.";
+
 
     }
 
