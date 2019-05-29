@@ -32,29 +32,27 @@
         </HBox>
         <HBox minHeight="280.0" minWidth="517.0" prefHeight="317.0" prefWidth="600.0">
           <children>
-            <Pane prefHeight="200.0" prefWidth="200.0" />
-            <StackPane prefHeight="0.0" prefWidth="200.0">
+            <StackPane prefHeight="287.0" prefWidth="300.0">
               <children>
-                <TextArea id="regleMonstre" fx:id="textMonstre" editable="false" focusTraversable="true" maxWidth="1.7976931348623157E308" onMouseClicked="#clickSurTextMonstre" prefHeight="286.0" prefWidth="200.0" text="Vous etes un monstre, mais très spécial... car vous avez envie de parcourir le monde !&#10;C'est pourquoi vous avez pour objectif de parcourir l'ensemble des cases du plateau sans passer deux fois sur une meme case.&#10;Mais attention ! Un chasseur vient de vous remarquer du haut de sa montagne ! Comme à son habitude il essaiera de vous tirer dessus avec son fusil ! S'il vous touche, un violent duel de Pierre / Feuille / Ciseaux commencera. Si vous gagnez le duel, le chasseur sera étourdi et vous pourrez continuer votre périple, dans le cas contraire vous serez capturé et votre aventure s'arretera là... Attention, je suis sur que le chasseur a eu&#10;la bonne idée de placer des pièges...!&#10;Bon courage !" visible="false" wrapText="true" />
-                <ImageView fx:id="imgMonstre" fitHeight="274.40113830566406" fitWidth="200.0" onMouseClicked="#clickSurImgMonstre" pickOnBounds="true" preserveRatio="true" visible="true">
+                <TextArea id="regleMonstre" fx:id="textMonstre" editable="false" focusTraversable="true" maxWidth="1.7976931348623157E308" onMouseClicked="#clickSurTextMonstre" prefHeight="317.0" prefWidth="285.0" text="Vous etes un monstre, mais très spécial... car vous avez envie de parcourir le monde !&#10;C'est pourquoi vous avez pour objectif de parcourir l'ensemble des cases du plateau sans passer deux fois sur une meme case.&#10;Mais attention ! Un chasseur vient de vous remarquer du haut de sa montagne ! Comme à son habitude il essaiera de vous tirer dessus avec son fusil ! S'il vous touche, un violent duel de Pierre / Feuille / Ciseaux commencera. Si vous gagnez le duel, le chasseur sera étourdi et vous pourrez continuer votre périple, dans le cas contraire vous serez capturé et votre aventure s'arretera là... Attention, je suis sur que le chasseur a eu&#10;la bonne idée de placer des pièges...!&#10;Bon courage !" visible="false" wrapText="true" />
+                <ImageView fx:id="imgMonstre" fitHeight="186.0" fitWidth="236.0" onMouseClicked="#clickSurImgMonstre" pickOnBounds="true" preserveRatio="true" visible="true">
                   <image>
                     <Image url="@monstre.png" />
                   </image>
                 </ImageView>
               </children>
             </StackPane>
-            <Separator orientation="VERTICAL" />
-            <StackPane fx:id="reglesChasseur" prefHeight="249.0" prefWidth="200.0">
+            <Separator orientation="VERTICAL" prefHeight="164.0" prefWidth="9.0" />
+            <StackPane fx:id="reglesChasseur" prefHeight="317.0" prefWidth="290.0">
               <children>
                 <TextArea fx:id="textChasseur" disable="false" editable="false" focusTraversable="true" onMouseClicked="#clickSurTextChasseur" prefHeight="317.0" prefWidth="261.0" text="Vous etes un chasseur se balladant dans la montagne. Tout à coup, vous voyez au loin en contrebas de votre montagne un monstre se balladant tranquillement.&#10;Heureusement, vous avez placé des pièges auparavent !&#10;Vous allez donc essayer de lui tirer dessus afin de le capturer, si vous arrivez à le toucher un violent duel de Pierre / Feuille / Ciseaux commencera. Si vous gagnez le duel, vous aurez alors capturé le monstre, autrement vous serez étourdi et la traque continuera.. !&#10;Bon courage !&#10;" visible="false" wrapText="true" />
-                <ImageView fx:id="imgChasseur" fitHeight="323.61998822911534" fitWidth="200.0" onMouseClicked="#clickSurImgChasseur" pickOnBounds="true" preserveRatio="true" visible="true">
+                <ImageView fx:id="imgChasseur" fitHeight="231.0" fitWidth="252.0" onMouseClicked="#clickSurImgChasseur" pickOnBounds="true" preserveRatio="true" visible="true">
                   <image>
                     <Image url="@chasseur.png" />
                   </image>
                 </ImageView>
               </children>
             </StackPane>
-            <Pane prefHeight="200.0" prefWidth="200.0" />
           </children>
         </HBox>
       </children>
