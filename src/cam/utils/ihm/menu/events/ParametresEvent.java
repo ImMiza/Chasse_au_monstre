@@ -16,10 +16,10 @@ import javafx.scene.input.MouseEvent;
 public class ParametresEvent {
 
     @FXML
-    private TextField txtFieldTaillePlateau;
+    private TextField txtFieldYPlateau;
 
     @FXML
-    private Slider sliderObstaclePlateau;
+    private Slider sliderYPlateau;
 
     @FXML
     private TextField txtFieldHorisontalMonstre;
@@ -28,10 +28,10 @@ public class ParametresEvent {
     private Button retour;
 
     @FXML
-    private Slider sliderTaillePlateau;
+    private Slider sliderXPlateau;
 
     @FXML
-    private TextField txtFieldObstacle;
+    private TextField txtFieldXPlateau;
 
     @FXML
     private TextField txtFieldVerticalMonstre;
@@ -41,17 +41,54 @@ public class ParametresEvent {
 
     @FXML
     void retourMenu(MouseEvent event) throws IOException {
-    	MenuIHM.setDeplacementHorizontalMonstre(Integer.parseInt(txtFieldHorisontalMonstre.getText()));
-    	MenuIHM.setDeplacementDiagonaleMonstre(Integer.parseInt(txtFieldDiagonaleMonstre.getText()));
-    	MenuIHM.setDeplacementVerticalMonstre(Integer.parseInt(txtFieldVerticalMonstre.getText()));
-    	MenuIHM.setTailleXPlateau(Integer.parseInt(txtFieldTaillePlateau.getText()));
-    	MenuIHM.setTailleYPlateau(Integer.parseInt(txtFieldTaillePlateau.getText()));
+    	if(isNumber(txtFieldHorisontalMonstre.getText())) {
+    		MenuIHM.setDeplacementHorizontalMonstre(Integer.parseInt(txtFieldHorisontalMonstre.getText()));
+    	}
+    	else {
+    		MenuIHM.setDeplacementHorizontalMonstre(2);
+    	}
+    	
+    	if(isNumber(txtFieldVerticalMonstre.getText())) {
+    		MenuIHM.setDeplacementVerticalMonstre(Integer.parseInt(txtFieldVerticalMonstre.getText()));
+    	}
+    	else {
+    		MenuIHM.setDeplacementVerticalMonstre(2);
+    	}
+    	
+    	if(isNumber(txtFieldDiagonaleMonstre.getText())) {
+    		MenuIHM.setDeplacementDiagonaleMonstre(Integer.parseInt(txtFieldDiagonaleMonstre.getText()));
+    	}
+    	else {
+    		MenuIHM.setDeplacementDiagonaleMonstre(1);
+    	}
+    	System.out.println("HMonstre : " + MenuIHM.getDeplacementHorizontalMonstre());
+    	System.out.println("VMonstre : " + MenuIHM.getDeplacementVerticalMonstre());
+    	System.out.println("DMonstre : " + MenuIHM.getDeplacementDiagonaleMonstre());
+    	
+    	
+    	MenuIHM.setTailleXPlateau(Integer.parseInt(txtFieldXPlateau.getText()));
+    	MenuIHM.setTailleYPlateau(Integer.parseInt(txtFieldYPlateau.getText()));
     	
     	FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/cam/ressources/Menu.fxml"));
         Parent perso = loader.load();
     	Scene scene = new Scene(perso);
      	Launcher.getPrimaryStage().setScene(scene);
+    }
+    
+    public boolean isNumber(String s) {
+    	try {
+			Integer.parseInt(s);
+		} catch (NumberFormatException e) {
+			return false;
+		}
+    	return true;
+    }
+    
+    public void initialize() {
+    	txtFieldHorisontalMonstre.setText(MenuIHM.getDeplacementHorizontalMonstre() + "");
+    	txtFieldVerticalMonstre.setText(MenuIHM.getDeplacementVerticalMonstre() + "");
+    	txtFieldDiagonaleMonstre.setText(MenuIHM.getDeplacementDiagonaleMonstre() + "");
     }
 
 }
