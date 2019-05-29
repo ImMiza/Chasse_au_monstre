@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e0ddf79-4734-4d2f-b3d6-0e9d59230d82" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chasse_au_monstre.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Chasse_au_monstre.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cam/utils/ihm/reglesDuJeu/ReglesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cam/utils/ihm/reglesDuJeu/ReglesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cam/ressources/ReglesDuJeu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/cam/ressources/ReglesDuJeu.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -146,46 +144,6 @@
               <item name="cam" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Chasse_au_monstre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chasse_au_monstre" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cam" type="462c0819:PsiDirectoryNode" />
-              <item name="ressources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Chasse_au_monstre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chasse_au_monstre" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cam" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Chasse_au_monstre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chasse_au_monstre" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cam" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="ihm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Chasse_au_monstre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chasse_au_monstre" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cam" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="ihm" type="462c0819:PsiDirectoryNode" />
-              <item name="menu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Chasse_au_monstre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chasse_au_monstre" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cam" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="ihm" type="462c0819:PsiDirectoryNode" />
-              <item name="reglesDuJeu" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -244,7 +202,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28636363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
