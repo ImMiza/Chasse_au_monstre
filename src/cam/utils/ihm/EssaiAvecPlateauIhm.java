@@ -7,8 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.TextArea;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+
+import java.awt.*;
 
 public class EssaiAvecPlateauIhm extends Application{
 	
@@ -21,7 +24,7 @@ public class EssaiAvecPlateauIhm extends Application{
 		Parent root = loaderJEU.load();
 		
 		GraphicsContext gc = MainController.leCanvas.getGraphicsContext2D();
-		
+		TextArea console = MainController.console;
 		for (int i = 0; i < plateau.getPlateau().getPlateau().length; i++) {
 			for (int j = 0; j < plateau.getPlateau().getPlateau()[i].length; j++) {
 				plateau.getPlateau().getPlateau()[i][j] = new Case(new Position(i * (500 / plateau.getPlateau().getPlateau().length), j * (500 / plateau.getPlateau().getPlateau()[i].length)));
