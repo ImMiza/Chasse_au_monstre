@@ -1,7 +1,7 @@
 package cam.utils.ihm;
 
 import cam.utils.cases.Case;
-import cam.utils.plateau.Plateau;
+import cam.utils.personnages.Position;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -9,11 +9,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
 
 public class MainController {
 	
-	public static Canvas leCanvas;
-    public static TextArea console;
+	private static Case[][] lesCases;
+	private PlateauIHM plateau;
+	
     @FXML
     private Canvas canvas;
 
@@ -24,13 +26,11 @@ public class MainController {
     private Label lblJoueur;
 
     @FXML
-    void activeCanvas(MouseEvent event) {
-    	CaseIHM[][] lesCases = Essai.getCase();
-    	
+    void activeCanvas(MouseEvent event) {    	
     	for (int i = 0; i < lesCases.length; i++) {
 			for (int j = 0; j < lesCases[i].length; j++) {
-				if (lesCases[i][j].getRectangle().contains(event.getX(), event.getY())) {
-					System.out.println(lesCases[i][j].getRectangle().getX() / (500 / lesCases.length) + ", " + lesCases[i][j].getRectangle().getY() / (500 / lesCases.length));
+				if (plateau.getLesRectangles()[i][j].contains(event.getX(), event.getY())) {
+					System.out.println(plateau.getLesRectangles()[i][j].getX() / (500 / lesCases.length) + ", " + plateau.getLesRectangles()[i][j].getY() / (500 / lesCases.length));
 				}
 			}
 		}
@@ -41,7 +41,7 @@ public class MainController {
      */
     private void dessineDansCanvas(){
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        Image herbe = new Image("src/cam/ressources/herbe.jpg");
+        Image herbe = new Image("file:src/cam/ressources/herbe.jpg");
         for (int i = 0; i<10; i++){
             for (int j = 0; j<10; j++){
                 gc.drawImage(herbe, canvas.getWidth()/10 * i, canvas.getHeight()/10*j, canvas.getWidth() / 10, canvas.getHeight()/10);
@@ -51,8 +51,17 @@ public class MainController {
 
 
     public void initialize() {
-    	leCanvas = canvas;
-    	console = txtFieldhistorique;
+    	lesCases = plateau.getPlateau().getPlateau();
+    	
+    	GraphicsContext gc = canvas.getGraphicsContext2D();
+		
+		for (int i = 0; i < plateau.getPlateau().getPlateau().length; i++) {
+			for (int j = 0; j < plateau.getPlateau().getPlateau()[i].length; j++) {
+				plateau.getPlateau().getPlateau()[i][j] = new Case(new Position(i * (500 / plateau.getPlateau().getPlateau().length), j * (500 / plateau.getPlateau().getPlateau()[i].length)));
+				plateau.getLesRectangles()[i][j] = new Rectangle(i * (500 / plateau.getPlateau().getPlateau().length), j * (500 / plateau.getPlateau().getPlateau().length), 500 / plateau.getPlateau().getPlateau().length, 500 / plateau.getPlateau().getPlateau().length);
+				gc.strokeRect(i * (500 / plateau.getPlateau().getPlateau().length), j * (500 / plateau.getPlateau().getPlateau().length), 500 / plateau.getPlateau().getPlateau().length, 500 / plateau.getPlateau().getPlateau().length);
+			}
+		}
     	lblJoueur.setText("Au monstre a jouer");
     	dessineDansCanvas();
     }
