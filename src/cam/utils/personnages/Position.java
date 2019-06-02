@@ -18,7 +18,7 @@ public class Position {
 		this.x = x;
 		this.y = y;
 	}
-	
+
 	/**
 	 * Retourne la 1ère coordonnée de la position.
 	 * @return la 1ère coordonnée de la position.
