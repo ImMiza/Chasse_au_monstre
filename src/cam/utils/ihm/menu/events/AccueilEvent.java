@@ -41,10 +41,15 @@ public class AccueilEvent {
     }
 
     @FXML
-    void goToMultijoueur(MouseEvent event) {
+    void goToMultijoueur(MouseEvent event) throws IOException {
     	MenuIHM.setModeDeJeu(2);
     	
-    	System.out.println("REDIRIGER VERS PLATEAU DE JEU ADAPTE");
+    	FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/cam/ressources/MenuNomChasseurMulti.fxml"));
+        Parent perso = loader.load();
+    	Scene scene = new Scene(perso);
+     	Launcher.getPrimaryStage().setScene(scene);
+    	
     }
 
     @FXML

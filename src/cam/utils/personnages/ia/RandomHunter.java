@@ -37,7 +37,6 @@ public class RandomHunter extends HunterIA{
 			p = new Position(x, y);
 			if(doublon.contains(p) == false) {
 				doublon.add(p);
-				//System.out.println(p);
 				end = true;
 			}
 			
@@ -45,16 +44,6 @@ public class RandomHunter extends HunterIA{
 		System.out.println(p);
 		return p;
 		
-		
-		/**
-		Random m = new Random();
-		int maxX = plateau.getPlateau().length;
-		int x = m.nextInt(maxX);
-		int maxY = plateau.getPlateau()[0].length;
-		int y = m.nextInt(maxY);
-		return new Position(x, y);
-		//AJOUTER LA DETECTION DE DOUBLONS
-		 **/
 		 
 	}
 
