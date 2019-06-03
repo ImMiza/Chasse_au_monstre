@@ -1,7 +1,5 @@
 package cam.utils.ihm;
 
-import cam.utils.cases.Case;
-import cam.utils.plateau.Plateau;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -41,7 +39,7 @@ public class MainController {
      */
     private void dessineDansCanvas(){
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        Image herbe = new Image("src/cam/ressources/herbe.jpg");
+        Image herbe = new Image("/cam/ressources/herbe.jpg");
         for (int i = 0; i<10; i++){
             for (int j = 0; j<10; j++){
                 gc.drawImage(herbe, canvas.getWidth()/10 * i, canvas.getHeight()/10*j, canvas.getWidth() / 10, canvas.getHeight()/10);

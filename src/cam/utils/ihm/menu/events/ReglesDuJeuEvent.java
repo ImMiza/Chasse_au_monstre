@@ -3,7 +3,6 @@ package cam.utils.ihm.menu.events;
 import java.io.IOException;
 
 import cam.utils.ihm.menu.Launcher;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -74,8 +73,6 @@ public class ReglesDuJeuEvent {
         assert reglesChasseur != null : "fx:id=\"reglesChasseur\" was not injected: check your FXML file 'ReglesDuJeu.fxml'.";
         assert textChasseur != null : "fx:id=\"textChasseur\" was not injected: check your FXML file 'ReglesDuJeu.fxml'.";
         assert textMonstre != null : "fx:id=\"textMonstre\" was not injected: check your FXML file 'ReglesDuJeu.fxml'.";
-
-
     }
 
 }
