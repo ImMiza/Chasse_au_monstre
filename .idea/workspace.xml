@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e0ddf79-4734-4d2f-b3d6-0e9d59230d82" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cam/utils/ihm/Annexe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cam/utils/ihm/Annexe.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -27,23 +27,32 @@
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/Annexe.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+              <caret line="27" column="147" selection-start-line="27" selection-start-column="147" selection-end-line="27" selection-end-column="147" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/Annexe.java">
+        <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/PlateauIHM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" selection-start-line="11" selection-end-line="14" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -73,8 +82,8 @@
         <option value="$PROJECT_DIR$/src/cam/utils/ihm/Game.java" />
         <option value="$PROJECT_DIR$/src/cam/utils/ihm/menu/MainController2.java" />
         <option value="$PROJECT_DIR$/src/cam/ressources/CAM.fxml" />
-        <option value="$PROJECT_DIR$/src/cam/utils/ihm/Annexe.java" />
         <option value="$PROJECT_DIR$/src/cam/utils/ihm/MainController.java" />
+        <option value="$PROJECT_DIR$/src/cam/utils/ihm/Annexe.java" />
       </list>
     </option>
   </component>
@@ -134,15 +143,6 @@
               <item name="cam" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
               <item name="ihm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Chasse_au_monstre" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chasse_au_monstre" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cam" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="ihm" type="462c0819:PsiDirectoryNode" />
-              <item name="menu" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Chasse_au_monstre" type="b2602c69:ProjectViewProjectNode" />
@@ -246,7 +246,7 @@
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19166666" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25227273" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -401,13 +401,6 @@
     <entry file="file://$PROJECT_DIR$/src/cam/ressources/herbe.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/PlateauIHM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/EssaiAvecPlateauIhm.java" />
     <entry file="file://$PROJECT_DIR$/src/cam/ressources/chasseur.png">
       <provider selected="true" editor-type-id="images" />
@@ -465,20 +458,27 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/Annexe.java">
+    <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/PlateauIHM.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/Annexe.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <caret line="27" column="147" selection-start-line="27" selection-start-column="147" selection-end-line="27" selection-end-column="147" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
