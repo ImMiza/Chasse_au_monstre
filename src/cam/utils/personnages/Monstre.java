@@ -1,6 +1,6 @@
 package cam.utils.personnages;
 
-import cam.main.MenuIHM;
+import cam.utils.ihm.menu.MenuIHM;
 
 /**
  * Class caractérisant le monstre.

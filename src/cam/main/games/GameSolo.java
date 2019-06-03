@@ -1,6 +1,7 @@
-package cam.main;
+package cam.main.games;
 
 import cam.utils.cases.TrapCase;
+import cam.utils.ihm.menu.Menu;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
 import cam.utils.personnages.Position;
