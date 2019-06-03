@@ -34,7 +34,7 @@
             <HBox>
                <children>
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <Slider fx:id="sliderXPlateau" max="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" min="4.0" onMouseReleased="#sliderXReleasedListener" value="10.0" HBox.hgrow="ALWAYS" />
+                  <Slider fx:id="sliderXPlateau" max="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" min="4.0" onMousePressed="#sliderXReleasedListener" value="10.0" HBox.hgrow="ALWAYS" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets />
