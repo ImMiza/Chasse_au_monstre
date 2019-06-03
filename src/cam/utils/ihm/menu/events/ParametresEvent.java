@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 public class ParametresEvent {
@@ -48,14 +47,14 @@ public class ParametresEvent {
     	else {
     		MenuIHM.setDeplacementHorizontalMonstre(2);
     	}
-    	
+
     	if(isNumber(txtFieldVerticalMonstre.getText())) {
     		MenuIHM.setDeplacementVerticalMonstre(Integer.parseInt(txtFieldVerticalMonstre.getText()));
     	}
     	else {
     		MenuIHM.setDeplacementVerticalMonstre(2);
     	}
-    	
+
     	if(isNumber(txtFieldDiagonaleMonstre.getText())) {
     		MenuIHM.setDeplacementDiagonaleMonstre(Integer.parseInt(txtFieldDiagonaleMonstre.getText()));
     	}
@@ -65,42 +64,18 @@ public class ParametresEvent {
     	System.out.println("HMonstre : " + MenuIHM.getDeplacementHorizontalMonstre());
     	System.out.println("VMonstre : " + MenuIHM.getDeplacementVerticalMonstre());
     	System.out.println("DMonstre : " + MenuIHM.getDeplacementDiagonaleMonstre());
-    	
-    	
+
+
     	MenuIHM.setTailleXPlateau(Integer.parseInt(txtFieldXPlateau.getText()));
     	MenuIHM.setTailleYPlateau(Integer.parseInt(txtFieldYPlateau.getText()));
-    	
+
     	FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/cam/ressources/Menu.fxml"));
         Parent perso = loader.load();
     	Scene scene = new Scene(perso);
      	Launcher.getPrimaryStage().setScene(scene);
     }
-    
-    @FXML
-    void sliderXReleasedListener(MouseEvent event) {
-    	this.txtFieldXPlateau.setText("" + this.sliderXPlateau.getValue());
-    	System.out.println("XListen");
-    }
 
-    @FXML
-    void sliderYReleasedListener(MouseEvent event) {
-    	this.txtFieldYPlateau.setText("" + this.sliderYPlateau.getValue());
-    	System.out.println("YListen");
-    }
-
-    @FXML
-    void txtFieldXKeyReleasedListener(KeyEvent event) {
-    	this.sliderXPlateau.setValue(Double.parseDouble(this.txtFieldXPlateau.getText()));
-    	System.out.println("sliderX");
-    }
-
-    @FXML
-    void txtFieldYKeyReleasedListener(KeyEvent event) {
-    	this.sliderYPlateau.setValue(Double.parseDouble(this.txtFieldYPlateau.getText()));
-    	System.out.println("sliderY");
-    }
-    
     public boolean isNumber(String s) {
     	try {
 			Integer.parseInt(s);
@@ -109,11 +84,15 @@ public class ParametresEvent {
 		}
     	return true;
     }
-    
+
     public void initialize() {
     	txtFieldHorisontalMonstre.setText(MenuIHM.getDeplacementHorizontalMonstre() + "");
     	txtFieldVerticalMonstre.setText(MenuIHM.getDeplacementVerticalMonstre() + "");
     	txtFieldDiagonaleMonstre.setText(MenuIHM.getDeplacementDiagonaleMonstre() + "");
+
+    	this.sliderXPlateau.setOnMouseReleased(e -> {
+    		this.txtFieldXPlateau.setText("" + this.sliderXPlateau.getValue());
+    	});
     }
 
 }
