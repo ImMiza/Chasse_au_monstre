@@ -16,11 +16,11 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cam/ressources/CAM.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
+            <state relative-caret-position="150">
               <caret line="10" column="250" selection-start-line="10" selection-start-column="250" selection-end-line="10" selection-end-column="250" />
             </state>
           </provider>
@@ -31,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -39,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/Annexe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="27" column="147" selection-start-line="27" selection-start-column="147" selection-end-line="27" selection-end-column="147" />
+            <state relative-caret-position="101">
+              <caret line="12" column="55" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,6 +97,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -156,9 +157,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Course" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -246,7 +246,7 @@
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25227273" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2560606" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -452,11 +452,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cam/ressources/CAM.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
+        <state relative-caret-position="150">
           <caret line="10" column="250" selection-start-line="10" selection-start-column="250" selection-end-line="10" selection-end-column="250" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/PlateauIHM.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -465,17 +472,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="27" column="40" lean-forward="true" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/Annexe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="27" column="147" selection-start-line="27" selection-start-column="147" selection-end-line="27" selection-end-column="147" />
+        <state relative-caret-position="101">
+          <caret line="12" column="55" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

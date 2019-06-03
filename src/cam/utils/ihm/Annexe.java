@@ -10,7 +10,7 @@ import javafx.scene.image.Image;
 
 public class Annexe {
     public static void dessineTerrain(Canvas canvas){
-        Image herbe= new Image("file:src/sample/herbe.jpg");
+        Image herbe= new Image("file:src/cam/ressources/herbe.jpg");
         GraphicsContext gc = canvas.getGraphicsContext2D();
         //gc.drawImage(herbe, 0,0, 10,10);
         for (int i = 0; i<10; i++){
