@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e0ddf79-4734-4d2f-b3d6-0e9d59230d82" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cam/ressources/CAM.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/cam/ressources/CAM.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cam/utils/ihm/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cam/utils/ihm/MainController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -18,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="111">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cam/ressources/CAM.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+            <state relative-caret-position="480">
+              <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder" />
@@ -126,8 +126,8 @@
         <option value="$PROJECT_DIR$/src/cam/utils/ihm/EssaiAvecPlateauIhm.java" />
         <option value="$PROJECT_DIR$/src/cam/utils/ihm/Game.java" />
         <option value="$PROJECT_DIR$/src/cam/utils/ihm/menu/MainController2.java" />
-        <option value="$PROJECT_DIR$/src/cam/ressources/CAM.fxml" />
         <option value="$PROJECT_DIR$/src/cam/utils/ihm/MainController.java" />
+        <option value="$PROJECT_DIR$/src/cam/ressources/CAM.fxml" />
       </list>
     </option>
   </component>
@@ -230,7 +230,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Game">
+  <component name="RunManager" selected="Application.Essai">
+    <configuration name="Essai" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cam.utils.ihm.Essai" />
+      <module name="Chasse_au_monstre" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cam.utils.ihm.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cam.utils.ihm.Game" />
       <module name="Chasse_au_monstre" />
@@ -255,6 +268,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Essai" />
         <item itemvalue="Application.Game" />
       </list>
     </recent_temporary>
@@ -506,23 +520,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cam/ressources/CAM.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/cam/utils/ihm/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="111">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cam/ressources/CAM.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">
