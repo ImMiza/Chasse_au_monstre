@@ -2,7 +2,7 @@ package cam.utils.ihm.menu.events;
 
 import java.io.IOException;
 
-import cam.utils.ihm.menu.Launcher;
+import cam.main.Launcher;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

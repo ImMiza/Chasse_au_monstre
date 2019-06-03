@@ -1,10 +1,12 @@
-package cam.main;
+package cam.main.games;
 
 import java.util.Scanner;
 
 import cam.utils.cases.Case;
 import cam.utils.cases.SlowCase;
 import cam.utils.ihm.CaseIHM;
+import cam.utils.ihm.menu.Menu;
+import cam.utils.ihm.menu.MenuIHM;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
 import cam.utils.personnages.Personnage;

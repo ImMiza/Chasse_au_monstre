@@ -1,4 +1,4 @@
-package cam.main;
+package cam.utils.ihm.menu;
 
 public class MenuIHM {
 	//ATTRIBUTS
