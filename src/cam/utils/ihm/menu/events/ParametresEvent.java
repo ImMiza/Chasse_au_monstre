@@ -80,21 +80,25 @@ public class ParametresEvent {
     @FXML
     void sliderXReleasedListener(MouseEvent event) {
     	this.txtFieldXPlateau.setText("" + this.sliderXPlateau.getValue());
+    	System.out.println("XListen");
     }
 
     @FXML
     void sliderYReleasedListener(MouseEvent event) {
     	this.txtFieldYPlateau.setText("" + this.sliderYPlateau.getValue());
+    	System.out.println("YListen");
     }
 
     @FXML
     void txtFieldXKeyReleasedListener(KeyEvent event) {
     	this.sliderXPlateau.setValue(Double.parseDouble(this.txtFieldXPlateau.getText()));
+    	System.out.println("sliderX");
     }
 
     @FXML
     void txtFieldYKeyReleasedListener(KeyEvent event) {
     	this.sliderYPlateau.setValue(Double.parseDouble(this.txtFieldYPlateau.getText()));
+    	System.out.println("sliderY");
     }
     
     public boolean isNumber(String s) {
