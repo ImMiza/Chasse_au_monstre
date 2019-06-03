@@ -28,25 +28,25 @@ public abstract class Game {
 
 	private Plateau plateau;
 
-	public Game(int width, int height) {
-		this.cases = new CaseIHM[width][height];
+	public Game() {
 		this.gameFinish = false;
 		initByMenu();
 	}
 
-	public Game() {
-		this(10, 10);
-	}
-
 	public abstract void start();
 
-	public void initByMenu() {
+	protected void initByMenu() {
 		int choix = Menu.getChoixMenu();
+		this.cases = new CaseIHM[MenuIHM.getTailleXPlateau()][MenuIHM.getTailleYPlateau()];
 		
 		if(Integer.toString(choix).charAt(0) == '1') { // game en solo
 			
 			if(Integer.toString(choix).charAt(1) == '1') { // c'est un monstre
-				this.joueur1 = new Monstre(0, 0, Menu.getNomMonstre());
+				this.joueur1 = new Monstre(0, 0, MenuIHM.getNomMonstre());
+				((Monstre) this.joueur1).setDeplacementHorizontal(MenuIHM.getDeplacementHorizontalMonstre());
+				((Monstre) this.joueur1).setDeplacementVertical(MenuIHM.getDeplacementVerticalMonstre());
+				((Monstre) this.joueur1).setDeplacementDiagonal(MenuIHM.getDeplacementDiagonaleMonstre());
+				
 				this.joueur1IsMonster = true;
 				
 				if(Integer.toString(choix).charAt(2) == '1') { // choix easy
@@ -59,7 +59,7 @@ public abstract class Game {
 				this.plateau = new Plateau((Monstre) this.joueur1, (Chasseur) this.joueur2, initPlateau(this.cases.length, this.cases[0].length));
 			}
 			else { // c'est un chasseur
-				this.joueur1 = new Chasseur(0, 0, Menu.getNomChasseur());
+				this.joueur1 = new Chasseur(0, 0, MenuIHM.getNomChasseur());
 				this.joueur1IsMonster = false;
 				
 				if(Integer.toString(choix).charAt(2) == '1') { // choix easy
@@ -68,6 +68,9 @@ public abstract class Game {
 				else {
 					this.joueur2 = new EasyMonster(0, 0, "Chasseur");
 				}
+				((Monstre) this.joueur2).setDeplacementHorizontal(MenuIHM.getDeplacementHorizontalMonstre());
+				((Monstre) this.joueur2).setDeplacementVertical(MenuIHM.getDeplacementVerticalMonstre());
+				((Monstre) this.joueur2).setDeplacementDiagonal(MenuIHM.getDeplacementDiagonaleMonstre());
 				
 				this.plateau = new Plateau((Monstre) this.joueur2, (Chasseur) this.joueur1, initPlateau(this.cases.length, this.cases[0].length));
 			}
