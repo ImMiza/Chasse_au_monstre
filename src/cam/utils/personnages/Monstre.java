@@ -1,5 +1,7 @@
 package cam.utils.personnages;
 
+import cam.main.MenuIHM;
+
 /**
  * Class caractérisant le monstre.
  * @author Aymeric DEFOSSEZ
@@ -20,9 +22,9 @@ public class Monstre extends Personnage{
 	public Monstre(Position p, String nom) {
 		super(p, nom);
 		this.bloque = false;
-		this.deplacementVertical = 2;
-		this.deplacementHorizontal = 2;
-		this.deplacementDiagonal = 1;
+		this.deplacementVertical = MenuIHM.getDeplacementVerticalMonstre();
+		this.deplacementHorizontal = MenuIHM.getDeplacementHorizontalMonstre();
+		this.deplacementDiagonal = MenuIHM.getDeplacementDiagonaleMonstre();
 	}
 	
 	/**
@@ -104,5 +106,14 @@ public class Monstre extends Personnage{
 	 */
 	public String toString() {
 		return "Monstre [" + this.getNom() + ", [" + this.getPosition().getX() + ", " + this.getPosition().getY() + "], " + this.bloque + "]";
+	}
+	
+	/**
+	 * Méthode permettant de reset les déplacement du monstre à la valeur définie dans les paramètres
+	 */
+	public void resetDeplacement() {
+		this.deplacementVertical = MenuIHM.getDeplacementVerticalMonstre();
+		this.deplacementHorizontal = MenuIHM.getDeplacementHorizontalMonstre();
+		this.deplacementDiagonal = MenuIHM.getDeplacementDiagonaleMonstre();
 	}
 }

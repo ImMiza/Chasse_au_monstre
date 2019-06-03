@@ -9,17 +9,12 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 
 public class MainController {
-	
-	public static Canvas leCanvas;
-    public static TextArea console;
-    @FXML
-    private Canvas canvas;
 
     @FXML
-    private TextArea txtFieldhistorique;
+    private Label indications;
 
     @FXML
-    private Label lblJoueur;
+    private Canvas leCanvas;
 
     @FXML
     void activeCanvas(MouseEvent event) {
@@ -47,12 +42,14 @@ public class MainController {
         }
     }
 
+    @FXML
+    private TextArea Console;
+    private GraphicsContext gc;
 
-    public void initialize() {
-    	leCanvas = canvas;
-    	console = txtFieldhistorique;
-    	lblJoueur.setText("Au monstre a jouer");
-    	dessineDansCanvas();
+    @FXML
+    public void initialize(){
+        Image herbe = new Image("file:src/sample/herbe.jpg");
+        Annexe.dessineTerrain(leCanvas);
     }
 
 }

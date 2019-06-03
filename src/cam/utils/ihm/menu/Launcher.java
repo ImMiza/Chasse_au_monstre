@@ -27,7 +27,7 @@ public class Launcher extends Application{
         primary.setScene(scene);
         primary.setTitle("Menu");
         primary.show();
-
+        
 	}
 
 	public static void main(String[] args) {
