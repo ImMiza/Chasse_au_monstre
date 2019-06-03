@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cam.utils.ihm.MainController">
+   <top>
+      <Label fx:id="Titre" text="Label" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="39.0" />
+         </font></Label>
+   </top>
+   <center>
+      <Canvas fx:id="leCanvas" height="621.0" width="625.0" BorderPane.alignment="CENTER">
+         <cursor>
+            <Cursor fx:constant="CROSSHAIR" />
+         </cursor></Canvas>
+   </center>
+   <bottom>
+      <Label fx:id="indications" text="Label" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="28.0" />
+         </font></Label>
+   </bottom>
+   <right>
+      <TextArea fx:id="Console" prefHeight="200.0" prefWidth="200.0" wrapText="true" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>
