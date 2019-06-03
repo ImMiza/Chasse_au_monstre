@@ -90,9 +90,31 @@ public class ParametresEvent {
     	txtFieldVerticalMonstre.setText(MenuIHM.getDeplacementVerticalMonstre() + "");
     	txtFieldDiagonaleMonstre.setText(MenuIHM.getDeplacementDiagonaleMonstre() + "");
 
-    	this.sliderXPlateau.setOnMouseReleased(e -> {
-    		this.txtFieldXPlateau.setText("" + this.sliderXPlateau.getValue());
+    	this.sliderXPlateau.setOnMouseDragged(e -> {
+    		this.txtFieldXPlateau.setText("" + (int) this.sliderXPlateau.getValue());
     	});
+    	this.sliderYPlateau.setOnMouseDragged(e -> {
+    		this.txtFieldYPlateau.setText("" + (int) this.sliderYPlateau.getValue());
+    	});
+    	this.txtFieldXPlateau.setOnKeyReleased(e -> {
+    		if (!this.txtFieldXPlateau.getText().equals("") && isInteger(txtFieldXPlateau.getText())) {
+            	this.sliderXPlateau.setValue((double) Integer.parseInt(this.txtFieldXPlateau.getText()));
+			}
+    	});
+    	this.txtFieldYPlateau.setOnKeyReleased(e -> {
+    		if (!this.txtFieldYPlateau.getText().equals("") && isInteger(txtFieldYPlateau.getText())) {
+            	this.sliderYPlateau.setValue((double) Integer.parseInt(this.txtFieldYPlateau.getText()));
+			}
+    	});
+    }
+    
+    public boolean isInteger(String s) {
+    	try {
+			Integer.parseInt(s);
+			return true;
+		} catch (NumberFormatException e) {
+			return false;
+		}
     }
 
 }
