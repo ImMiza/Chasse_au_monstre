@@ -90,8 +90,9 @@ public class ParametresEvent {
     	txtFieldVerticalMonstre.setText(MenuIHM.getDeplacementVerticalMonstre() + "");
     	txtFieldDiagonaleMonstre.setText(MenuIHM.getDeplacementDiagonaleMonstre() + "");
 
-    	this.sliderXPlateau.setOnMouseReleased(e -> {
+    	this.sliderXPlateau.setOnMouseClicked(e -> {
     		this.txtFieldXPlateau.setText("" + this.sliderXPlateau.getValue());
+    		System.out.println("essai");
     	});
     }
 

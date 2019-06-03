@@ -13,7 +13,6 @@ import javafx.scene.shape.Rectangle;
 
 public class MainController {
 	
-	private static Case[][] lesCases;
 	private PlateauIHM plateau;
 	
     @FXML
@@ -27,10 +26,10 @@ public class MainController {
 
     @FXML
     void activeCanvas(MouseEvent event) {    	
-    	for (int i = 0; i < lesCases.length; i++) {
-			for (int j = 0; j < lesCases[i].length; j++) {
+    	for (int i = 0; i < plateau.getPlateau().getPlateau().length; i++) {
+			for (int j = 0; j < plateau.getPlateau().getPlateau()[i].length; j++) {
 				if (plateau.getLesRectangles()[i][j].contains(event.getX(), event.getY())) {
-					System.out.println(plateau.getLesRectangles()[i][j].getX() / (500 / lesCases.length) + ", " + plateau.getLesRectangles()[i][j].getY() / (500 / lesCases.length));
+					System.out.println(plateau.getLesRectangles()[i][j].getX() / (500 / plateau.getPlateau().getPlateau().length) + ", " + plateau.getLesRectangles()[i][j].getY() / (500 / lesCases.length));
 				}
 			}
 		}
@@ -51,8 +50,6 @@ public class MainController {
 
 
     public void initialize() {
-    	lesCases = plateau.getPlateau().getPlateau();
-    	
     	GraphicsContext gc = canvas.getGraphicsContext2D();
 		
 		for (int i = 0; i < plateau.getPlateau().getPlateau().length; i++) {
@@ -64,6 +61,7 @@ public class MainController {
 		}
     	lblJoueur.setText("Au monstre a jouer");
     	dessineDansCanvas();
+
     }
 
 }
