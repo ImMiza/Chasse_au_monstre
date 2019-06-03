@@ -2,10 +2,8 @@ package cam.main.games;
 
 import java.util.Scanner;
 
-import cam.utils.cases.Case;
-import cam.utils.cases.SlowCase;
-import cam.utils.ihm.CaseIHM;
-import cam.utils.ihm.menu.Menu;
+import cam.utils.ihm.MainController;
+import cam.utils.ihm.PlateauIHM;
 import cam.utils.ihm.menu.MenuIHM;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
@@ -15,20 +13,18 @@ import cam.utils.personnages.ia.EasyHunter;
 import cam.utils.personnages.ia.EasyMonster;
 import cam.utils.personnages.ia.RandomHunter;
 import cam.utils.personnages.ia.RandomMonster;
-import cam.utils.plateau.Plateau;
 
 public abstract class Game {
 
 	private Scanner in = new Scanner(System.in);
 	private boolean gameFinish;
 
-	private CaseIHM[][] cases;
 	private Personnage joueur1;
 	private boolean joueur1IsMonster;
 	
 	private Personnage joueur2;
 
-	private Plateau plateau;
+	private PlateauIHM plateau;
 
 	public Game() {
 		this.gameFinish = false;
@@ -38,33 +34,31 @@ public abstract class Game {
 	public abstract void start();
 
 	protected void initByMenu() {
-		int choix = Menu.getChoixMenu();
-		this.cases = new CaseIHM[MenuIHM.getTailleXPlateau()][MenuIHM.getTailleYPlateau()];
 		
-		if(Integer.toString(choix).charAt(0) == '1') { // game en solo
+		if(MenuIHM.getModeDeJeu() == 1) { // game en solo
 			
-			if(Integer.toString(choix).charAt(1) == '1') { // c'est un monstre
+			if(MenuIHM.getPersonnage() == 1) { // c'est un monstre
 				this.joueur1 = new Monstre(0, 0, MenuIHM.getNomMonstre());
 				((Monstre) this.joueur1).setDeplacementHorizontal(MenuIHM.getDeplacementHorizontalMonstre());
 				((Monstre) this.joueur1).setDeplacementVertical(MenuIHM.getDeplacementVerticalMonstre());
 				((Monstre) this.joueur1).setDeplacementDiagonal(MenuIHM.getDeplacementDiagonaleMonstre());
-				
+
 				this.joueur1IsMonster = true;
 				
-				if(Integer.toString(choix).charAt(2) == '1') { // choix easy
+				if(MenuIHM.getDifficulte() == 1) { // choix easy
 					this.joueur2 = new RandomHunter(0, 0, "Chasseur");
 				}
 				else {
 					this.joueur2 = new EasyHunter(0, 0, "Chasseur");
 				}
 				
-				this.plateau = new Plateau((Monstre) this.joueur1, (Chasseur) this.joueur2, initPlateau(this.cases.length, this.cases[0].length));
+				this.plateau = new PlateauIHM((Monstre) this.joueur1, (Chasseur) this.joueur2, MainController.cases);
 			}
 			else { // c'est un chasseur
 				this.joueur1 = new Chasseur(0, 0, MenuIHM.getNomChasseur());
 				this.joueur1IsMonster = false;
-				
-				if(Integer.toString(choix).charAt(2) == '1') { // choix easy
+
+				if(MenuIHM.getDifficulte() == 1) { // choix easy
 					this.joueur2 = new RandomMonster(0, 0, "Chasseur");
 				}
 				else {
@@ -74,7 +68,7 @@ public abstract class Game {
 				((Monstre) this.joueur2).setDeplacementVertical(MenuIHM.getDeplacementVerticalMonstre());
 				((Monstre) this.joueur2).setDeplacementDiagonal(MenuIHM.getDeplacementDiagonaleMonstre());
 				
-				this.plateau = new Plateau((Monstre) this.joueur2, (Chasseur) this.joueur1, initPlateau(this.cases.length, this.cases[0].length));
+				this.plateau = new PlateauIHM((Monstre) this.joueur2, (Chasseur) this.joueur1, MainController.cases);
 			}
 			
 		}
@@ -88,91 +82,23 @@ public abstract class Game {
 	 * @return la position du piege
 	 */
 	public Position posePiege() {
-		int X;
-		do {
-			System.out.print("Ligne (entre 1 et 8) : ");
-			X = getSecureInt(1, 8);
-		} while (X < 1 || X > 8);
-
-		int Y;
-		do {
-			System.out.print("Colonne (entre 1 et 8) : ");
-			Y = getSecureInt(1, 8);
-		} while (Y < 1 || Y > 8);
-
-		return new Position(X, Y);
-	}
-
-	/**
-	 * Permet de recuperer un entier de facon securise et de façon delimitee
-	 * 
-	 * @param min la borne minimum
-	 * @param max la borne maximum
-	 * @return un entier
-	 */
-	public int getSecureInt(int min, int max) {
-		String entry;
-		int n = min - 1;
-
-		do {
-			entry = in.nextLine();
-			if (isNumber(entry))
-				n = Integer.parseInt(entry);
-
-		} while (n < min || n > max);
-
-		return n;
-	}
-
-	/**
-	 * Permet de verifier si une phrase est aussi un chiffre
-	 * 
-	 * @param number la phrase a tester
-	 * @return true si c'est que des chiffres, sinon false
-	 */
-	public boolean isNumber(String number) {
-		if (number.equals(""))
-			return false;
-
-		for (int i = 0; i < number.length(); i++) {
-			if (number.charAt(i) < '0' || number.charAt(i) > '9') {
-				return false;
+		MainController.canClick = true;
+		MainController.lastCase = null;
+		
+		while(MainController.lastCase == null) {
+			try
+			{
+				Thread.sleep(500);
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
 			}
 		}
-		return true;
-	}
-
-	/**
-	 * initialisation du plateau de jeu.
-	 * 
-	 * @param lig nombre de lignes.
-	 * @param col nombre de colonnes.
-	 * @return le tableau de case qui sert de plateau.
-	 */
-	public Case[][] initPlateau(int lig, int col) {
-		Case[][] plateau = new Case[lig][col];
-		double proba = Math.random();
-
-		for (int i = 0; i < plateau.length; i++) {
-			for (int j = 0; j < plateau[i].length; j++) {
-				if (proba < 0.10) {
-					plateau[i][j] = new SlowCase();
-				} else {
-					plateau[i][j] = new Case();
-				}
-				proba = Math.random();
-			}
-		}
-		return plateau;
-	}
-
-	/**
-	 * effacer tout ce que contient le terminal.
-	 */
-	public void clearScreen() {
-		for (int i = 0; i < 50; i++) {
-			System.out.println();
-		}
+		
+		MainController.canClick = false;
+		
+		return new Position(MainController.lastCase.getCase().getPosition().getX(), MainController.lastCase.getCase().getPosition().getY());
 	}
 
 	/**
@@ -181,19 +107,26 @@ public abstract class Game {
 	 * @param monstre le monstre a placer
 	 * @param plateau le plateau sur lequel le placer
 	 */
-	public void placeMonstre(Monstre monstre, Plateau plateau) {
-		int X;
-		int Y;
+	public void placeMonstre(Monstre monstre) {
+		MainController.canClick = true;
+		MainController.lastCase = null;
+		System.out.println("JUSTE COMME CA ");
+		while(MainController.lastCase == null) {
+			try
+			{
+				Thread.sleep(100);
+			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		System.out.println("JUSTE COMME CA");
+		MainController.canClick = false;
+		
 
-		do {
-			System.out.print("Ligne du monstre (0 ou 9) : ");
-			X = getSecureInt(0, 9);
-			System.out.print("Colonne du monstre (0 ou 9) : ");
-			Y = getSecureInt(0, 9);
-		} while (Y != 0 && Y != 9 && X != 0 && X != 9);
-
-		monstre.setX(X);
-		monstre.setY(Y);
+		monstre.setX(MainController.lastCase.getCase().getPosition().getX());
+		monstre.setY(MainController.lastCase.getCase().getPosition().getY());
 	}
 
 	/**
@@ -201,26 +134,36 @@ public abstract class Game {
 	 * 
 	 * @param plateau de jeu.
 	 */
-	public void tourDuMonstre(Plateau plateau) {
-		int nvX, nvY;
+	public void tourDuMonstre(PlateauIHM plateau) {
 		boolean finTour = false;
 
-		System.out.println("Tour du monstre");
-		in.nextLine();
+		MainController.canClick = true;
+		
+		
 		while (!finTour) {
-			plateau.printPlateau(true);
-			System.out.println("Coordonnees de la nouvelle case :");
-			System.out.println("Ligne :");
-			nvX = getSecureInt(0, 9);
-			System.out.println("Colonne :");
-			nvY = getSecureInt(0, 9);
-			finTour = plateau.deplacerMonstre(plateau.chercheCase(nvX, nvY));
+			MainController.lastCase = null;
+			MainController.writeConsole("Clique sur une case valide");
+			
+			while(MainController.lastCase == null){
+				try
+				{
+					Thread.sleep(100);
+				}
+				catch (InterruptedException e)
+				{
+					e.printStackTrace();
+				}
+			}
+
+			finTour = plateau.deplacerMonstre(plateau.chercheCase(MainController.lastCase.getCase().getPosition().getX(), MainController.lastCase.getCase().getPosition().getY()));
 		}
+		
+		MainController.canClick = false;
 		
 		for (int i = 0; i < plateau.getPlateau().length; i++) {
 			for (int j = 0; j < plateau.getPlateau()[i].length; j++) {
-				if (plateau.getPlateau()[i][j].isVisited()) {
-					plateau.getPlateau()[i][j].setTourVisited(plateau.getPlateau()[i][j].getTourVisited() + 1);
+				if (plateau.getPlateau()[i][j].getCase().isVisited()) {
+					plateau.getPlateau()[i][j].getCase().setTourVisited(plateau.getPlateau()[i][j].getCase().getTourVisited() + 1);
 				}
 			}
 		}
@@ -237,37 +180,40 @@ public abstract class Game {
 	 * @param monstre  du jeu.
 	 * @param chasseur du jeu.
 	 */
-	public void tourDuChasseur(Plateau plateau, Monstre monstre, Chasseur chasseur) {
+	public void tourDuChasseur(PlateauIHM plateau, Monstre monstre, Chasseur chasseur) {
 		int x, y;
-		boolean finTour = false;
-
-		in.nextLine();
-		while (!finTour) {
-
-			do {
-				plateau.printPlateau(false);
-				System.out.println("Coordonnees de la case à chercher :");
-				System.out.println("Ligne :");
-				x = getSecureInt(0, 9);
-				System.out.println("Colonne :");
-				y = getSecureInt(0, 9);
-			} while (!plateau.appartientAuPlateau(x, y));
-
-			chasseur.getPosition().setX(x);
-			chasseur.getPosition().setY(y);
-
-			if (x == monstre.getPosition().getX() && y == monstre.getPosition().getY()) {
-				PierreFeuilleCiseaux pfc = new PierreFeuilleCiseaux(monstre, chasseur);
-				pfc.startGame();
-				in.nextLine();
-				if (pfc.getWinner() instanceof Chasseur) {
-					this.gameFinish = true;
-				}
-			} else {
-				System.out.println("Case visitée il y a " + plateau.getPlateau()[x][y].getTourVisited() + " tour(s)");
+		
+		MainController.canClick = true;
+		
+		MainController.lastCase = null;
+		MainController.writeConsole("Clique sur une case valide");
+			
+		while(MainController.lastCase == null){
+			try
+			{
+				Thread.sleep(100);
 			}
+			catch (InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		x = MainController.lastCase.getCase().getPosition().getX();
+		y = MainController.lastCase.getCase().getPosition().getY();
+		plateau.deplacerChasseur(MainController.lastCase.getCase());
+		
+		MainController.canClick = false;
+		
+		if (x == monstre.getPosition().getX() && y == monstre.getPosition().getY()) {
+			PierreFeuilleCiseaux pfc = new PierreFeuilleCiseaux(monstre, chasseur);
+			pfc.startGame();
 			in.nextLine();
-			finTour = true;
+			if (pfc.getWinner() instanceof Chasseur) {
+				this.gameFinish = true;
+			}
+		} else {
+			MainController.writeConsole("Case visitée il y a " + plateau.getPlateau()[x][y].getCase().getTourVisited() + " tour(s)");
 		}
 		
 		if (plateau.deplacementsPossible().isEmpty()) {
@@ -275,6 +221,16 @@ public abstract class Game {
 		}
 	}
 
+	public void printMonster() {
+		MainController.removeMonster(this.plateau.getMonstrePositionLast().getX(), this.plateau.getMonstrePositionLast().getY());
+		MainController.drawMonster(this.plateau.getMonstre().getPosition().getX(), this.plateau.getMonstre().getPosition().getY());
+	}
+	
+	public void printHunter() {
+		MainController.removeHunter(this.plateau.getChasseurPositionLast().getX(), this.plateau.getChasseurPositionLast().getY());
+		MainController.drawHunter(this.plateau.getChasseur().getPosition().getX(), this.plateau.getChasseur().getPosition().getY());
+	}
+	
 	public boolean isGameFinish() {
 		return gameFinish;
 	}
@@ -283,19 +239,11 @@ public abstract class Game {
 		this.gameFinish = gameFinish;
 	}
 
-	public CaseIHM[][] getCases() {
-		return cases;
-	}
-
-	public void setCases(CaseIHM[][] cases) {
-		this.cases = cases;
-	}
-
-	public Plateau getPlateau() {
+	public PlateauIHM getPlateau() {
 		return plateau;
 	}
 
-	public void setPlateau(Plateau plateau) {
+	public void setPlateau(PlateauIHM plateau) {
 		this.plateau = plateau;
 	}
 

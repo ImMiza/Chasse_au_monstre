@@ -22,4 +22,13 @@ public class CaseIHM {
 		return this.rectangle;
 	}
 	
+	public void setCase(Case uneCase)
+	{
+		this.uneCase = uneCase;
+	}
+	
+	public void setRectangle(Rectangle rectangle)
+	{
+		this.rectangle = rectangle;
+	}
 }

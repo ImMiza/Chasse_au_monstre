@@ -4,6 +4,7 @@ package cam.utils.ihm.menu.events;
 import java.io.IOException;
 
 import cam.main.Launcher;
+import cam.main.games.GameSolo;
 import cam.utils.ihm.menu.MenuIHM;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 
 public class ChoixDifficulteEvent {
@@ -28,12 +30,23 @@ public class ChoixDifficulteEvent {
     private Button easy;
 
     @FXML
-    void diff1(MouseEvent event) {
+    void diff1(MouseEvent event) throws IOException {
     	MenuIHM.setDifficulte(1);
     	
-    	System.out.println("REDIRIGER VERS PLATEAU DE JEU ADAPTE");
-    	System.out.println(MenuIHM.getNomChasseur());
-    	System.out.println(MenuIHM.getNomMonstre());
+    	Stage primaryStage = new Stage();
+    	FXMLLoader loaderJEU = new FXMLLoader();
+		loaderJEU.setLocation(getClass().getResource("/cam/ressources/CAM.fxml"));
+		Parent root = loaderJEU.load();
+		
+		Scene s = new Scene(root);
+		primaryStage.setScene(s);
+		primaryStage.setMinHeight(700);
+		primaryStage.setMinWidth(700);
+		primaryStage.setTitle("Jeu");
+		primaryStage.show();
+    	
+		GameSolo game = new GameSolo();
+		game.start();
     }
 
     @FXML

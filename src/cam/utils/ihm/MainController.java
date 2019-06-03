@@ -11,13 +11,16 @@ import javafx.scene.shape.Rectangle;
 
 public class MainController {
 
+	public static int width = 15;
+	public static int height = 15;
+	
 	public static CaseIHM[][] cases;
 	public static boolean canClick;
 	public static Canvas plateau;
 	private static TextArea console;
 	private static Label indicateur;
 	
-	private static CaseIHM lastCase;
+	public static CaseIHM lastCase;
 	
 	@FXML
     private Label titre;
@@ -55,10 +58,11 @@ public class MainController {
         assert console != null : "fx:id=\"console\" was not injected: check your FXML file 'CAM.fxml'.";
 
         lastCase = null;
-        cases = dessineTerrain(canvas, 10, 10);
+        cases = dessineTerrain(canvas, width, height);
         canClick = false;
         plateau = canvas;
         console = consoleArea;
+        indicateur = indications;
         
         console.setEditable(false);
         console.setWrapText(false);
@@ -75,7 +79,7 @@ public class MainController {
         for (int i = 0; i < width; i++){
             for (int j = 0; j < height; j++){
             	cases[i][j] = new CaseIHM(i, j, i*canvas.getWidth()/width, j*canvas.getHeight()/height, canvas.getWidth()/width, canvas.getHeight()/height);
-                gc.drawImage(herbe, cases[i][j].getRectangle().getX(), cases[i][j].getRectangle().getY(), cases[i][j].getRectangle().getWidth(), cases[i][j].getRectangle().getHeight());
+            	gc.drawImage(herbe, cases[i][j].getRectangle().getX(), cases[i][j].getRectangle().getY(), cases[i][j].getRectangle().getWidth(), cases[i][j].getRectangle().getHeight());
             }
         }
         

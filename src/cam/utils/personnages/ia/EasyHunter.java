@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Position;
-import cam.utils.plateau.Plateau;
 
 public class EasyHunter extends HunterIA{
 	
@@ -18,7 +18,7 @@ public class EasyHunter extends HunterIA{
 	}
 
 	@Override
-	public Position ChoosePosition(Plateau plateau) {
+	public Position ChoosePosition(PlateauIHM plateau) {
 	
 		
 		if(lastPositionHunter != null) {
@@ -60,7 +60,7 @@ public class EasyHunter extends HunterIA{
 	}
 
 	@Override
-	public Position posePiege(Plateau plateau) {
+	public Position posePiege(PlateauIHM plateau) {
 		boolean end = false;
 		Position p = null;
 		

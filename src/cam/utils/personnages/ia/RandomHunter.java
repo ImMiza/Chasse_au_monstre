@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Position;
-import cam.utils.plateau.Plateau;
 
 public class RandomHunter extends HunterIA{
 	//ATTRIBUTS
@@ -24,7 +24,7 @@ public class RandomHunter extends HunterIA{
 
 	//METHODES
 	@Override
-	public Position posePiege(Plateau plateau) {
+	public Position posePiege(PlateauIHM plateau) {
 		boolean end = false;
 		Position p = null;
 		
@@ -48,7 +48,7 @@ public class RandomHunter extends HunterIA{
 	}
 
 	@Override
-	public Position ChoosePosition(Plateau plateau) {
+	public Position ChoosePosition(PlateauIHM plateau) {
 		Random m = new Random();
 		int maxX = plateau.getPlateau().length;
 		int maxY = plateau.getPlateau()[0].length;

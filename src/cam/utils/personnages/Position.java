@@ -72,7 +72,9 @@ public class Position {
 		return true;
 	}
 	
-	
+	public Position clone() {
+		return new Position(x, y);
+	}
 	
 	
 }
