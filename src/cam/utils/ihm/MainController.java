@@ -18,9 +18,6 @@ public class MainController {
     @FXML
     private Label lblJoueur;
 
-    @FXML
-    void activeCanvas(ActionEvent event) {
 
-    }
 
 }

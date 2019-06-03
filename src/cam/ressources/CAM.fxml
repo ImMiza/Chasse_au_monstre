@@ -9,7 +9,7 @@
 
 <BorderPane maxHeight="1000.0" maxWidth="1000.0" minHeight="700.0" minWidth="700.0" prefHeight="750.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cam.utils.ihm.MainController">
    <center>
-      <Canvas fx:id="canvas" height="500.0" onMouseClicked="#activeCanvas" width="500.0" BorderPane.alignment="CENTER" />
+      <Canvas fx:id="canvas" height="500.0"  width="500.0" BorderPane.alignment="CENTER" />
    </center>
    <right>
       <TextArea fx:id="txtFieldhistorique" editable="false" prefHeight="200.0" prefWidth="200.0" text="// vue du monstre&#10;-&gt; Chasseur a joué... Il est&#10;proche ! &#10;&#10;&#10;// vue du chasseur&#10;-&gt; Le monstre était ici il y a&#10;3 tours ..." BorderPane.alignment="CENTER">
