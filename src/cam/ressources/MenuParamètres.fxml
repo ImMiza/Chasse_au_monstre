@@ -34,13 +34,13 @@
             <HBox>
                <children>
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <Slider fx:id="sliderXPlateau" max="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" min="4.0" onMouseDragged="#sliderXReleasedListener" value="10.0" HBox.hgrow="ALWAYS" />
+                  <Slider fx:id="sliderXPlateau" max="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" min="4.0" value="10.0" HBox.hgrow="ALWAYS" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Slider fx:id="sliderYPlateau" max="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" min="4.0" onMouseReleased="#sliderYReleasedListener" value="10.0" HBox.hgrow="ALWAYS" />
+                  <Slider fx:id="sliderYPlateau" max="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" min="4.0" value="10.0" HBox.hgrow="ALWAYS" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
                </children>
                <VBox.margin>
@@ -54,9 +54,9 @@
                         <Insets bottom="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="txtFieldXPlateau" onKeyReleased="#txtFieldXKeyReleasedListener" prefHeight="31.0" prefWidth="100.0" text="10" />
+                  <TextField fx:id="txtFieldXPlateau" prefHeight="31.0" prefWidth="100.0" text="10" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <TextField fx:id="txtFieldYPlateau" onKeyReleased="#txtFieldYKeyReleasedListener" prefHeight="31.0" prefWidth="100.0" text="10" />
+                  <TextField fx:id="txtFieldYPlateau" prefHeight="31.0" prefWidth="100.0" text="10" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="31.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
                </children>
                <VBox.margin>

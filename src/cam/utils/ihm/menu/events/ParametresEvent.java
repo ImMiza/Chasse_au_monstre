@@ -11,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 public class ParametresEvent {
@@ -77,26 +76,6 @@ public class ParametresEvent {
      	Launcher.getPrimaryStage().setScene(scene);
     }
     
-    @FXML
-    void sliderXReleasedListener(MouseEvent event) {
-    	this.txtFieldXPlateau.setText("" + this.sliderXPlateau.getValue());
-    }
-
-    @FXML
-    void sliderYReleasedListener(MouseEvent event) {
-    	this.txtFieldYPlateau.setText("" + this.sliderYPlateau.getValue());
-    }
-
-    @FXML
-    void txtFieldXKeyReleasedListener(KeyEvent event) {
-    	this.sliderXPlateau.setValue(Double.parseDouble(this.txtFieldXPlateau.getText()));
-    }
-
-    @FXML
-    void txtFieldYKeyReleasedListener(KeyEvent event) {
-    	this.sliderYPlateau.setValue(Double.parseDouble(this.txtFieldYPlateau.getText()));
-    }
-    
     public boolean isNumber(String s) {
     	try {
 			Integer.parseInt(s);
@@ -110,6 +89,10 @@ public class ParametresEvent {
     	txtFieldHorisontalMonstre.setText(MenuIHM.getDeplacementHorizontalMonstre() + "");
     	txtFieldVerticalMonstre.setText(MenuIHM.getDeplacementVerticalMonstre() + "");
     	txtFieldDiagonaleMonstre.setText(MenuIHM.getDeplacementDiagonaleMonstre() + "");
+    	
+    	this.sliderXPlateau.setOnMouseReleased(e -> {
+    		this.txtFieldXPlateau.setText("" + this.sliderXPlateau.getValue());
+    	});
     }
 
 }
