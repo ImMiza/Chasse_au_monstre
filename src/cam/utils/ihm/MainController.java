@@ -1,6 +1,5 @@
 package cam.utils.ihm;
 
-import cam.utils.ihm.menu.MenuIHM;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -15,6 +14,10 @@ public class MainController {
 	public static CaseIHM[][] cases;
 	public static boolean canClick;
 	public static Canvas plateau;
+	private static TextArea console;
+	private static Label indicateur;
+	
+	private static CaseIHM lastCase;
 	
 	@FXML
     private Label titre;
@@ -26,11 +29,22 @@ public class MainController {
     private Label indications;
 
     @FXML
-    private TextArea console;
+    private TextArea consoleArea;
 
     @FXML
     void onClickPlateau(MouseEvent event) {
-
+    	if(!canClick) {
+    		return;
+    	}
+    	
+    	for(int i = 0; i < cases.length; i++) {
+    		for(int j = 0; j < cases[0].length; j++) {
+    			if(cases[i][j].getRectangle().contains(event.getX(), event.getY())) {
+    				lastCase = cases[i][j];
+    				return;
+    			}
+    		}
+    	}
     }
 
     @FXML
@@ -40,9 +54,32 @@ public class MainController {
         assert indications != null : "fx:id=\"indications\" was not injected: check your FXML file 'CAM.fxml'.";
         assert console != null : "fx:id=\"console\" was not injected: check your FXML file 'CAM.fxml'.";
 
-        cases = Annexe.dessineTerrain(canvas, 10, 10);
+        lastCase = null;
+        cases = dessineTerrain(canvas, 10, 10);
         canClick = false;
         plateau = canvas;
+        console = consoleArea;
+        
+        console.setEditable(false);
+        console.setWrapText(false);
+        
+        titre.setText("Chasse au Monstre");
+    }
+    
+    public static CaseIHM[][] dessineTerrain(Canvas canvas, int width, int height){
+		CaseIHM[][] cases = new CaseIHM[width][height];
+		
+        Image herbe = new Image("/cam/ressources/herbe.jpg");
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        //gc.drawImage(herbe, 0,0, 10,10);
+        for (int i = 0; i < width; i++){
+            for (int j = 0; j < height; j++){
+            	cases[i][j] = new CaseIHM(i, j, i*canvas.getWidth()/width, j*canvas.getHeight()/height, canvas.getWidth()/width, canvas.getHeight()/height);
+                gc.drawImage(herbe, cases[i][j].getRectangle().getX(), cases[i][j].getRectangle().getY(), cases[i][j].getRectangle().getWidth(), cases[i][j].getRectangle().getHeight());
+            }
+        }
+        
+        return cases;
     }
     
     public static void drawMonster(int x, int y) {
@@ -73,31 +110,15 @@ public class MainController {
     	context.drawImage(bg, rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
     }
     
+    public static void writeConsole(String message) {
+    	console.setText(console.getText() + "\n" + message);
+    }
     
-    @FXML
-    void activeCanvas(MouseEvent event) {
-    	CaseIHM[][] lesCases = Essai.getCase();
-    	
-    	for (int i = 0; i < lesCases.length; i++) {
-			for (int j = 0; j < lesCases[i].length; j++) {
-				if (lesCases[i][j].getRectangle().contains(event.getX(), event.getY())) {
-					System.out.println(lesCases[i][j].getRectangle().getX() / (500 / lesCases.length) + ", " + lesCases[i][j].getRectangle().getY() / (500 / lesCases.length));
-				}
-			}
-		}
+    public static void clearConsole() {
+    	console.setText("");
     }
-
-    /**
-     * fais le plateau avec les images
-     */
-    private void dessineDansCanvas(){
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        Image herbe = new Image("/cam/ressources/herbe.jpg");
-        for (int i = 0; i<10; i++){
-            for (int j = 0; j<10; j++){
-                gc.drawImage(herbe, canvas.getWidth()/10 * i, canvas.getHeight()/10*j, canvas.getWidth() / 10, canvas.getHeight()/10);
-            }
-        }
+    
+    public static void setTextIndicator(String message) {
+    	indicateur.setText(message);
     }
-
 }

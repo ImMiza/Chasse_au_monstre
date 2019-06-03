@@ -27,6 +27,6 @@
          </font></Label>
    </bottom>
    <right>
-      <TextArea fx:id="console" prefHeight="200.0" prefWidth="200.0" wrapText="true" BorderPane.alignment="CENTER" />
+      <TextArea fx:id="consoleArea" prefHeight="200.0" prefWidth="200.0" wrapText="true" BorderPane.alignment="CENTER" />
    </right>
 </BorderPane>
