@@ -19,7 +19,6 @@ public class Game extends Application {
 	List<CaseIHM> lesCases = new ArrayList<>();
 
 	public void start(Stage primaryStage) throws Exception {
-		System.out.println("Bite. 8=====>");
 		BorderPane groot = new BorderPane();
 		Scene s = new Scene(groot, 1000, 1000);
 		
