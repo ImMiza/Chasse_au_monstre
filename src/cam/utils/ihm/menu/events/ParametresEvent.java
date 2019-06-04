@@ -89,11 +89,21 @@ public class ParametresEvent {
     	txtFieldHorisontalMonstre.setText(MenuIHM.getDeplacementHorizontalMonstre() + "");
     	txtFieldVerticalMonstre.setText(MenuIHM.getDeplacementVerticalMonstre() + "");
     	txtFieldDiagonaleMonstre.setText(MenuIHM.getDeplacementDiagonaleMonstre() + "");
+    	txtFieldXPlateau.setText(MenuIHM.getTailleXPlateau() + "");
+    	txtFieldYPlateau.setText(MenuIHM.getTailleYPlateau() + "");
+    	sliderXPlateau.setValue(MenuIHM.getTailleXPlateau());
+    	sliderYPlateau.setValue(MenuIHM.getTailleYPlateau());
 
     	this.sliderXPlateau.setOnMouseDragged(e -> {
     		this.txtFieldXPlateau.setText("" + (int) this.sliderXPlateau.getValue());
     	});
     	this.sliderYPlateau.setOnMouseDragged(e -> {
+    		this.txtFieldYPlateau.setText("" + (int) this.sliderYPlateau.getValue());
+    	});
+    	this.sliderXPlateau.setOnMousePressed(e -> {
+    		this.txtFieldXPlateau.setText("" + (int) this.sliderXPlateau.getValue());
+    	});
+    	this.sliderYPlateau.setOnMousePressed(e -> {
     		this.txtFieldYPlateau.setText("" + (int) this.sliderYPlateau.getValue());
     	});
     	this.txtFieldXPlateau.setOnKeyReleased(e -> {

@@ -10,8 +10,8 @@ public class MenuIHM {
 	private static int deplacementVerticalMonstre = 2;
 	private static int deplacementHorizontalMonstre = 2;
 	private static int deplacementDiagonaleMonstre = 1;
-	private static int tailleXPlateau;
-	private static int tailleYPlateau;
+	private static int tailleXPlateau = 10;
+	private static int tailleYPlateau = 10;
 	
 	
 	//METHODES
@@ -22,7 +22,9 @@ public class MenuIHM {
 	 * 2 Multijoueur
 	 */
 	public static void setModeDeJeu(int i) {
+		//System.out.println("i : " + i);
 		modeDeJeu = i;
+		//System.out.println("mdj : " +modeDeJeu);
 	}
 	
 	/**

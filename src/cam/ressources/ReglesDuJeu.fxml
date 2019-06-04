@@ -24,7 +24,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </Button>
-            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="70.0" prefWidth="700.0" text="Les règles du jeu !" textAlignment="CENTER" wrapText="true">
+            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="70.0" prefWidth="700.0" text="Règles du jeu !" textAlignment="RIGHT" wrapText="true">
               <font>
                 <Font size="20.0" />
               </font>
