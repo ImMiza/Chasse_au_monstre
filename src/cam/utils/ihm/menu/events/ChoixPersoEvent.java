@@ -1,6 +1,4 @@
-
 package cam.utils.ihm.menu.events;
-
 
 import java.io.IOException;
 
