@@ -8,7 +8,7 @@ import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Monstre;
 import cam.utils.personnages.Position;
 
-public class EasyMonster extends Monstre implements IA{
+public class EasyMonster extends MonstreIA{
 
 	public EasyMonster(int x, int y, String nom) {
 		super(x, y, nom);
