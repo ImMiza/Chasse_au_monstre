@@ -24,24 +24,28 @@ public class ChoixPersoEvent {
 
     @FXML
     void clickMonstre(MouseEvent event) throws IOException {
-    	MenuIHM.setModeDeJeu(1);
+    	MenuIHM.setPersonnage(1);
     	
     	FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/cam/ressources/MenuNomMonstre.fxml"));
         Parent perso = loader.load();
     	Scene scene = new Scene(perso);
      	Launcher.getPrimaryStage().setScene(scene);
+     	
+     	System.out.println(MenuIHM.getPersonnage());
     }
 
     @FXML
     void clickChasseur(MouseEvent event) throws IOException {
-    	MenuIHM.setModeDeJeu(2);
+    	MenuIHM.setPersonnage(2);
     	
     	FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/cam/ressources/MenuNomChasseur.fxml"));
         Parent perso = loader.load();
     	Scene scene = new Scene(perso);
      	Launcher.getPrimaryStage().setScene(scene);
+     	
+     	System.out.println(MenuIHM.getPersonnage());
     }
 
     @FXML

@@ -22,7 +22,9 @@ public class MenuIHM {
 	 * 2 Multijoueur
 	 */
 	public static void setModeDeJeu(int i) {
+		//System.out.println("i : " + i);
 		modeDeJeu = i;
+		//System.out.println("mdj : " +modeDeJeu);
 	}
 	
 	/**
