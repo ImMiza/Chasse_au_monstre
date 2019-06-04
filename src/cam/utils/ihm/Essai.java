@@ -16,8 +16,8 @@ public class Essai extends Application {
 		
 		Scene s = new Scene(root);
 		primaryStage.setScene(s);
-		primaryStage.setMinHeight(700);
-		primaryStage.setMinWidth(700);
+		primaryStage.setMinHeight(720);
+		primaryStage.setMinWidth(1080);
 		primaryStage.setTitle("CAM");
 		primaryStage.show();
 	}
