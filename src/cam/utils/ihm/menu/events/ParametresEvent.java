@@ -100,6 +100,12 @@ public class ParametresEvent {
     	this.sliderYPlateau.setOnMouseDragged(e -> {
     		this.txtFieldYPlateau.setText("" + (int) this.sliderYPlateau.getValue());
     	});
+    	this.sliderXPlateau.setOnMousePressed(e -> {
+    		this.txtFieldXPlateau.setText("" + (int) this.sliderXPlateau.getValue());
+    	});
+    	this.sliderYPlateau.setOnMousePressed(e -> {
+    		this.txtFieldYPlateau.setText("" + (int) this.sliderYPlateau.getValue());
+    	});
     	this.txtFieldXPlateau.setOnKeyReleased(e -> {
     		if (!this.txtFieldXPlateau.getText().equals("") && isInteger(txtFieldXPlateau.getText())) {
             	this.sliderXPlateau.setValue((double) Integer.parseInt(this.txtFieldXPlateau.getText()));
