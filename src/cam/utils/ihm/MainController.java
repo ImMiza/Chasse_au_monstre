@@ -10,7 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 
 public class MainController {
-
+    // Attributs pour le fonctionnement
 	public static int width = 15;
 	public static int height = 15;
 	
@@ -21,19 +21,24 @@ public class MainController {
 	private static Label indicateur;
 	
 	public static CaseIHM lastCase;
-	
+
+	// attributs lies a l'ihm
 	@FXML
     private Label titre;
-
     @FXML
     private Canvas canvas;
-
     @FXML
     private Label indications;
-
     @FXML
     private TextArea consoleArea;
 
+
+    // Methodes d'evenement
+
+    /**
+     *
+     * @param event
+     */
     @FXML
     void onClickPlateau(MouseEvent event) {
     	if(!canClick) {

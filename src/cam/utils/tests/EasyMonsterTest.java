@@ -1,6 +1,8 @@
 package cam.utils.tests;
 
 import cam.utils.cases.Case;
+import cam.utils.ihm.CaseIHM;
+import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Position;
 import cam.utils.personnages.ia.EasyMonster;
@@ -12,10 +14,9 @@ public class EasyMonsterTest {
 		EasyMonster monster = new EasyMonster(0, 0, "Adrien");
 		
 		Chasseur chasseur = new Chasseur(0, 0, "");
-		Plateau plateau = new Plateau(monster, chasseur, initPlateau(10, 10));
-		
+		PlateauIHM plateau = new PlateauIHM(monster, chasseur,initPlateau(10, 10));
 		while(!plateau.sontToutesVisitee() && !plateau.monstreBloquer()) {
-			plateau.printPlateauDebug();
+
 			Position pos = monster.ChoosePosition(plateau);
 			
 			plateau.deplacerMonstre(plateau.chercheCase(pos.getX(), pos.getY()));
@@ -40,12 +41,12 @@ public class EasyMonsterTest {
 	
 	
 	
-	public static Case[][] initPlateau(int lig, int col) {
-		Case[][] plateau = new Case[lig][col];
+	public static CaseIHM[][] initPlateau(int lig, int col) {
+		CaseIHM[][] plateau = new CaseIHM[lig][col];
 		
 		for (int i = 0; i < plateau.length; i++) {
 			for (int j = 0; j < plateau[i].length; j++) {
-				plateau[i][j] = new Case(new Position(i, j));
+				plateau[i][j] = new CaseIHM(i,j,0,0,10,10);
 			}
 		}
 		return plateau;
