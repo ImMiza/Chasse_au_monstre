@@ -10,8 +10,8 @@ public class MenuIHM {
 	private static int deplacementVerticalMonstre = 2;
 	private static int deplacementHorizontalMonstre = 2;
 	private static int deplacementDiagonaleMonstre = 1;
-	private static int tailleXPlateau;
-	private static int tailleYPlateau;
+	private static int tailleXPlateau = 10;
+	private static int tailleYPlateau = 10;
 	
 	
 	//METHODES
