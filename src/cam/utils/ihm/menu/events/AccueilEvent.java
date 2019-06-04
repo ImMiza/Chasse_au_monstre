@@ -34,7 +34,7 @@ public class AccueilEvent {
     	MenuIHM.setModeDeJeu(1);
     	
     	FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/cam/ressources/PierreFeuilleCiseauxFenetre.fxml"));
+        loader.setLocation(getClass().getResource("/cam/ressources/MenuChoixPersonnage.fxml"));
         Parent perso = loader.load();
     	Scene scene = new Scene(perso);
      	Launcher.getPrimaryStage().setScene(scene);
