@@ -9,9 +9,9 @@ public class CaseIHM {
 	private Case uneCase;
 	private Rectangle rectangle;
 	
-	public CaseIHM(int x, int y, double width, double height) {
+	public CaseIHM(int x, int y, double layoutX, double layoutY, double width, double height) {
 		uneCase = new Case(new Position(x, y));
-		rectangle = new Rectangle(x, y, width, height);
+		rectangle = new Rectangle(layoutX, layoutY, width, height);
 	}
 	
 	public Case getCase() {
@@ -22,4 +22,13 @@ public class CaseIHM {
 		return this.rectangle;
 	}
 	
+	public void setCase(Case uneCase)
+	{
+		this.uneCase = uneCase;
+	}
+	
+	public void setRectangle(Rectangle rectangle)
+	{
+		this.rectangle = rectangle;
+	}
 }

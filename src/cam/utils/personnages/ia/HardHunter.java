@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Position;
-import cam.utils.plateau.Plateau;
 
 public class HardHunter extends HunterIA{
 	
@@ -20,12 +20,12 @@ public class HardHunter extends HunterIA{
 	}
 
 	@Override
-	public Position ChoosePosition(Plateau plateau) {
+	public Position ChoosePosition(PlateauIHM plateau) {
 		return new Position(1, 1);
 	}
 
 	@Override
-	public Position posePiege(Plateau plateau) {
+	public Position posePiege(PlateauIHM plateau) {
 		boolean end = false;
 		Position p = null;
 		

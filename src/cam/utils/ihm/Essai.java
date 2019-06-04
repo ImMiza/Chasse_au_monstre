@@ -11,7 +11,7 @@ public class Essai extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		FXMLLoader loaderJEU = new FXMLLoader();
-		loaderJEU.setLocation(getClass().getResource("CAM.fxml"));
+		loaderJEU.setLocation(getClass().getResource("/cam/ressources/CAM.fxml"));
 		Parent root = loaderJEU.load();
 		
 		Scene s = new Scene(root);

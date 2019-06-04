@@ -1,8 +1,8 @@
 package cam.utils.cases;
 
+import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Monstre;
 import cam.utils.personnages.Personnage;
-import cam.utils.plateau.Plateau;
 
 
 /**
@@ -13,7 +13,7 @@ import cam.utils.plateau.Plateau;
 public class SlowCase extends EffectCase{
 
 	@Override
-	public void activeEffect(Personnage perso, Plateau pl) {
+	public void activeEffect(Personnage perso, PlateauIHM pl) {
 		if (perso instanceof Monstre) {
 			Monstre m = (Monstre) perso;
 			

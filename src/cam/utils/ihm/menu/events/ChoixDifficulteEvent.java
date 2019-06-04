@@ -1,15 +1,18 @@
 package cam.utils.ihm.menu.events;
 
+
 import java.io.IOException;
 
-import cam.main.MenuIHM;
-import cam.utils.ihm.menu.Launcher;
+import cam.main.LaunchGame;
+import cam.main.Launcher;
+import cam.utils.ihm.menu.MenuIHM;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+
 
 public class ChoixDifficulteEvent {
 
@@ -26,12 +29,10 @@ public class ChoixDifficulteEvent {
     private Button easy;
 
     @FXML
-    void diff1(MouseEvent event) {
+    void diff1(MouseEvent event) throws IOException {
     	MenuIHM.setDifficulte(1);
     	
-    	System.out.println("REDIRIGER VERS PLATEAU DE JEU ADAPTE");
-    	System.out.println(MenuIHM.getNomChasseur());
-    	System.out.println(MenuIHM.getNomMonstre());
+    	LaunchGame.introGame();
     }
 
     @FXML

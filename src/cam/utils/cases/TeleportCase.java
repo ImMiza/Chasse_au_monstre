@@ -1,7 +1,7 @@
 package cam.utils.cases;
 
+import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Personnage;
-import cam.utils.plateau.Plateau;
 
 /**
  * Cases permettant au monstre de se téléporter entre deux cases tp
@@ -12,7 +12,7 @@ import cam.utils.plateau.Plateau;
 
 public class TeleportCase extends EffectCase {
 
-	public void activeEffect(Personnage personnage, Plateau plateau) {
+	public void activeEffect(Personnage personnage, PlateauIHM plateau) {
 		
 	}
 }

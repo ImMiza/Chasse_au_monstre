@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cam.utils.cases.Case;
+import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Position;
-import cam.utils.plateau.Plateau;
 
 public class HardMonster extends MonstreIA{
 
@@ -18,7 +18,7 @@ public class HardMonster extends MonstreIA{
 	}
 
 	@Override
-	public Position ChoosePosition(Plateau plateau) {
+	public Position ChoosePosition(PlateauIHM plateau) {
 		boolean end = false;
 		Position posChasseur = getPosition();
 		

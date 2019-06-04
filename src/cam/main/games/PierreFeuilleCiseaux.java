@@ -1,4 +1,4 @@
-package cam.main;
+package cam.main.games;
 
 import java.util.Scanner;
 

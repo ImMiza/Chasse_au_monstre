@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cam.utils.cases.Case;
+import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Monstre;
 import cam.utils.personnages.Position;
-import cam.utils.plateau.Plateau;
 
 public class EasyMonster extends Monstre implements IA{
 
@@ -18,7 +18,7 @@ public class EasyMonster extends Monstre implements IA{
 		super(p, nom);
 	}
 
-	public Position ChoosePosition(Plateau plateau) {
+	public Position ChoosePosition(PlateauIHM plateau) {
 		boolean end = false;
 		Position posChasseur = getPosition();
 		

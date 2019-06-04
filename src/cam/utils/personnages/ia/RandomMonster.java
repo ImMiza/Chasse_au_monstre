@@ -4,8 +4,8 @@ import java.util.Collections;
 import java.util.List;
 
 import cam.utils.cases.Case;
+import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Position;
-import cam.utils.plateau.Plateau;
 
 public class RandomMonster extends MonstreIA{
 
@@ -17,7 +17,7 @@ public class RandomMonster extends MonstreIA{
 		super(p, nom);
 	}
 
-	public Position ChoosePosition(Plateau plateau) {
+	public Position ChoosePosition(PlateauIHM plateau) {
 		List<Case> cases = plateau.deplacementsPossible();
 		Collections.shuffle(cases);
 		return cases.get(0).getPosition();

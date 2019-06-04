@@ -1,4 +1,4 @@
-package cam.utils.ihm.menu;
+package cam.main;
 
 
 

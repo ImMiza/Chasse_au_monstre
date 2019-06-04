@@ -1,8 +1,8 @@
 package cam.utils.personnages.ia;
 
+import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Position;
-import cam.utils.plateau.Plateau;
 
 public abstract class HunterIA extends Chasseur implements IA{
 
@@ -14,6 +14,6 @@ public abstract class HunterIA extends Chasseur implements IA{
 		super(p, nom);
 	}
 
-	public abstract Position posePiege(Plateau plateau);
+	public abstract Position posePiege(PlateauIHM plateau);
 	
 }

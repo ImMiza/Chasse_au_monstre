@@ -46,8 +46,8 @@ public class Plateau {
 			this.monstre.getPosition().setX(this.chercheCase(uneCase)[0]);
 			this.monstre.getPosition().setY(this.chercheCase(uneCase)[1]);
 			
-			if(this.plateau[this.monstre.getPosition().getX()][this.monstre.getPosition().getY()] instanceof EffectCase)
-				((EffectCase) this.plateau[this.monstre.getPosition().getX()][this.monstre.getPosition().getY()]).activeEffect(monstre, this);
+//			if(this.plateau[this.monstre.getPosition().getX()][this.monstre.getPosition().getY()] instanceof EffectCase)
+//				((EffectCase) this.plateau[this.monstre.getPosition().getX()][this.monstre.getPosition().getY()]).activeEffect(monstre, this);
 			
 			return true;
 		}
