@@ -1,5 +1,10 @@
 package cam.utils.ihm.menu.events;
 
+/**
+ * Classe d'évènements liée à la ressource MenuChoixDifficulte.fxml
+ * @author Adrien Bassail
+ */
+
 
 import java.io.IOException;
 
@@ -29,6 +34,12 @@ public class ChoixDifficulteEvent {
     private Button easy;
 
     @FXML
+    /**
+     * Permet, lorsque l'on clique sur le bouton Easy, de lancer la partie avec tous les paramètres définis, 
+     * et de définir la difficulté au niveau 1
+     * @param Click de souris sur le bouton Easy
+     * @throws IOException
+     */
     void diff1(MouseEvent event) throws IOException {
     	MenuIHM.setDifficulte(1);
     	
@@ -36,6 +47,12 @@ public class ChoixDifficulteEvent {
     }
 
     @FXML
+    /**
+     * Permet, lorsque l'on clique sur le bouton Normal, de lancer la partie avec tous les paramètres définis, 
+     * et de définir la difficulté au niveau 2
+     * @param Click de souris sur le bouton Normal
+     * @throws IOException
+     */
     void diff2(MouseEvent event) {
     	MenuIHM.setDifficulte(2);
     	
@@ -43,6 +60,12 @@ public class ChoixDifficulteEvent {
     }
 
     @FXML
+    /**
+     * Permet, lorsque l'on clique sur le bouton Difficile, de lancer la partie avec tous les paramètres définis, 
+     * et de définir la difficulté au niveau 3
+     * @param Click de souris sur le bouton Difficile
+     * @throws IOException
+     */
     void diff3(MouseEvent event) {
     	MenuIHM.setDifficulte(3);
     	
@@ -50,6 +73,12 @@ public class ChoixDifficulteEvent {
     }
 
     @FXML
+    /**
+     * Permet, lorsque l'on clique sur le bouton Retour, de retourner au menu principal
+     * et de redéfinir les paramètres définis précédamment aux valeurs par défaut
+     * @param Click de souris sur le bouton Retour
+     * @throws IOException
+     */
     void retour(MouseEvent event) throws IOException {
     	MenuIHM.setDifficulte(0);
     	MenuIHM.setNomChasseur("");

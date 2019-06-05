@@ -1,5 +1,10 @@
 package cam.utils.personnages.ia;
 
+/**
+ * Classe qui gère une IA plus complexe pour le Chasseur
+ * @author Adrien Bassail
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -20,11 +25,19 @@ public class HardHunter extends HunterIA{
 	}
 
 	@Override
+	/**
+	 * Le chassera toujours à la même position tel un fin renard 
+	 * Il attendra simplement que sa proie passe sur la case de coordonnées (1,1) du plateau
+	 */
 	public Position ChoosePosition(PlateauIHM plateau) {
 		return new Position(1, 1);
 	}
 
 	@Override
+	/**
+	 * Méthode qui permet de poser de façon aléatoire des pièges pour le chasseur 
+	 * sans effectuer de doublons
+	 */
 	public Position posePiege(PlateauIHM plateau) {
 		boolean end = false;
 		Position p = null;
@@ -45,5 +58,5 @@ public class HardHunter extends HunterIA{
 		System.out.println(p);
 		return p;
 	}
-
+	//A AJOUTER : CHANGEMENT DE CASE APRES PFC 
 }

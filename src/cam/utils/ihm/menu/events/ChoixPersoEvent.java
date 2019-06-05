@@ -1,5 +1,10 @@
 package cam.utils.ihm.menu.events;
 
+/**
+ * Classe d'évènements liée à la ressource MenuChoixPersonnage.fxml
+ * @author Adrien Bassail
+ */
+
 import java.io.IOException;
 
 import cam.main.Launcher;
@@ -23,6 +28,12 @@ public class ChoixPersoEvent {
     private Button chasseur;
 
     @FXML
+    /**
+     * Permet, lorsque l'on clique sur le bouton Monstre, d'accéder au menu de choix du nom du monstre, 
+     * et de définir le choix de personnage sur 1
+     * @param Click de souris sur le bouton Monstre
+     * @throws IOException
+     */
     void clickMonstre(MouseEvent event) throws IOException {
     	MenuIHM.setPersonnage(1);
     	
@@ -36,6 +47,12 @@ public class ChoixPersoEvent {
     }
 
     @FXML
+    /**
+     * Permet, lorsque l'on clique sur le bouton Chasseur, d'accéder au menu de choix du nom du Chasseur, 
+     * et de définir le choix de personnage sur 2
+     * @param Click de souris sur le bouton Chasseur
+     * @throws IOException
+     */
     void clickChasseur(MouseEvent event) throws IOException {
     	MenuIHM.setPersonnage(2);
     	
@@ -49,6 +66,12 @@ public class ChoixPersoEvent {
     }
 
     @FXML
+    /**
+     * Permet, lorsque l'on clique sur le bouton Retour, de retourner au menu principal
+     * et de redéfinir les paramètres définis précédamment aux valeurs par défaut
+     * @param Click de souris sur le bouton Retour
+     * @throws IOException
+     */
     void retourAuMenu(MouseEvent event) throws IOException {
     	MenuIHM.setDifficulte(0);
     	

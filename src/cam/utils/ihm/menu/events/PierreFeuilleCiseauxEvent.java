@@ -92,9 +92,4 @@ public class PierreFeuilleCiseauxEvent {
     void ciseauxChoix(MouseEvent event) {
     	System.out.println("Ciseaux");
     }
-
-    public void initialize(){
-
-    }
-
 }

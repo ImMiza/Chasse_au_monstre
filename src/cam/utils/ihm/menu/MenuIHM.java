@@ -1,7 +1,14 @@
 package cam.utils.ihm.menu;
 
+/**
+ * Classe qui permet de récupérer et controler toutes les informations définies dans le menu
+ * et rendre ses informations accesibles partout dans le code
+ * @author Adrien Bassail
+ */
+
 public class MenuIHM {
 	//ATTRIBUTS
+
 	private static int personnage = 0;
 	private static int difficulte = 0;
 	private static int modeDeJeu = 0;
@@ -17,9 +24,11 @@ public class MenuIHM {
 	//METHODES
 
 	/**
+	 * Permet de définir le mode de jeu :
 	 * 0 Non défini
 	 * 1 Solo
 	 * 2 Multijoueur
+	 * @param i : nouvelle valeur
 	 */
 	public static void setModeDeJeu(int i) {
 		//System.out.println("i : " + i);
@@ -28,19 +37,23 @@ public class MenuIHM {
 	}
 	
 	/**
+	 * Permet de définir le niveau de difficulté :
 	 * 0 Non défini
 	 * 1 Niveau de difficulté 1 (easy)
 	 * 2 Niveau de difficulté 2 (normal)
 	 * 3 Niveau de difficulté 3 (difficile)
+	 * @param i : nouvelle valeur
 	 */
 	public static void setDifficulte(int i) {
 		difficulte = i;
 	}
 	
 	/**
+	 * Permet de définir le personnage choisi (solo uniquement)
 	 * 0 Non défini
 	 * 2 Chasseur
 	 * 1 Monstre
+	 * @param i : nouvelle valeur
 	 */
 	public static void setPersonnage(int i) {
 		personnage = i;
@@ -48,6 +61,7 @@ public class MenuIHM {
 	
 	/**
 	 * Nom du monstre, par défaut vide ""
+	 * @param nom : nouvelle valeur
 	 */
 	public static void setNomMonstre(String nom) {
 		nomMonstre = nom;
@@ -55,15 +69,17 @@ public class MenuIHM {
 	
 	/**
 	 * Nom du chasseur, par défaut vide ""
+	 * @param nom : nouvelle valeur
 	 */
 	public static void setNomChasseur(String nom) {
 		nomChasseur = nom;
 	}
 	
 	/**
-	 * Donne les deplacements possibles pour le monstre verticalement
+	 * Permet de définir le nombre de déplacements max verticalement pour le monstre 
 	 * Maximum égal à 4
 	 * Minimum égal à 1
+	 * @param i : nouvelle valeur
 	 */
 	public static void setDeplacementVerticalMonstre(int i) {
 		if(i > 4) {
@@ -78,9 +94,10 @@ public class MenuIHM {
 	}
 	
 	/**
-	 * Donne les deplacements possibles pour le monstre horizontalement
+	 * Permet de définir le nombre de déplacements max horizontalement pour le monstre 
 	 * Maximum égal à 4
 	 * Minimum égal à 1
+	 * @param i : nouvelle valeur
 	 */
 	public static void setDeplacementHorizontalMonstre(int i) {
 		if(i > 4) {
@@ -95,9 +112,10 @@ public class MenuIHM {
 	}
 	
 	/**
-	 * Donne les dplacements possibles pour le monstre en diagonale
+	 * Permet de définir le nombre de déplacements max diagonale pour le monstre 
 	 * Maximum égal à 4
 	 * Minimum égal à 0
+	 * @param i : nouvelle valeur
 	 */
 	public static void setDeplacementDiagonaleMonstre(int i) {
 		if (i > 4) {
@@ -112,9 +130,10 @@ public class MenuIHM {
 	}
 	
 	/**
-	 * Donne la taille du plateau en X
+	 * Permet de définir la taille du plateau max en X
 	 * Minimum égal à 4
 	 * Maximum égal à 20
+	 * @param i : nouvelle valeur
 	 */
 	public static void setTailleXPlateau(int i) {
 		if(i < 4) {
@@ -129,8 +148,10 @@ public class MenuIHM {
 	}
 	
 	/**
+	 * Permet de définir la taille max du plateau en Y
 	 * Minimum égal à 4
 	 * Maximum égal à 20
+	 * @param i : nouvelle valeur
 	 */
 	public static void setTailleYPlateau(int i) {
 		if(i < 4) {
@@ -145,42 +166,102 @@ public class MenuIHM {
 	}
 	
 	//GETTERS
+	/**
+	 * Permet de récupérer le personnage choisi (solo uniquement)
+	 * 0 Non défini
+	 * 2 Chasseur
+	 * 1 Monstre
+	 * @return l'attribut personnage
+	 */
 	public static int getPersonnage() {
 		return personnage;
 	}
-
+	
+	/**
+	 * Permet de récupérer le niveau de difficulté :
+	 * 0 Non défini
+	 * 1 Niveau de difficulté 1 (easy)
+	 * 2 Niveau de difficulté 2 (normal)
+	 * 3 Niveau de difficulté 3 (difficile)
+	 * @return l'attrubut difficulte
+	 */
 	public static int getDifficulte() {
 		return difficulte;
 	}
 
+	/**
+	 * Permet de récupérer le mode de jeu :
+	 * 0 Non défini
+	 * 1 Solo
+	 * 2 Multijoueur
+	 * @return l'attribut modeDeJeu
+	 */
 	public static int getModeDeJeu() {
 		return modeDeJeu;
 	}
 	
+	/**
+	 * Permet de récupérer le nom du monstre
+	 * @return l'attribut nomMonstre
+	 */
 	public static String getNomMonstre() {
 		return nomMonstre;
 	}
 
+	/**
+	 * Permet de récupérer le nom du chasseur
+	 * @return l'attribut nomChasseur
+	 */
 	public static String getNomChasseur() {
 		return nomChasseur;
 	}
 	
+	/**
+	 * Permet de récupérer le nombre de déplacements max verticalement pour le monstre 
+	 * Maximum égal à 4
+	 * Minimum égal à 1
+	 * @return l'attribit deplacementVerticalMonstre
+	 */
 	public static int getDeplacementVerticalMonstre() {
 		return deplacementVerticalMonstre;
 	}
 
+	/**
+	 * Permet de récupérer le nombre de déplacements max horizontalement pour le monstre 
+	 * Maximum égal à 4
+	 * Minimum égal à 1
+	 * @return l'attribit deplacementHorizontalMonstre
+	 */
 	public static int getDeplacementHorizontalMonstre() {
 		return deplacementHorizontalMonstre;
 	}
 
+	/**
+	 * Permet de récupérer le nombre de déplacements max diagonale pour le monstre 
+	 * Maximum égal à 4
+	 * Minimum égal à 1
+	 * @return l'attribit deplacementDiagonaleMonstre
+	 */
 	public static int getDeplacementDiagonaleMonstre() {
 		return deplacementDiagonaleMonstre;
 	}
 
+	/**
+	 * Permet de récupérer la taille du plateau max en X
+	 * Minimum égal à 4
+	 * Maximum égal à 20
+	 * @return l'attribut tailleXPlateau
+	 */
 	public static int getTailleXPlateau() {
 		return tailleXPlateau;
 	}
 
+	/**
+	 * Permet de récupérer la taille du plateau max en Y
+	 * Minimum égal à 4
+	 * Maximum égal à 20
+	 * @return l'attribut tailleYPlateau
+	 */
 	public static int getTailleYPlateau() {
 		return tailleYPlateau;
 	}
