@@ -1,6 +1,7 @@
 package cam.utils.ihm.menu.events;
 
 
+import cam.main.games.PierreFeuilleCiseaux;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -13,6 +14,15 @@ public class PierreFeuilleCiseauxEvent {
      */
     private int choixMonstre;
     private int choixChasseur ;
+    private boolean estMonstre;
+
+    /**
+     * Si c'est le monstre qui clique, estMonstre = true, sinon estMonstre = false
+     * @param estMonstre
+     */
+    public PierreFeuilleCiseauxEvent(boolean estMonstre){
+        this.estMonstre = estMonstre;
+    }
 
     /**
      * Setter de choixChasseur
@@ -79,18 +89,21 @@ public class PierreFeuilleCiseauxEvent {
 
     @FXML
     void pierreChoix(MouseEvent event) {
-    	System.out.println("Pierre");
-
+        System.out.println("PierreFeuilleCiseauxEvent.pierreChoix");
+    	if (estMonstre) this.choixMonstre = 1;
+        else this.choixChasseur = 1;
     }
 
     @FXML
     void feuilleChoix(MouseEvent event) {
-    	System.out.println("Feuille");
+        System.out.println("PierreFeuilleCiseauxEvent.feuilleChoix");
+        if(estMonstre) this.choixMonstre = 2;
+        else this.choixChasseur = 2;
     }
 
     @FXML
     void ciseauxChoix(MouseEvent event) {
-    	System.out.println("Ciseaux");
+        System.out.println("PierreFeuilleCiseauxEvent.ciseauxChoix");
     }
 
     public void initialize(){
