@@ -18,8 +18,8 @@ public class MainController {
 	public static CaseIHM[][] cases;
 	public static boolean canClick;
 	public static Canvas plateau;
-	private static TextArea console;
-	private static Label indicateur;
+	public static TextArea console;
+	public static Label indicateur;
 	
 	public static CaseIHM lastCase;
 	
@@ -74,7 +74,7 @@ public class MainController {
         indicateur = indications;
         
         console.setEditable(false);
-        console.setWrapText(false);
+        console.setWrapText(true);
         
         titre.setText("Chasse au Monstre");
     }
@@ -104,7 +104,7 @@ public class MainController {
 
     public static void drawHunter(int x, int y) {
     	Rectangle rectangle = cases[x][y].getRectangle();
-    	Image hunter = new Image("/cam/ressources/monstre.png");
+    	Image hunter = new Image("/cam/ressources/chasseur.png");
     	GraphicsContext context = plateau.getGraphicsContext2D();
     	context.drawImage(hunter, rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
     }
@@ -120,6 +120,7 @@ public class MainController {
     	Image bg = new Image("/cam/ressources/herbe.jpg");
     	GraphicsContext context = plateau.getGraphicsContext2D();
     	context.clearRect(rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
+    	context.drawImage(bg, rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
     }
     
     public static void writeConsole(String message) {

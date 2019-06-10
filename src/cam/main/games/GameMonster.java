@@ -53,7 +53,7 @@ public class GameMonster extends Game
 	@Override
 	public void execute()
 	{
-		if(!gameFinish || PFC) {
+		if(!gameFinish && !PFC) {
 			if(!monsterPlace) {
 				placeMonster();
 			}
@@ -114,6 +114,7 @@ public class GameMonster extends Game
 				parent = loader.load();
 				Scene scene = new Scene(parent);
 				Game.PierreFeuilleCiseaux.setScene(scene);
+				Game.PierreFeuilleCiseaux.setAlwaysOnTop(true);
 				Game.PierreFeuilleCiseaux.setTitle("Pierre-Feuille-Ciseaux");
 				Game.PierreFeuilleCiseaux.show();
 			}
@@ -148,8 +149,15 @@ public class GameMonster extends Game
 			else {
 				tourHunter();
 				MainController.writeConsole("Le chasseur a joue !");
+				
+				updateTourVisited();
+				tourMonster();
+				tour++;
+				MainController.writeConsole("TOUR " + tour);
+				
 				MainController.setTextIndicator("Tour du monstre: choisissez une case valide");
 			}
 		}
 	}
+
 }

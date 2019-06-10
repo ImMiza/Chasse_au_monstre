@@ -1,12 +1,8 @@
 package cam.utils.ihm.menu.events;
 
 
-<<<<<<< HEAD
-import cam.main.games.PierreFeuilleCiseaux;
-=======
 import cam.main.games.Game;
 import cam.utils.ihm.MainController;
->>>>>>> 21f59f6590cc3ca2b3df109bf817bc405e3ec3a1
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -17,24 +13,10 @@ public class PierreFeuilleCiseauxEvent {
      * 2 = Feuille
      * 3 = Ciseaux
      */
-<<<<<<< HEAD
-    private int choixMonstre;
-    private int choixChasseur ;
-    private boolean estMonstre;
-
-    /**
-     * Si c'est le monstre qui clique, estMonstre = true, sinon estMonstre = false
-     * @param estMonstre
-     */
-    public PierreFeuilleCiseauxEvent(boolean estMonstre){
-        this.estMonstre = estMonstre;
-    }
-=======
     private static int choixMonstre;
     private static int choixChasseur;
     
     public static boolean playerIsMonster = true;
->>>>>>> 21f59f6590cc3ca2b3df109bf817bc405e3ec3a1
 
     /**
      * Setter de choixChasseur
@@ -101,34 +83,17 @@ public class PierreFeuilleCiseauxEvent {
 
     @FXML
     void pierreChoix(MouseEvent event) {
-<<<<<<< HEAD
-        System.out.println("PierreFeuilleCiseauxEvent.pierreChoix");
-    	if (estMonstre) this.choixMonstre = 1;
-        else this.choixChasseur = 1;
-=======
     	choix(1, "Pierre");
-
->>>>>>> 21f59f6590cc3ca2b3df109bf817bc405e3ec3a1
     }
 
     @FXML
     void feuilleChoix(MouseEvent event) {
-<<<<<<< HEAD
-        System.out.println("PierreFeuilleCiseauxEvent.feuilleChoix");
-        if(estMonstre) this.choixMonstre = 2;
-        else this.choixChasseur = 2;
-=======
     	choix(2, "Feuille");
->>>>>>> 21f59f6590cc3ca2b3df109bf817bc405e3ec3a1
     }
 
     @FXML
     void ciseauxChoix(MouseEvent event) {
-<<<<<<< HEAD
-        System.out.println("PierreFeuilleCiseauxEvent.ciseauxChoix");
-=======
     	choix(3, "Ciseaux");
->>>>>>> 21f59f6590cc3ca2b3df109bf817bc405e3ec3a1
     }
     
     private void choix(int c, String str) {
@@ -145,7 +110,12 @@ public class PierreFeuilleCiseauxEvent {
     	MainController.writeConsole("Vous avez choisi: " + str);
     	
     	int result = getResult();
-    	if(playerIsMonster && result == 1) {
+    	
+    	if(result == 0) {
+    		MainController.writeConsole("Egalite");
+    		MainController.setTextIndicator("Allez du nerf !");
+    	}
+    	else if(playerIsMonster && result == 1) {
     		MainController.writeConsole("Le chasseur gagne");
     		MainController.setTextIndicator("Vous avez perdu !");
     		Game.PierreFeuilleCiseaux.close();
@@ -159,9 +129,20 @@ public class PierreFeuilleCiseauxEvent {
         	Game.PFC = false;
         	MainController.canClick = true;
     	}
-    	else {
-    		MainController.writeConsole("Egalite");
-    		MainController.setTextIndicator("Allez du nerf !");
+    	
+    	else if(!playerIsMonster && result == 1) {
+    		MainController.writeConsole("Le chasseur gagne");
+    		MainController.setTextIndicator("Vous avez gagne !");
+    		Game.PierreFeuilleCiseaux.close();
+        	Game.PFC = false;
+        	Game.gameFinish = true;
+    	}
+    	else if(!playerIsMonster && result == -1) {
+    		MainController.writeConsole("Le monstre gagne");
+    		MainController.setTextIndicator("Le monstre est toujours en fuite !");
+    		Game.PierreFeuilleCiseaux.close();
+        	Game.PFC = false;
+        	MainController.canClick = true;
     	}
     }
 }

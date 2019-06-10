@@ -6,6 +6,8 @@ import javafx.stage.Stage;
 
 public abstract class Game {
 	
+	protected int tour;
+	
 	public static Stage PierreFeuilleCiseaux;
 	
 	public static boolean PFC;
@@ -17,6 +19,10 @@ public abstract class Game {
 	
 	protected PlateauIHM plateau;
 	
+	public Game() {
+		tour = 1;
+	}
+	
 	public abstract void execute();
 	
 	public abstract void placePiege();
@@ -26,4 +32,14 @@ public abstract class Game {
 	public abstract void tourHunter();
 	
 	public abstract void tourMonster();
+	
+	protected void updateTourVisited() {
+		for (int i = 0; i < plateau.getPlateau().length; i++) {
+			for (int j = 0; j < plateau.getPlateau()[0].length; j++) {
+				if(plateau.getPlateau()[i][j].getCase().isVisited()) {
+					plateau.getPlateau()[i][j].getCase().setTourVisited(plateau.getPlateau()[i][j].getCase().getTourVisited() + 1);
+				}
+			}
+		}
+	}
 }

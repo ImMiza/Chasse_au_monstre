@@ -9,6 +9,7 @@ package cam.utils.ihm.menu.events;
 import java.io.IOException;
 
 import cam.main.Launcher;
+import cam.main.games.GameHunter;
 import cam.main.games.GameMonster;
 import cam.utils.ihm.MainController;
 import cam.utils.ihm.menu.MenuIHM;
@@ -48,6 +49,8 @@ public class ChoixDifficulteEvent {
     	if(MenuIHM.getPersonnage() == 1) {
     		launchGameMonster();
     	}
+    	else
+    		launchGameHunter();
     }
 
     @FXML
@@ -63,6 +66,8 @@ public class ChoixDifficulteEvent {
     	if(MenuIHM.getPersonnage() == 1) {
     		launchGameMonster();
     	}
+    	else
+    		launchGameHunter();
     }
 
     @FXML
@@ -78,6 +83,8 @@ public class ChoixDifficulteEvent {
     	if(MenuIHM.getPersonnage() == 1) {
     		launchGameMonster();
     	}
+    	else
+    		launchGameHunter();
     }
 
     
@@ -94,6 +101,27 @@ public class ChoixDifficulteEvent {
 			stage.show();
 			
 			MainController.game = new GameMonster(MenuIHM.getNomMonstre(), MenuIHM.getDifficulte(), MainController.cases);
+			MainController.canClick = true;
+    	}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+    }
+    
+    private void launchGameHunter() {
+    	try{
+			Stage stage = new Stage();
+			FXMLLoader loader = new FXMLLoader();
+	        loader.setLocation(getClass().getResource("/cam/ressources/CAM.fxml"));
+	        Parent parent;
+			parent = loader.load();
+			Scene scene = new Scene(parent);
+			stage.setScene(scene);
+			stage.setTitle("Jeu");
+			stage.show();
+			
+			MainController.game = new GameHunter(MenuIHM.getNomChasseur(), MenuIHM.getDifficulte(), MainController.cases);
 			MainController.canClick = true;
     	}
 		catch (IOException e)
