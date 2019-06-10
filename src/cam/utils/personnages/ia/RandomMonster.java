@@ -1,5 +1,10 @@
 package cam.utils.personnages.ia;
 
+/**
+ * Classe qui gère une IA aléatoire pour le Monstre
+ * @author Allan Boukhebza 
+ */
+
 import java.util.Collections;
 import java.util.List;
 
@@ -17,6 +22,10 @@ public class RandomMonster extends MonstreIA{
 		super(p, nom);
 	}
 
+	/**
+	 * Choix de la nouvelle position du monstre de manière aléatoire dans la liste des cases
+	 * possibles du monstre au moment de son tour de jeu
+	 */
 	public Position ChoosePosition(PlateauIHM plateau) {
 		List<Case> cases = plateau.deplacementsPossible();
 		Collections.shuffle(cases);

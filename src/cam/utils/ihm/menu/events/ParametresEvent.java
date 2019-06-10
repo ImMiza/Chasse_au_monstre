@@ -1,5 +1,10 @@
 package cam.utils.ihm.menu.events;
 
+/**
+ * Classe d'évènements liée à la ressource MenuParametres.fxml
+ * @author Adrien Bassail
+ */
+
 import java.io.IOException;
 
 import cam.main.Launcher;
@@ -11,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 
 public class ParametresEvent {
@@ -40,6 +46,12 @@ public class ParametresEvent {
     private TextField txtFieldDiagonaleMonstre;
 
     @FXML
+    /**
+     * Permet lorsque l'on clique sur le bouton Retour, de retourner au menu principal
+     * Mais également d'enregistrer tous les paramètres entrés dans le menu (avec protection de saisie)
+     * @param Click sur le bouton Retour
+     * @throws IOException
+     */
     void retourMenu(MouseEvent event) throws IOException {
     	if(isNumber(txtFieldHorisontalMonstre.getText())) {
     		MenuIHM.setDeplacementHorizontalMonstre(Integer.parseInt(txtFieldHorisontalMonstre.getText()));
@@ -84,7 +96,12 @@ public class ParametresEvent {
 		}
     	return true;
     }
-
+    
+    /**
+     * Permet d'initialiser le menu de paramètres avant son affichage,
+     * notamment d'afficher les valeurs définies actuellement dans les zones de texte, 
+     * mais aussi de gérer correctement les sliders affichés qui gèrent la taille du plateau
+     */
     public void initialize() {
     	txtFieldHorisontalMonstre.setText(MenuIHM.getDeplacementHorizontalMonstre() + "");
     	txtFieldVerticalMonstre.setText(MenuIHM.getDeplacementVerticalMonstre() + "");
@@ -118,7 +135,12 @@ public class ParametresEvent {
     	});
     }
     
-    public boolean isInteger(String s) {
+    /**
+     * Méthode privée permettant de vérifier que le String donné en paramètre est un nombre entier.
+     * @param Chaine de caractères à tester
+     * @return true si la chaine de caractères testée est un entier.
+     */
+    private boolean isInteger(String s) {
     	try {
 			Integer.parseInt(s);
 			return true;

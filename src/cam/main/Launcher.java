@@ -1,6 +1,8 @@
 package cam.main;
-
-
+/**
+ * Classe permettant de lancer le menu IHM du jeu
+ * @author Adrien Bassail
+ */
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

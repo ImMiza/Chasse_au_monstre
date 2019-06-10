@@ -1,5 +1,10 @@
 package cam.utils.personnages.ia;
 
+/**
+ * Classe qui gère une IA plus complexe pour le Monstre
+ * @author Adrien Bassail
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +23,10 @@ public class HardMonster extends MonstreIA{
 	}
 
 	@Override
+	/**
+	 * Choisit la position suivante du monstre selon un paterne sur la carte,
+	 * le patterne fonctionne sur toute carte carrée rectangle, ou autre
+	 */
 	public Position ChoosePosition(PlateauIHM plateau) {
 		boolean end = false;
 		Position posChasseur = getPosition();

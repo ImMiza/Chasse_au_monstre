@@ -1,5 +1,10 @@
 package cam.utils.ihm.menu.events;
 
+/**
+ * Classe d'évènements liée à la ressource MenuChoixNomMonstre.fxml
+ * @author Adrien Bassail
+ */
+
 
 import java.io.IOException;
 
@@ -22,6 +27,12 @@ public class NomMonstreEvent {
     private TextField txtFieldNomMonstre;
 
     @FXML
+    /**
+     * Permet, lorsque l'on clique sur le bouton Valider, de donner récupérer le choix de nom du monstre entré par le joueur dans l'espace de texte
+     * et d'accéder au menu de choix de la difficulté
+     * @param Click de souris sur le bouton Valider
+     * @throws IOException
+     */
     void goNextMenu(MouseEvent event) throws IOException {
     	MenuIHM.setNomMonstre(txtFieldNomMonstre.getText());
     	
