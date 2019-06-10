@@ -19,9 +19,26 @@ public class MenuIHM {
 	private static int deplacementDiagonaleMonstre = 1;
 	private static int tailleXPlateau = 10;
 	private static int tailleYPlateau = 10;
+	private static boolean estLocal = false;
+	private static boolean estReseau = false;
 	
 	
 	//METHODES
+	/**
+	 * Permet de définir si la partie se jouera sur un seul pc ou non
+	 * @param i : nouvelle valeur
+	 */
+	public static void setLocal(boolean i) {
+		estLocal = i;
+	}
+	
+	/**
+	 * Permet de définir si la partie se jouera sur plusieurs pc ou non
+	 * @param i : nouvelle valeur
+	 */
+	public static void setReseau(boolean i) {
+		estReseau = i;
+	}
 
 	/**
 	 * Permet de définir le mode de jeu :
@@ -264,5 +281,21 @@ public class MenuIHM {
 	 */
 	public static int getTailleYPlateau() {
 		return tailleYPlateau;
+	}
+	
+	/**
+	 * Permet de savoir si la partie se déroule en local ou non
+	 * @return : boolean estLocal
+	 */
+	public static boolean getLocal() {
+		return estLocal;
+	}
+	
+	/**
+	 * Permet de savoir si la partie se déroule en multijoueur ou non
+	 * @return : boolean estReseau
+	 */
+	public static boolean getReseau() {
+		return estReseau;
 	}
 }

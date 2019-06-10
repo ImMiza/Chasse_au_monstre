@@ -8,9 +8,7 @@ package cam.utils.ihm.menu.events;
 
 import java.io.IOException;
 
-import cam.main.LaunchGame;
 import cam.main.Launcher;
-import cam.main.games.Game;
 import cam.main.games.GameMonster;
 import cam.utils.ihm.MainController;
 import cam.utils.ihm.menu.MenuIHM;
