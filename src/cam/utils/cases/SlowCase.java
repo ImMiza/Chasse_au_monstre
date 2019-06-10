@@ -13,6 +13,9 @@ import cam.utils.personnages.Personnage;
 public class SlowCase extends EffectCase{
 
 	@Override
+	/**
+	 * Active l'effet voulu, qui est ici de ralentir le monstre sur une case donnée
+	 */
 	public void activeEffect(Personnage perso, PlateauIHM pl) {
 		if (perso instanceof Monstre) {
 			Monstre m = (Monstre) perso;

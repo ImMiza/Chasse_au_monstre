@@ -1,6 +1,11 @@
 
 package cam.utils.ihm.menu.events;
 
+/**
+ * Classe d'évènements liée à la ressource Menu.fxml
+ * @author Adrien Bassail
+ */
+
 import java.io.IOException;
 
 import cam.main.Launcher;
@@ -30,6 +35,12 @@ public class AccueilEvent {
     private Button parametres;
 
     @FXML
+    /**
+     * Permet, lorsque l'on clique sur le bouton Solo, d'accéder au menu de choix de personnage, 
+     * et de définir le mode de jeu dans la classe MenuIHM
+     * @param Click de souris sur le bouton Solo
+     * @throws IOException
+     */
     void goToSolo(MouseEvent event) throws IOException {
     	MenuIHM.setModeDeJeu(1);
     	
@@ -41,6 +52,12 @@ public class AccueilEvent {
     }
 
     @FXML
+    /**
+     * Permet, lorsque l'on clique sur le bouton Multijoueur, d'accéder au menu de choix du nom du chasseur, 
+     * et de définir le mode de jeu dans la classe MenuIHM
+     * @param Click de souris sur le bouton Multijoueur
+     * @throws IOException
+     */
     void goToMultijoueur(MouseEvent event) throws IOException {
     	MenuIHM.setModeDeJeu(2);
     	
@@ -53,6 +70,11 @@ public class AccueilEvent {
     }
 
     @FXML
+    /**
+     * Permet, lorsque l'on clique sur le bouton Aide, d'accéder aux règles du jeu, 
+     * @param Click de souris sur le bouton Aide
+     * @throws IOException
+     */
     void goToAide(MouseEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/cam/ressources/ReglesDuJeu.fxml"));
@@ -62,6 +84,11 @@ public class AccueilEvent {
     }
     
     @FXML
+    /**
+     * Permet, lorsque l'on clique sur le bouton paramètres, d'accéder au menu de choix des paramètres, 
+     * @param Click de souris sur le bouton Paramètres
+     * @throws IOException
+     */
     void goToParametres(MouseEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/cam/ressources/MenuParamètres.fxml"));
@@ -71,6 +98,11 @@ public class AccueilEvent {
     }
 
     @FXML
+    /**
+     * Permet, lorsque l'on clique sur le bouton Quitter, de quitter le jeu, 
+     * @param Click de souris sur le bouton Quitter
+     * @throws IOException
+     */
     void quitter(MouseEvent event) {
     	System.exit(0);
     }
