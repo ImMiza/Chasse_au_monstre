@@ -1,6 +1,8 @@
 package cam.utils.ihm.menu.events;
 
 
+import cam.main.games.Game;
+import cam.utils.ihm.MainController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -11,30 +13,32 @@ public class PierreFeuilleCiseauxEvent {
      * 2 = Feuille
      * 3 = Ciseaux
      */
-    private int choixMonstre;
-    private int choixChasseur ;
+    private static int choixMonstre;
+    private static int choixChasseur;
+    
+    public static boolean playerIsMonster = true;
 
     /**
      * Setter de choixChasseur
      * @param choixChasseur
      */
-    public void setChoixChasseur(int choixChasseur) {
-        this.choixChasseur = choixChasseur;
+    public static void setChoixChasseur(int cChasseur) {
+        choixChasseur = cChasseur;
     }
 
     /**
      * Setter de choixMonstre
      * @param choixMonstre
      */
-    public void setChoixMonstre(int choixMonstre) {
-        this.choixMonstre = choixMonstre;
+    public static void setChoixMonstre(int cMonstre) {
+        choixMonstre = cMonstre;
     }
 
     /**
      * Getter de choixChasseur
      * @return
      */
-    public int getChoixChasseur() {
+    public static int getChoixChasseur() {
         return choixChasseur;
     }
 
@@ -42,7 +46,7 @@ public class PierreFeuilleCiseauxEvent {
      * Getter de choixMonstre
      * @return
      */
-    public int getChoixMonstre() {
+    public static int getChoixMonstre() {
         return choixMonstre;
     }
 
@@ -79,22 +83,51 @@ public class PierreFeuilleCiseauxEvent {
 
     @FXML
     void pierreChoix(MouseEvent event) {
-    	System.out.println("Pierre");
+    	choix(1, "Pierre");
 
     }
 
     @FXML
     void feuilleChoix(MouseEvent event) {
-    	System.out.println("Feuille");
+    	choix(2, "Feuille");
     }
 
     @FXML
     void ciseauxChoix(MouseEvent event) {
-    	System.out.println("Ciseaux");
+    	choix(3, "Ciseaux");
     }
-
-    public void initialize(){
-
+    
+    private void choix(int c, String str) {
+    	if(playerIsMonster) {
+    		choixMonstre = c;
+    		choixChasseur = (int) (Math.random() * 3) + 1;
+    	}
+    	else {
+    		choixChasseur = c;
+    		choixMonstre = (int) (Math.random() * 3) + 1;
+    	}
+    	
+    	MainController.clearConsole();
+    	MainController.writeConsole("Vous avez choisi: " + str);
+    	
+    	int result = getResult();
+    	if(playerIsMonster && result == 1) {
+    		MainController.writeConsole("Le chasseur gagne");
+    		MainController.setTextIndicator("Vous avez perdu !");
+    		Game.PierreFeuilleCiseaux.close();
+        	Game.PFC = false;
+        	Game.gameFinish = true;
+    	}
+    	else if(playerIsMonster && result == -1) {
+    		MainController.writeConsole("Le monstre gagne");
+    		MainController.setTextIndicator("Vous etes encore libre !");
+    		Game.PierreFeuilleCiseaux.close();
+        	Game.PFC = false;
+        	MainController.canClick = true;
+    	}
+    	else {
+    		MainController.writeConsole("Egalite");
+    		MainController.setTextIndicator("Allez du nerf !");
+    	}
     }
-
 }

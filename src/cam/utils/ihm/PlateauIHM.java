@@ -47,10 +47,12 @@ public class PlateauIHM {
 		if (deplacement.contains(uneCase)) {
 			chercheCase(monstre.getPosition().getX(), monstre.getPosition().getY()).setVisited();
 			chercheCase(monstre.getPosition().getX(), monstre.getPosition().getY()).setTourVisited(1);
+			
 			this.monstrePositionLast = this.monstre.getPosition().clone();
 			
-			this.monstre.getPosition().setX(this.chercheCase(uneCase)[0]);
-			this.monstre.getPosition().setY(this.chercheCase(uneCase)[1]);
+			int[] c = this.chercheCase(uneCase);
+			this.monstre.getPosition().setX(c[0]);
+			this.monstre.getPosition().setY(c[1]);
 			
 			if(this.plateau[this.monstre.getPosition().getX()][this.monstre.getPosition().getY()].getCase() instanceof EffectCase)
 				((EffectCase) this.plateau[this.monstre.getPosition().getX()][this.monstre.getPosition().getY()].getCase()).activeEffect(monstre, this);

@@ -1,5 +1,10 @@
 package cam.utils.personnages.ia;
 
+/**
+ * Classe qui gère une IA simple pour le Chasseur
+ * @author Adrien Bassail
+ */
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,6 +23,12 @@ public class EasyHunter extends HunterIA{
 	}
 
 	@Override
+	/**
+	 * Methode permettant de choisir de facon iltellignete la prochaine position du chasseur 
+	 * Le chasseur chassea de facon aléatoire jusqu'a ce qu'il trouve une case sur laquelle
+	 * le monstre est déja passé, si il est passé il y à peu de temps, le chasseur essayera de toucher le monstre
+	 * sur les cases entourant la case sur laquelle il sait que le monstre est passé il y a peu de temps.
+	 */
 	public Position ChoosePosition(PlateauIHM plateau) {
 	
 		
@@ -60,6 +71,10 @@ public class EasyHunter extends HunterIA{
 	}
 
 	@Override
+	/**
+	 * Méthode qui permet de poser de façon aléatoire des pièges pour le chasseur 
+	 * sans effectuer de doublons
+	 */
 	public Position posePiege(PlateauIHM plateau) {
 		boolean end = false;
 		Position p = null;

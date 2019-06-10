@@ -1,5 +1,10 @@
 package cam.utils.personnages.ia;
 
+/**
+ * Classe qui gère une IA aléatoire pour le Chasseur
+ * @author Adrien Bassail
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -19,11 +24,14 @@ public class RandomHunter extends HunterIA{
 
 	public RandomHunter(Position p, String nom) {
 		super(p, nom);
-		// TODO Auto-generated constructor stub
 	}
 
 	//METHODES
 	@Override
+	/**
+	 * Méthode qui permet de poser de façon aléatoire des pièges pour le chasseur 
+	 * sans effectuer de doublons
+	 */
 	public Position posePiege(PlateauIHM plateau) {
 		boolean end = false;
 		Position p = null;
@@ -48,6 +56,9 @@ public class RandomHunter extends HunterIA{
 	}
 
 	@Override
+	/**
+	 * Méthode qui choisit ou le chasseur tirera au prochain tour de façon totalement aléatoire
+	 */
 	public Position ChoosePosition(PlateauIHM plateau) {
 		Random m = new Random();
 		int maxX = plateau.getPlateau().length;

@@ -1,5 +1,6 @@
 package cam.utils.ihm;
 
+import cam.main.games.Game;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -21,6 +22,8 @@ public class MainController {
 	private static Label indicateur;
 	
 	public static CaseIHM lastCase;
+	
+	public static Game game;
 
 	// attributs lies a l'ihm
 	@FXML
@@ -49,12 +52,12 @@ public class MainController {
     		for(int j = 0; j < cases[0].length; j++) {
     			if(cases[i][j].getRectangle().contains(event.getX(), event.getY())) {
     				lastCase = cases[i][j];
+    				game.execute();
     				return;
     			}
     		}
     	}
     	
-    	GameControl.execute();
     }
 
     @FXML
@@ -109,16 +112,15 @@ public class MainController {
     
     public static void removeMonster(int x, int y) {
     	Rectangle rectangle = cases[x][y].getRectangle();
-    	Image bg = new Image("/cam/ressources/herbe.jpg");
     	GraphicsContext context = plateau.getGraphicsContext2D();
-    	context.drawImage(bg, rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
+    	context.clearRect(rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
     }
     
     public static void removeHunter(int x, int y) {
     	Rectangle rectangle = cases[x][y].getRectangle();
     	Image bg = new Image("/cam/ressources/herbe.jpg");
     	GraphicsContext context = plateau.getGraphicsContext2D();
-    	context.drawImage(bg, rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
+    	context.clearRect(rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
     }
     
     public static void writeConsole(String message) {
