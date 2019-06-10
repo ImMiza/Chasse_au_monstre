@@ -19,6 +19,9 @@ import javafx.stage.Stage;
 public class LaunchGame {
 
 	public static void introGame() {
+		MainController.width = MenuIHM.getTailleXPlateau();
+		MainController.height = MenuIHM.getTailleYPlateau();
+		
 		try {
 			launchIHM();
 		} catch (IOException e) {
@@ -33,9 +36,9 @@ public class LaunchGame {
 		Position piege3;
 
 		MainController.writeConsole("MONSTRE: " + MenuIHM.getNomMonstre());
-		MainController.setTextIndicator("Placer votre monstre");
 
 		if (GameControl.joueur1IsMonster) {
+			MainController.setTextIndicator("Placer votre monstre");
 			GameControl.poseMonster = true;
 		} else
 			((MonstreIA) GameControl.joueur2).placeMonster(GameControl.plateau);
@@ -46,6 +49,9 @@ public class LaunchGame {
 			piege1 = ((HunterIA) GameControl.joueur2).posePiege(GameControl.plateau);
 			piege2 = ((HunterIA) GameControl.joueur2).posePiege(GameControl.plateau);
 			piege3 = ((HunterIA) GameControl.joueur2).posePiege(GameControl.plateau);
+			GameControl.plateau.getPlateau()[piege1.getX()][piege1.getY()].setCase(new TrapCase());
+			GameControl.plateau.getPlateau()[piege2.getX()][piege2.getY()].setCase(new TrapCase());
+			GameControl.plateau.getPlateau()[piege3.getX()][piege3.getY()].setCase(new TrapCase());
 		} else {
 			MainController.setTextIndicator("Placer vos 3 pieges");
 			GameControl.posePiege = true;

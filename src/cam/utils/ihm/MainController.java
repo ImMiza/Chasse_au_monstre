@@ -44,7 +44,6 @@ public class MainController {
     	if(!canClick) {
     		return;
     	}
-    	
     	for(int i = 0; i < cases.length; i++) {
     		for(int j = 0; j < cases[0].length; j++) {
     			if(cases[i][j].getRectangle().contains(event.getX(), event.getY())) {
@@ -66,7 +65,7 @@ public class MainController {
 
         lastCase = null;
         cases = dessineTerrain(canvas, width, height);
-        canClick = false;
+        canClick = true;
         plateau = canvas;
         console = consoleArea;
         indicateur = indications;
