@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" styleClass="anchor" stylesheets="@backgroundCssMenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cam.utils.ihm.menu.events.PierreFeuilleCiseauxEvent">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" styleClass="anchor" stylesheets="@backgroundCssMenu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cam.utils.ihm.menu.events.PierreFeuilleCiseauxEvent">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="   Le chasseur vous à trouvé ! DUEL ! Si vous gagnez vous pourrez vous échapper !" HBox.hgrow="ALWAYS">
+            <Label fx:id="text" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="   Le chasseur vous à trouvé ! DUEL ! Si vous gagnez vous pourrez vous échapper !" HBox.hgrow="ALWAYS">
                <HBox.margin>
                   <Insets top="5.0" />
                </HBox.margin>

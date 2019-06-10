@@ -1,11 +1,18 @@
 package cam.utils.ihm.menu.events;
 
 
+import java.io.IOException;
+
 import cam.main.games.Game;
 import cam.utils.ihm.MainController;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class PierreFeuilleCiseauxEvent {
     /**
@@ -17,7 +24,10 @@ public class PierreFeuilleCiseauxEvent {
     private static int choixChasseur;
     
     public static boolean playerIsMonster = true;
-
+    
+    public static boolean localGame = false;
+    public static boolean theFirstPlayed = false;
+    
     /**
      * Setter de choixChasseur
      * @param choixChasseur
@@ -72,6 +82,11 @@ public class PierreFeuilleCiseauxEvent {
         }
     }
 
+    public static Label Indicator;
+    
+    @FXML
+    private Label text;
+    
     @FXML
     private Button btnCiseaux;
 
@@ -82,18 +97,36 @@ public class PierreFeuilleCiseauxEvent {
     private Button btnFeuille;
 
     @FXML
+    void initialize() {
+        assert text != null : "fx:id=\"text\" was not injected: check your FXML file 'PierreFeuilleCiseauxFenetre.fxml'.";
+        assert btnPierre != null : "fx:id=\"btnPierre\" was not injected: check your FXML file 'PierreFeuilleCiseauxFenetre.fxml'.";
+        assert btnFeuille != null : "fx:id=\"btnFeuille\" was not injected: check your FXML file 'PierreFeuilleCiseauxFenetre.fxml'.";
+        assert btnCiseaux != null : "fx:id=\"btnCiseaux\" was not injected: check your FXML file 'PierreFeuilleCiseauxFenetre.fxml'.";
+        Indicator = text;
+    }
+    
+    @FXML
     void pierreChoix(MouseEvent event) {
-    	choix(1, "Pierre");
+    	if(!localGame)
+    		choix(1, "Pierre");
+    	else
+    		localGameChoix(1);
     }
 
-    @FXML
+	@FXML
     void feuilleChoix(MouseEvent event) {
-    	choix(2, "Feuille");
-    }
+    	if(!localGame)
+    		choix(2, "Feuille");
+    	else
+    		localGameChoix(2);
+	}
 
     @FXML
     void ciseauxChoix(MouseEvent event) {
-    	choix(3, "Ciseaux");
+    	if(!localGame)
+    		choix(3, "Ciseaux");
+    	else
+    		localGameChoix(3);
     }
     
     private void choix(int c, String str) {
@@ -145,4 +178,75 @@ public class PierreFeuilleCiseauxEvent {
         	MainController.canClick = true;
     	}
     }
+    
+    private void localGameChoix(int i) {
+		if(!theFirstPlayed) {
+			choixChasseur = i;
+			Game.PierreFeuilleCiseaux.close();
+			theFirstPlayed = true;
+			
+			try{
+				Game.PierreFeuilleCiseaux = new Stage();
+				FXMLLoader loader = new FXMLLoader();
+		        loader.setLocation(getClass().getResource("/cam/ressources/PierreFeuilleCiseauxFenetre.fxml"));
+		        Parent parent;
+				parent = loader.load();
+				Scene scene = new Scene(parent);
+				Game.PierreFeuilleCiseaux.setScene(scene);
+				Game.PierreFeuilleCiseaux.setAlwaysOnTop(true);
+				Game.PierreFeuilleCiseaux.setTitle("Pierre-Feuille-Ciseaux");
+				Game.PierreFeuilleCiseaux.show();
+				
+				Indicator.setText("Au MONSTRE de choisir");
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		else {
+			choixMonstre = i;
+			Game.PierreFeuilleCiseaux.close();
+			theFirstPlayed = false;
+			
+			int result = getResult();
+			
+			Game.PierreFeuilleCiseaux.close();
+			
+			if(result == 1) {
+				MainController.writeConsole("Le chasseur gagne");
+	    		MainController.setTextIndicator("Le monstre a perdu !");
+	        	Game.PFC = false;
+	        	Game.gameFinish = true;
+			}
+			else if(result == -1) {
+				MainController.writeConsole("Le monstre gagne");
+	    		MainController.setTextIndicator("Le monstre est toujours en fuite !");
+	        	Game.PFC = false;
+	        	MainController.canClick = true;
+			}
+			else {
+				MainController.writeConsole("Egalite");
+				
+				try{
+					Game.PierreFeuilleCiseaux = new Stage();
+					FXMLLoader loader = new FXMLLoader();
+			        loader.setLocation(getClass().getResource("/cam/ressources/PierreFeuilleCiseauxFenetre.fxml"));
+			        Parent parent;
+					parent = loader.load();
+					Scene scene = new Scene(parent);
+					Game.PierreFeuilleCiseaux.setScene(scene);
+					Game.PierreFeuilleCiseaux.setAlwaysOnTop(true);
+					Game.PierreFeuilleCiseaux.setTitle("Pierre-Feuille-Ciseaux");
+					Game.PierreFeuilleCiseaux.show();
+					
+					Indicator.setText("Au CHASSEUR de choisir");
+				}
+				catch (IOException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 }
