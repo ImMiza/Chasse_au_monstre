@@ -135,6 +135,7 @@ public class LocalGame extends Game {
 			PFC = true;
 			
 			PierreFeuilleCiseauxEvent.localGame = true;
+			PierreFeuilleCiseauxEvent.theFirstPlayed = false;
 			MainController.canClick = false;
 			
 			MainController.writeConsole("Vous avez trouve le monstre !");

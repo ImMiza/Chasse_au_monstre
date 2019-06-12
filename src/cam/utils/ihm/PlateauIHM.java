@@ -5,6 +5,7 @@ import java.util.List;
 
 import cam.utils.cases.Case;
 import cam.utils.cases.EffectCase;
+import cam.utils.ihm.menu.MenuIHM;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
 import cam.utils.personnages.Position;
@@ -57,6 +58,11 @@ public class PlateauIHM {
 			if(this.plateau[this.monstre.getPosition().getX()][this.monstre.getPosition().getY()].getCase() instanceof EffectCase) {
 				((EffectCase) this.plateau[this.monstre.getPosition().getX()][this.monstre.getPosition().getY()].getCase()).activeEffect(monstre, this);
 				MainController.writeConsole("OH NON, le monstre est aller sur une case de ralentissement !");
+			}
+			else {
+				monstre.setDeplacementDiagonal(MenuIHM.getDeplacementDiagonaleMonstre());
+				monstre.setDeplacementHorizontal(MenuIHM.getDeplacementHorizontalMonstre());
+				monstre.setDeplacementVertical(MenuIHM.getDeplacementVerticalMonstre());
 			}
 			
 			return true;

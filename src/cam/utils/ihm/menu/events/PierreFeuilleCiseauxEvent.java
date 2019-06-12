@@ -231,7 +231,7 @@ public class PierreFeuilleCiseauxEvent {
 	        	MainController.canClick = true;
 	        	
 	        	MainController.game.temporisation("Tour du monstre");
-	        	MainController.game.printAllMonster();
+	        	MainController.game.printAllMonster(true);
 	    		MainController.setTextIndicator("C'est a votre tour " + MainController.game.getPlateau().getMonstre().getNom());
 	    		MainController.writeConsole("TOUR " + MainController.game.getTour());
 			}

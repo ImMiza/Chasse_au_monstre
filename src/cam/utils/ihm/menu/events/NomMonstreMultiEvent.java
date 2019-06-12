@@ -8,7 +8,6 @@ package cam.utils.ihm.menu.events;
 
 import java.io.IOException;
 
-import cam.main.Launcher;
 import cam.main.games.GameMonster;
 import cam.main.games.LocalGame;
 import cam.utils.ihm.MainController;
@@ -59,7 +58,7 @@ public class NomMonstreMultiEvent {
 			e.printStackTrace();
 		}
     	
-    	MainController.game = new LocalGame(MenuIHM.getNomChasseur(), MenuIHM.getNomMonstre(), MainController.cases);
+    	MainController.game = new LocalGame(MenuIHM.getNomMonstre(), MenuIHM.getNomChasseur(), MainController.cases);
 
     }
 
