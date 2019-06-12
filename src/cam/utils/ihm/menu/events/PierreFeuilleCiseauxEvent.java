@@ -229,6 +229,11 @@ public class PierreFeuilleCiseauxEvent {
 	    		MainController.setTextIndicator("Le monstre est toujours en fuite !");
 	        	Game.PFC = false;
 	        	MainController.canClick = true;
+	        	
+	        	MainController.game.temporisation("Tour du monstre");
+	        	MainController.game.printAllMonster(true);
+	    		MainController.setTextIndicator("C'est a votre tour " + MainController.game.getPlateau().getMonstre().getNom());
+	    		MainController.writeConsole("TOUR " + MainController.game.getTour());
 			}
 			else {
 				MainController.writeConsole("Egalite");

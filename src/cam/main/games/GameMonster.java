@@ -132,7 +132,7 @@ public class GameMonster extends Game
 	{
 		CaseIHM c = MainController.lastCase;
 		
-		if(plateau.deplacerMonstre(c.getCase())) {
+		if(plateau.deplacerMonstre(c)) {
 			MainController.removeMonster(plateau.getMonstrePositionLast().getX(), plateau.getMonstrePositionLast().getY());
 			MainController.drawMonster(plateau.getMonstre().getPosition().getX(), plateau.getMonstre().getPosition().getY());
 			

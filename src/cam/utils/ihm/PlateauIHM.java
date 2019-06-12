@@ -5,6 +5,7 @@ import java.util.List;
 
 import cam.utils.cases.Case;
 import cam.utils.cases.EffectCase;
+import cam.utils.ihm.menu.MenuIHM;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Monstre;
 import cam.utils.personnages.Position;
@@ -42,11 +43,11 @@ public class PlateauIHM {
 	 * @param uneCase case de destination du monstre
 	 * @return true si réussite ou false si echec
 	 */
-	public boolean deplacerMonstre(Case uneCase) {
-		List<Case> deplacement = deplacementsPossible();
+	public boolean deplacerMonstre(CaseIHM uneCase) {
+		List<CaseIHM> deplacement = deplacementsPossible();
 		if (deplacement.contains(uneCase)) {
-			chercheCase(monstre.getPosition().getX(), monstre.getPosition().getY()).setVisited();
-			chercheCase(monstre.getPosition().getX(), monstre.getPosition().getY()).setTourVisited(1);
+			chercheCase(monstre.getPosition().getX(), monstre.getPosition().getY()).getCase().setVisited();
+			chercheCase(monstre.getPosition().getX(), monstre.getPosition().getY()).getCase().setTourVisited(1);
 			
 			this.monstrePositionLast = this.monstre.getPosition().clone();
 			
@@ -54,8 +55,15 @@ public class PlateauIHM {
 			this.monstre.getPosition().setX(c[0]);
 			this.monstre.getPosition().setY(c[1]);
 			
-			if(this.plateau[this.monstre.getPosition().getX()][this.monstre.getPosition().getY()].getCase() instanceof EffectCase)
+			if(this.plateau[this.monstre.getPosition().getX()][this.monstre.getPosition().getY()].getCase() instanceof EffectCase) {
 				((EffectCase) this.plateau[this.monstre.getPosition().getX()][this.monstre.getPosition().getY()].getCase()).activeEffect(monstre, this);
+				MainController.writeConsole("OH NON, le monstre est aller sur une case de ralentissement !");
+			}
+			else {
+				monstre.setDeplacementDiagonal(MenuIHM.getDeplacementDiagonaleMonstre());
+				monstre.setDeplacementHorizontal(MenuIHM.getDeplacementHorizontalMonstre());
+				monstre.setDeplacementVertical(MenuIHM.getDeplacementVerticalMonstre());
+			}
 			
 			return true;
 		}
@@ -83,9 +91,9 @@ public class PlateauIHM {
 	 * @param caseDeDepart
 	 * @return uneListe
 	 */
-	public List<Case> deplacementsPossible(){
-		Case caseDeDepart = chercheCase(this.monstre.getPosition().getX(), this.monstre.getPosition().getY());
-		ArrayList<Case> res = new ArrayList<Case>();
+	public List<CaseIHM> deplacementsPossible(){
+		CaseIHM caseDeDepart = chercheCase(this.monstre.getPosition().getX(), this.monstre.getPosition().getY());
+		ArrayList<CaseIHM> res = new ArrayList<CaseIHM>();
 		int[] coordonneesCase = this.chercheCase(caseDeDepart);
 		if (coordonneesCase == null) return null;
 		int i = coordonneesCase[0], j = coordonneesCase[1];
@@ -97,7 +105,7 @@ public class PlateauIHM {
 		while(!sontToutesLibres(res)) {
 			boolean trouvee = false; int k = 0;
 			while (!trouvee && k<res.size()) {
-				if(res.get(k).isVisited()) {
+				if(res.get(k).getCase().isVisited()) {
 					trouvee=true;
 					res.remove(k);
 				}
@@ -112,9 +120,9 @@ public class PlateauIHM {
 	 * @param maListe
 	 * @return 
 	 */
-	private boolean sontToutesLibres(List<Case> maListe) {
+	private boolean sontToutesLibres(List<CaseIHM> maListe) {
 		for (int i = 0; i< maListe.size(); i++) {
-			if(maListe.get(i).isVisited()) return false;
+			if(maListe.get(i).getCase().isVisited()) return false;
 		}
 		return true;
 	}
@@ -154,7 +162,7 @@ public class PlateauIHM {
 	 * @param ligne de la case a ajouter
 	 * @param colonne de la case a ajouter
 	 */
-	private void ajoute(List<Case> uneListe, int ligne, int colonne) {
+	private void ajoute(List<CaseIHM> uneListe, int ligne, int colonne) {
 		if (appartientAuPlateau(ligne, colonne)) {
 			uneListe.add(this.chercheCase(ligne, colonne));
 		}
@@ -166,8 +174,8 @@ public class PlateauIHM {
 	 * @param j
 	 * @return Renvoie tous les deplacements diagonnaux possibles
 	 */
-	private List<Case> deplacementDiagonale(int ligne, int colonne){
-		List<Case> maListe = new ArrayList<Case>();
+	private List<CaseIHM> deplacementDiagonale(int ligne, int colonne){
+		List<CaseIHM> maListe = new ArrayList<CaseIHM>();
 		ajoute(maListe, ligne + this.monstre.getDeplacementDiagonal(), colonne + this.monstre.getDeplacementDiagonal());
 		ajoute(maListe, ligne + this.monstre.getDeplacementDiagonal(), colonne - this.monstre.getDeplacementDiagonal());
 		ajoute(maListe, ligne - this.monstre.getDeplacementDiagonal(), colonne + this.monstre.getDeplacementDiagonal());
@@ -180,8 +188,8 @@ public class PlateauIHM {
 	 * @param j
 	 * @return Renvoie tous les deplacements Verticaux possibles
 	 */
-	private List<Case> deplacementVertical(int ligne, int colonne){
-		List<Case> maListe = new ArrayList<Case>();
+	private List<CaseIHM> deplacementVertical(int ligne, int colonne){
+		List<CaseIHM> maListe = new ArrayList<CaseIHM>();
 		for (int i = 0; i<this.monstre.getDeplacementVertical(); i++) {
 			ajoute(maListe, ligne + i+1, colonne);
 			ajoute(maListe, ligne - (i+1), colonne);
@@ -194,8 +202,8 @@ public class PlateauIHM {
 	 * @param j
 	 * @return Renvoie tous les deplacements horizontaux possibles
 	 */
-	private List<Case> deplacementHorizontal(int ligne, int colonne){
-		List<Case> maListe = new ArrayList<Case>();
+	private List<CaseIHM> deplacementHorizontal(int ligne, int colonne){
+		List<CaseIHM> maListe = new ArrayList<CaseIHM>();
 		for (int i = 0; i<this.monstre.getDeplacementHorizontal(); i++) {
 			ajoute(maListe, ligne, colonne + i+1);
 			ajoute(maListe, ligne, colonne - (i+1));
@@ -210,10 +218,10 @@ public class PlateauIHM {
 	 * @param uneCase
 	 * @return coordonnees
 	 */
-	private int[] chercheCase(Case uneCase) {
+	private int[] chercheCase(CaseIHM uneCase) {
 		for (int i = 0; i<this.plateau.length; i++) {
 			for (int j=0; j<this.plateau[0].length; j++) {
-				if(this.plateau[i][j].getCase().equals(uneCase)) {
+				if(this.plateau[i][j].getCase().equals(uneCase.getCase())) {
 					return new int[] {i, j};
 				}
 			}
@@ -228,9 +236,9 @@ public class PlateauIHM {
 	 * @param j
 	 * @return
 	 */
-	public Case chercheCase(int i, int j) {
+	public CaseIHM chercheCase(int i, int j) {
 		if((i<this.plateau.length && j<this.plateau[0].length) && (i>=0 && j>=0)) {
-			return this.plateau[i][j].getCase();
+			return this.plateau[i][j];
 		}
 		return null;
 	}

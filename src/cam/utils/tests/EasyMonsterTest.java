@@ -1,12 +1,10 @@
 package cam.utils.tests;
 
-import cam.utils.cases.Case;
 import cam.utils.ihm.CaseIHM;
 import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Chasseur;
 import cam.utils.personnages.Position;
 import cam.utils.personnages.ia.EasyMonster;
-import cam.utils.plateau.Plateau;
 
 public class EasyMonsterTest {
 	
