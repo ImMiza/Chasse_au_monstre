@@ -2,7 +2,6 @@ package cam.main.games;
 
 import java.io.IOException;
 
-import cam.utils.cases.EffectCase;
 import cam.utils.cases.TrapCase;
 import cam.utils.ihm.CaseIHM;
 import cam.utils.ihm.MainController;
@@ -14,11 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class LocalGame extends Game {
@@ -26,12 +21,6 @@ public class LocalGame extends Game {
 	private Chasseur HunterPlayer;
 	private Monstre MonsterPlayer;
 
-	private String consoleHunterPlayer;
-	private String consoleMonsterPlayer;
-	
-	private String indicatorHunterPlayer;
-	private String indicatorMonsterPlayer;
-	
 	private boolean monsterPlace;
 	private int nbPiege;
 	private boolean tourMonster;
@@ -99,7 +88,7 @@ public class LocalGame extends Game {
 				MainController.writeConsole("Tout les pieges sont places");
 				clearAll(false);
 				temporisation("Tour du monstre");
-				printAllMonster();
+				printAllMonster(false);
 				MainController.setTextIndicator("Placer votre monstre");
 				tourMonster = true;
 			}
@@ -123,7 +112,6 @@ public class LocalGame extends Game {
 			MainController.writeConsole("Le monstre est pose");
 			
 			monsterPlace = true;
-		
 		
 			clearAll(true);
 			temporisation("Tour du Chasseur");
@@ -161,7 +149,6 @@ public class LocalGame extends Game {
 				parent = loader.load();
 				Scene scene = new Scene(parent);
 				Game.PierreFeuilleCiseaux.setScene(scene);
-				Game.PierreFeuilleCiseaux.setAlwaysOnTop(true);
 				Game.PierreFeuilleCiseaux.setTitle("Pierre-Feuille-Ciseaux");
 				Game.PierreFeuilleCiseaux.show();
 				
@@ -172,6 +159,7 @@ public class LocalGame extends Game {
 				e.printStackTrace();
 			}
 	        
+			clearAll(false);
 		}
 		else {
 			if(c.getCase().isVisited()) {
@@ -180,15 +168,14 @@ public class LocalGame extends Game {
 			else {
 				MainController.writeConsole("La case n'a jamais etait visite par le monstre");
 			}
+			
+			clearAll(false);
+			temporisation("Tour du monstre");
+			printAllMonster(true);
 		}
 		
-		clearAll(false);
-		temporisation("Tour du monstre");
-		printAllMonster();
 		
-		MainController.setTextIndicator("C'est a votre tour " + MonsterPlayer.getNom());
-		
-		MainController.writeConsole("TOUR " + tour);
+		tourMonster = true;
 	}
 
 	@Override
@@ -196,7 +183,7 @@ public class LocalGame extends Game {
 
 		CaseIHM c = MainController.lastCase;
 		
-		if(plateau.deplacerMonstre(c.getCase())) {
+		if(plateau.deplacerMonstre(c)) {
 			MainController.removeMonster(plateau.getMonstrePositionLast().getX(), plateau.getMonstrePositionLast().getY());
 			MainController.drawMonster(plateau.getMonstre().getPosition().getX(), plateau.getMonstre().getPosition().getY());
 			
@@ -222,98 +209,9 @@ public class LocalGame extends Game {
 				updateTourVisited();
 				tour++;
 				MainController.writeConsole("TOUR " + tour);
-				
-				MainController.setTextIndicator("Tour du monstre: choisissez une case valide");
 			}
 		}
 	}
 	
-	private void temporisation(String message) {
-		MainController.canClick = false;
-		
-		Alert alert = new Alert(AlertType.INFORMATION, message, ButtonType.YES);
-		alert.showAndWait();
-		
-		MainController.canClick = true;
-	}
 	
-	private void clearAll(boolean isForMonster) {
-		clearMap();
-		
-		if(isForMonster) {
-			this.consoleMonsterPlayer = MainController.console.getText();
-			this.indicatorMonsterPlayer = MainController.indicateur.getText();
-		}
-		else {
-			this.consoleHunterPlayer = MainController.console.getText();
-			this.indicatorHunterPlayer = MainController.indicateur.getText();
-		}
-		
-		MainController.clearConsole();
-		MainController.setTextIndicator("");
-	}
-	
-	private void clearMap() {
-		GraphicsContext context = MainController.plateau.getGraphicsContext2D();
-		Image image = new Image("/cam/ressources/herbe.jpg");
-		
-		for (int i = 0; i < plateau.getPlateau().length; i++) {
-			for (int j = 0; j < plateau.getPlateau()[0].length; j++) {
-				Rectangle c = plateau.getPlateau()[i][j].getRectangle();
-				context.clearRect(c.getX(), c.getY(), c.getWidth(), c.getHeight());
-				context.drawImage(image, c.getX(), c.getY(), c.getWidth(), c.getHeight());
-			}
-		}
-	}
-	
-	private void printAllMonster() {
-		printMonsterMap();
-		
-		MainController.console.setText(this.consoleMonsterPlayer);
-		MainController.setTextIndicator(this.indicatorMonsterPlayer);
-	}
-	
-	private void printMonsterMap() {
-		GraphicsContext context = MainController.plateau.getGraphicsContext2D();
-		
-		for (int i = 0; i < plateau.getPlateau().length; i++) {
-			for (int j = 0; j < plateau.getPlateau()[0].length; j++) {
-				CaseIHM c = plateau.getPlateau()[i][j];
-				
-				if(c.getCase().isVisited()) {
-					context.clearRect(c.getRectangle().getX(), c.getRectangle().getY(), c.getRectangle().getWidth(), c.getRectangle().getHeight());
-				}
-				
-			}
-		}
-		
-		MainController.drawMonster(plateau.getMonstre().getPosition().getX(), plateau.getMonstre().getPosition().getY());
-	}
-	
-	private void printAllHunter() {
-		printHunterMap();
-		
-		MainController.console.setText(this.consoleHunterPlayer);
-		MainController.setTextIndicator(this.indicatorHunterPlayer);
-	}
-	
-	private void printHunterMap() {
-		GraphicsContext context = MainController.plateau.getGraphicsContext2D();
-		Image effect = new Image("/cam/ressources/herbe_possible.jpg");
-		
-		for (int i = 0; i < plateau.getPlateau().length; i++) {
-			for (int j = 0; j < plateau.getPlateau()[0].length; j++) {
-				CaseIHM c = plateau.getPlateau()[i][j];
-				
-				if(c.getCase() instanceof EffectCase) {
-					context.clearRect(c.getRectangle().getX(), c.getRectangle().getY(), c.getRectangle().getWidth(), c.getRectangle().getHeight());
-					context.drawImage(effect, c.getRectangle().getX(), c.getRectangle().getY(), c.getRectangle().getWidth(), c.getRectangle().getHeight());
-				}
-				
-			}
-		}
-		
-		MainController.drawHunter(plateau.getChasseur().getPosition().getX(), plateau.getChasseur().getPosition().getY());
-	}
-
 }

@@ -1,7 +1,16 @@
 package cam.main.games;
 
+import cam.utils.cases.EffectCase;
 import cam.utils.cases.TrapCase;
+import cam.utils.ihm.CaseIHM;
+import cam.utils.ihm.MainController;
 import cam.utils.ihm.PlateauIHM;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public abstract class Game {
@@ -18,6 +27,12 @@ public abstract class Game {
 	protected TrapCase piege3;
 	
 	protected PlateauIHM plateau;
+	
+	protected String consoleHunterPlayer;
+	protected String consoleMonsterPlayer;
+	
+	protected String indicatorHunterPlayer;
+	protected String indicatorMonsterPlayer;
 	
 	public Game() {
 		tour = 1;
@@ -41,5 +56,111 @@ public abstract class Game {
 				}
 			}
 		}
+	}
+	
+	public void temporisation(String message) {
+		MainController.canClick = false;
+		
+		Alert alert = new Alert(AlertType.INFORMATION, message, ButtonType.YES);
+		alert.showAndWait();
+		
+		MainController.canClick = true;
+	}
+	
+	public void clearAll(boolean isForMonster) {
+		clearMap();
+		
+		if(isForMonster) {
+			this.consoleMonsterPlayer = MainController.console.getText();
+			this.indicatorMonsterPlayer = MainController.indicateur.getText();
+		}
+		else {
+			this.consoleHunterPlayer = MainController.console.getText();
+			this.indicatorHunterPlayer = MainController.indicateur.getText();
+		}
+		
+		MainController.clearConsole();
+		MainController.setTextIndicator("");
+	}
+	
+	public void clearMap() {
+		GraphicsContext context = MainController.plateau.getGraphicsContext2D();
+		Image image = new Image("/cam/ressources/herbe.jpg");
+		
+		for (int i = 0; i < plateau.getPlateau().length; i++) {
+			for (int j = 0; j < plateau.getPlateau()[0].length; j++) {
+				Rectangle c = plateau.getPlateau()[i][j].getRectangle();
+				context.clearRect(c.getX(), c.getY(), c.getWidth(), c.getHeight());
+				context.drawImage(image, c.getX(), c.getY(), c.getWidth(), c.getHeight());
+			}
+		}
+	}
+	
+	public void printAllMonster(boolean withPossibilityCase) {
+		printMonsterMap(withPossibilityCase);
+		
+		MainController.console.setText(this.consoleMonsterPlayer);
+		MainController.setTextIndicator(this.indicatorMonsterPlayer);
+	}
+	
+	public void printMonsterMap(boolean withPossibilityCase) {
+		GraphicsContext context = MainController.plateau.getGraphicsContext2D();
+		
+		for (int i = 0; i < plateau.getPlateau().length; i++) {
+			for (int j = 0; j < plateau.getPlateau()[0].length; j++) {
+				CaseIHM c = plateau.getPlateau()[i][j];
+				
+				if(c.getCase().isVisited()) {
+					context.clearRect(c.getRectangle().getX(), c.getRectangle().getY(), c.getRectangle().getWidth(), c.getRectangle().getHeight());
+				}
+				
+			}
+		}
+		
+		if(withPossibilityCase) {
+			for(CaseIHM c : plateau.deplacementsPossible()) {
+				context.clearRect(c.getRectangle().getX(), c.getRectangle().getY(), c.getRectangle().getWidth(), c.getRectangle().getHeight());
+				Image image = new Image("/cam/ressources/herbe_possible.jpg");
+				context.drawImage(image, c.getRectangle().getX(), c.getRectangle().getY(), c.getRectangle().getWidth(), c.getRectangle().getHeight());
+			}
+		}
+		
+		MainController.drawMonster(plateau.getMonstre().getPosition().getX(), plateau.getMonstre().getPosition().getY());
+	}
+	
+	public void printAllHunter() {
+		printHunterMap();
+		
+		MainController.console.setText(this.consoleHunterPlayer);
+		MainController.setTextIndicator(this.indicatorHunterPlayer);
+	}
+	
+	public void printHunterMap() {
+		GraphicsContext context = MainController.plateau.getGraphicsContext2D();
+		Image effect = new Image("/cam/ressources/herbe_possible.jpg");
+		
+		for (int i = 0; i < plateau.getPlateau().length; i++) {
+			for (int j = 0; j < plateau.getPlateau()[0].length; j++) {
+				CaseIHM c = plateau.getPlateau()[i][j];
+				
+				if(c.getCase() instanceof EffectCase) {
+					context.clearRect(c.getRectangle().getX(), c.getRectangle().getY(), c.getRectangle().getWidth(), c.getRectangle().getHeight());
+					context.drawImage(effect, c.getRectangle().getX(), c.getRectangle().getY(), c.getRectangle().getWidth(), c.getRectangle().getHeight());
+				}
+				
+			}
+		}
+		
+		MainController.drawHunter(plateau.getChasseur().getPosition().getX(), plateau.getChasseur().getPosition().getY());
+	}
+	
+	public PlateauIHM getPlateau()
+	{
+		return plateau;
+	}
+	
+	public int getTour()
+	{
+		return tour;
 	}
 }

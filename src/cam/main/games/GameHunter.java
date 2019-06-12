@@ -158,7 +158,7 @@ public class GameHunter extends Game
 	public void tourMonster()
 	{
 		Position pos = ia.ChoosePosition(plateau);
-		plateau.deplacerMonstre(plateau.getPlateau()[pos.getX()][pos.getY()].getCase());
+		plateau.deplacerMonstre(plateau.getPlateau()[pos.getX()][pos.getY()]);
 		
 		if(!gameFinish && !PFC) {
 			if(plateau.sontToutesVisitee()) {
