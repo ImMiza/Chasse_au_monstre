@@ -12,23 +12,18 @@ Développeurs:
 
 Principe du jeu:  
 -
-Chasse au monstre est un jeu à 2 joueurs, contenant un plateau de jeu, un monstre et un chasseur.  
+Chasse au monstre est un jeu à 1 ou 2 joueurs, contenant un plateau de jeu, un monstre et un chasseur.  
 Le but du monstre est de parcourir toutes les cases du plateau de jeu sans se faire attraper par le chasseur.  
-Le but du chasseur est d'attraper le monstre avant que celui-ci parcour tout le plateau de jeu.  
+Le but du chasseur est d'attraper le monstre avant que celui-ci parcour tout le plateau de jeu.   
+Les règles précises sont accesibles depuis le menu du jeu.
   
-Déroulement du jeu:  
+Déroulement du jeu solo :  
 -
-Premièrement, avant de commencer la partie, le chasseur doit poser 3 pièges sur le plateau de jeu en entrant les coordonnées pour chacune.  
- 
-Ensuite, toujours avant de commencer la partie, le monstre lui doit définir où il souhaite commencer sur le plateau (il ne pourra se placer qu'aux extrémités du plateau).
-   
-Une fois terminé, le jeu commence, sur le plateau nous pouvons voir plusieurs notations:  
-- *M*: __Monstre__  
-- *P*: __Possible__ (les cases possibles de déplacements pour le monstre)  
-- *C*: __Chasseur__  
-- *E*: __Effect__ (les cases avec un effet)  
-- *V*: __Visité__ (les cases où le monstre est déjà passé)  
+Le joueur pourras choisir le personnage qu'il souhaite incarnet et jouera contre une IA du niveau de son choix.   
   
-Le chasseur et le monstres vont joueur chacun leurs tours, le monstre se déplacera en entrant des coordonnées (et aux cases possibles autour de lui), et le chasseur rentrera lui aussi des coordonnées essayant de trouver le monstre.  
-  
-Si le chasseur trouve le monstre, il y aura un Pierre-Feuille-Ciseaux; si le chasseur gagne, alors le jeu est terminé. Si le monstre gagne, alors la partie continue laissant un déplacement au monstre pour s'enfuir.
+Déroulement du jeu multi :  
+-
+Le chasseur et le monstre joueront chacun leur tour, chacun devra bien confirmer que c'est lui qui joue pour éviter la triche.   
+Le monstre pourras se déplacer sur toutes les cases possibles, cliquant à l'emplacement sur lequel il veux se déplacer.   
+Le chasseur se déplace sur la case qu'il souhaite sur le plateau en tentant de découvrir la position du monstre, il disposera de quelques indices, il pourras notament savoir quand le monstre est passé sur la case (il y a combien de tours).   
+Si le chasseur trouve le monstre, il y aura un Pierre-Feuille-Ciseaux, si le chasseur gagne, alors le jeu est terminé. Si le monstre gagne, alors la partie continue laissant un déplacement au monstre pour s'enfuir.   
