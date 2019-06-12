@@ -63,7 +63,7 @@ public class PierreFeuilleCiseaux
 			
 		} while(this.winner == null);
 		
-		System.out.println(this.winner.getNom() + " a gagne le Pierre-Feuille-Ciseaux !");
+		System.out.println(this.winner.getNom() + " à gagné le Pierre-Feuille-Ciseaux !");
 		
 	}
 	

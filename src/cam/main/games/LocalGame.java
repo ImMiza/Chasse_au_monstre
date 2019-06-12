@@ -54,7 +54,7 @@ public class LocalGame extends Game {
 		
 		MainController.writeConsole("Chasseur: " + this.HunterPlayer.getNom());
 		MainController.writeConsole("Le chasseur doit pose 3 pieges");
-		MainController.setTextIndicator("Poser "+ nbPiege + " pieges dans la carte");
+		MainController.setTextIndicator("Poser "+ nbPiege + " pièges sur la carte");
 		printHunterMap();
 	}
 	
@@ -87,8 +87,8 @@ public class LocalGame extends Game {
 			c.setCase(new TrapCase());
 			
 			nbPiege--;
-			MainController.writeConsole("Piege pose");
-			MainController.setTextIndicator("Poser "+ nbPiege + " pieges dans la carte");
+			MainController.writeConsole("Piège posé");
+			MainController.setTextIndicator("Poser "+ nbPiege + " pièges sur la carte");
 			
 			GraphicsContext context = MainController.plateau.getGraphicsContext2D();
 			context.clearRect(c.getRectangle().getX(), c.getRectangle().getY(), c.getRectangle().getWidth(), c.getRectangle().getHeight());
@@ -96,7 +96,7 @@ public class LocalGame extends Game {
 			context.drawImage(herbe, c.getRectangle().getX(), c.getRectangle().getY(), c.getRectangle().getWidth(), c.getRectangle().getHeight());
 		
 			if(nbPiege <= 0) {
-				MainController.writeConsole("Tout les pieges sont places");
+				MainController.writeConsole("Tout les pièges sont placés");
 				clearAll(false);
 				temporisation("Tour du monstre");
 				printAllMonster(false);
@@ -120,14 +120,14 @@ public class LocalGame extends Game {
 			
 			MainController.drawMonster(c.getCase().getPosition().getX(), c.getCase().getPosition().getY());
 			
-			MainController.writeConsole("Le monstre est pose");
+			MainController.writeConsole("Le monstre est posé");
 			
 			monsterPlace = true;
 		
 			clearAll(true);
 			temporisation("Tour du Chasseur");
 			printAllHunter();
-			MainController.setTextIndicator("C'est a votre tour " + HunterPlayer.getNom());
+			MainController.setTextIndicator("C'est à votre tour " + HunterPlayer.getNom());
 			tourMonster = false;
 		}
 	}
@@ -149,7 +149,7 @@ public class LocalGame extends Game {
 			PierreFeuilleCiseauxEvent.theFirstPlayed = false;
 			MainController.canClick = false;
 			
-			MainController.writeConsole("Vous avez trouve le monstre !");
+			MainController.writeConsole("Vous avez trouvé le monstre !");
 			MainController.setTextIndicator("PIERRE FEUILLE CISEAUX DE LA VICTOIRE !");
 			clearAll(false);
 			
@@ -175,10 +175,10 @@ public class LocalGame extends Game {
 		}
 		else {
 			if(c.getCase().isVisited()) {
-				MainController.writeConsole("La case a etait visitee il y a " + c.getCase().getTourVisited() + " tour(s)");
+				MainController.writeConsole("La case à été visitée il y à " + c.getCase().getTourVisited() + " tour(s)");
 			}
 			else {
-				MainController.writeConsole("La case n'a jamais etait visite par le monstre");
+				MainController.writeConsole("La case n'a jamais été visite par le monstre");
 			}
 			
 			clearAll(false);
@@ -200,13 +200,13 @@ public class LocalGame extends Game {
 			MainController.drawMonster(plateau.getMonstre().getPosition().getX(), plateau.getMonstre().getPosition().getY());
 			
 			if(plateau.sontToutesVisitee()) {
-				MainController.writeConsole("Partie Terminee !");
-				MainController.setTextIndicator("Le monstre gagne !");
+				MainController.writeConsole("Partie Terminée !");
+				MainController.setTextIndicator("Le monstre gagné !");
 				gameFinish = true;
 			}
 			else if(plateau.monstreBloquer()) {
-				MainController.writeConsole("Partie Terminee !");
-				MainController.setTextIndicator("Match nul ! monstre bloque !");
+				MainController.writeConsole("Partie Terminée !");
+				MainController.setTextIndicator("Match nul ! Monstre bloqué !");
 				gameFinish = true;
 			}
 			else {
@@ -216,7 +216,7 @@ public class LocalGame extends Game {
 				
 				tourMonster = false;
 				
-				MainController.setTextIndicator("C'est a votre tour " + HunterPlayer.getNom());
+				MainController.setTextIndicator("C'est à votre tour " + HunterPlayer.getNom());
 				
 				updateTourVisited();
 				tour++;
