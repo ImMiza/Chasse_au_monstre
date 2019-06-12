@@ -33,7 +33,7 @@ public class EasyHunter extends HunterIA{
 	
 		
 		if(lastPositionHunter != null) {
-			if(plateau.chercheCase(lastPositionHunter.getX(), lastPositionHunter.getY()).getTourVisited() < 3) {
+			if(plateau.chercheCase(lastPositionHunter.getX(), lastPositionHunter.getY()).getCase().getTourVisited() < 3) {
 				
 				List<Position> cases = new ArrayList<>();
 				try {
