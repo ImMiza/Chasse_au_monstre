@@ -8,7 +8,6 @@ package cam.utils.personnages.ia;
 import java.util.ArrayList;
 import java.util.List;
 
-import cam.utils.cases.Case;
 import cam.utils.ihm.CaseIHM;
 import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Position;
