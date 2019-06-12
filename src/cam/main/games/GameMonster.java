@@ -43,8 +43,8 @@ public class GameMonster extends Game
 		this.plateau = new PlateauIHM(joueur, ia, cases);
 		
 		MainController.writeConsole("Chasseur: Chasseur");
-		MainController.writeConsole("Le chasseur a pose 3 pieges");
-		MainController.setTextIndicator("Tour du monstre: Placer le monstre aux extremites");
+		MainController.writeConsole("Le chasseur a posé 3 pèges");
+		MainController.setTextIndicator("Tour du monstre: Placer le monstre aux extrèmités");
 	
 		placePiege();
 	}
@@ -74,13 +74,13 @@ public class GameMonster extends Game
 			
 			MainController.drawMonster(c.getCase().getPosition().getX(), c.getCase().getPosition().getY());
 			
-			MainController.writeConsole("Le monstre est pose");
+			MainController.writeConsole("Le monstre est posé");
 			
 			monsterPlace = true;
 		
 			tourHunter();
-			MainController.writeConsole("Le chasseur a joue !");
-			MainController.setTextIndicator("Tour du monstre: choisissez une case valide");
+			MainController.writeConsole("Le chasseur à joué !");
+			MainController.setTextIndicator("Tour du monstre: Choisissez une case valide");
 		}
 	}
 
@@ -103,7 +103,7 @@ public class GameMonster extends Game
 			
 			PierreFeuilleCiseauxEvent.playerIsMonster = true;
 			MainController.canClick = false;
-			MainController.writeConsole("Le chasseur a trouve le monstre ! Attention");
+			MainController.writeConsole("Le chasseur à trouvé le monstre ! Attention");
 			MainController.setTextIndicator("PIERRE FEUILLE CISEAUX DE LA SURVIE");
 			
 			try{
@@ -137,23 +137,23 @@ public class GameMonster extends Game
 			MainController.drawMonster(plateau.getMonstre().getPosition().getX(), plateau.getMonstre().getPosition().getY());
 			
 			if(plateau.sontToutesVisitee()) {
-				MainController.writeConsole("Partie Terminee !");
+				MainController.writeConsole("Partie Terminée !");
 				MainController.setTextIndicator("Le monstre gagne !");
 				gameFinish = true;
 			}
 			else if(plateau.monstreBloquer()) {
 				MainController.writeConsole("Partie Terminee !");
-				MainController.setTextIndicator("Match nul ! monstre bloque !");
+				MainController.setTextIndicator("Match nul ! monstre bloqué !");
 				gameFinish = true;
 			}
 			else {
 				tourHunter();
-				MainController.writeConsole("Le chasseur a joue !");
+				MainController.writeConsole("Le chasseur à joué !");
 				
 				updateTourVisited();
 				tourMonster();
 				tour++;
-				MainController.writeConsole("TOUR " + tour);
+				MainController.writeConsole("TOUR :" + tour);
 				
 				MainController.setTextIndicator("Tour du monstre: choisissez une case valide");
 			}

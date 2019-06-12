@@ -48,8 +48,8 @@ public class GameHunter extends Game
 		this.plateau = new PlateauIHM(ia, joueur, cases);
 		
 		MainController.writeConsole("Chasseur: " + this.joueur.getNom());
-		MainController.writeConsole("Le chasseur doit pose 3 pieges");
-		MainController.setTextIndicator("Poser "+ nbPiege + " pieges dans la carte");
+		MainController.writeConsole("Le chasseur doit poser 3 pieges");
+		MainController.setTextIndicator("Poser "+ nbPiege + " piegès sur la carte");
 	}
 	
 	
@@ -82,8 +82,8 @@ public class GameHunter extends Game
 			c.setCase(new TrapCase());
 			
 			nbPiege--;
-			MainController.writeConsole("Piege pose");
-			MainController.setTextIndicator("Poser "+ nbPiege + " pieges dans la carte");
+			MainController.writeConsole("Piège posé");
+			MainController.setTextIndicator("Poser "+ nbPiege + " pièges sur la carte");
 			
 			GraphicsContext context = MainController.plateau.getGraphicsContext2D();
 			context.clearRect(c.getRectangle().getX(), c.getRectangle().getY(), c.getRectangle().getWidth(), c.getRectangle().getHeight());
@@ -92,10 +92,10 @@ public class GameHunter extends Game
 		
 			if(nbPiege <= 0) {
 				placeMonster();
-				MainController.writeConsole("Le monstre est place !");
-				MainController.setTextIndicator("C'est a votre tour " + joueur.getNom() + " !");
+				MainController.writeConsole("Le monstre est placé !");
+				MainController.setTextIndicator("C'est à votre tour " + joueur.getNom() + " !");
 			
-				MainController.writeConsole("TOUR " + tour);
+				MainController.writeConsole("TOUR :" + tour);
 			}
 		}
 		
@@ -117,7 +117,7 @@ public class GameHunter extends Game
 			
 			PierreFeuilleCiseauxEvent.playerIsMonster = false;
 			MainController.canClick = false;
-			MainController.writeConsole("Vous avez trouve le monstre !");
+			MainController.writeConsole("Vous avez trouvé le monstre !");
 			MainController.setTextIndicator("PIERRE FEUILLE CISEAUX DE LA VICTOIRE !");
 			
 			try{
@@ -143,7 +143,7 @@ public class GameHunter extends Game
 				MainController.writeConsole("La case a etait visitee il y a " + c.getCase().getTourVisited() + " tour(s)");
 			}
 			else {
-				MainController.writeConsole("La case n'a jamais etait visite par le monstre");
+				MainController.writeConsole("La case n'a jamais été visitée par le monstre");
 			}
 		}
 		
@@ -163,15 +163,15 @@ public class GameHunter extends Game
 		if(!gameFinish && !PFC) {
 			if(plateau.sontToutesVisitee()) {
 				gameFinish = true;
-				MainController.setTextIndicator("Le monstre a gagne !");
+				MainController.setTextIndicator("Le monstre à gagné !");
 				MainController.clearConsole();
-				MainController.writeConsole("Le monstre a parcouru tout le plateau");
+				MainController.writeConsole("Le monstre à parcouru tout le plateau");
 			}
 			else if(plateau.monstreBloquer()) {
 				gameFinish = true;
 				MainController.setTextIndicator("Match nul !");
 				MainController.clearConsole();
-				MainController.writeConsole("Le monstre est bloque !");
+				MainController.writeConsole("Le monstre est bloqué !");
 			}
 		}
 	}
