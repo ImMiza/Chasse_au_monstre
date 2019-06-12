@@ -32,7 +32,7 @@ public class GameMonster extends Game
 	
 	/**
 	 * constructeur qui permet de creer une partie en incarnant le monstre contre un bot Chasseur
-	 * @param hunterName le nom du chasseur
+	 * @param monsterName le nom du chasseur
 	 * @param botLevel le niveau du bot monstre (1: facile | 2: normal | 3: difficile)
 	 * @param cases le tableau de case du plateau
 	 */

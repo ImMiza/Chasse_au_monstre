@@ -10,6 +10,10 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * Interface principal du jeu, gerant les events concernant le jeu
+ * @author allan
+ */
 public class MainController {
     // Attributs pour le fonctionnement
 	public static int width = 15;
@@ -40,7 +44,7 @@ public class MainController {
 
     /**
      *
-     * @param event
+     * @param event l'event de la souris
      */
     @FXML
     void onClickPlateau(MouseEvent event) {
@@ -79,6 +83,13 @@ public class MainController {
         titre.setText("Chasse au Monstre");
     }
     
+    /**
+     * Dessine sur un canva le plateau du jeu
+     * @param canvas le canva sur laquelle dessiner
+     * @param width le nombre de case en longueur
+     * @param height le nombre de case en largeur
+     * @return le tableau de case associé
+     */
     public static CaseIHM[][] dessineTerrain(Canvas canvas, int width, int height){
 		CaseIHM[][] cases = new CaseIHM[width][height];
 		
@@ -95,6 +106,11 @@ public class MainController {
         return cases;
     }
     
+    /**
+     * Permet de dessiner le monstre sur le plateau
+     * @param x position X de la case
+     * @param y position Y de la case
+     */
     public static void drawMonster(int x, int y) {
     	Rectangle rectangle = cases[x][y].getRectangle();
     	Image monster = new Image("/cam/ressources/monstre.png");
@@ -102,6 +118,11 @@ public class MainController {
     	context.drawImage(monster, rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
     }
 
+    /**
+     * Permet de dessiner le chasseur sur le plateau
+     * @param x position X de la case
+     * @param y position Y de la case
+     */
     public static void drawHunter(int x, int y) {
     	Rectangle rectangle = cases[x][y].getRectangle();
     	Image hunter = new Image("/cam/ressources/chasseur.png");
@@ -109,12 +130,22 @@ public class MainController {
     	context.drawImage(hunter, rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
     }
     
+    /**
+     * Permet de supprimer le monstre du plateau
+     * @param x position X de la case
+     * @param y position Y de la case
+     */
     public static void removeMonster(int x, int y) {
     	Rectangle rectangle = cases[x][y].getRectangle();
     	GraphicsContext context = plateau.getGraphicsContext2D();
     	context.clearRect(rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
     }
     
+    /**
+     * Permet de dessiner le chasseur du plateau
+     * @param x position X de la case
+     * @param y position Y de la case
+     */
     public static void removeHunter(int x, int y) {
     	Rectangle rectangle = cases[x][y].getRectangle();
     	Image bg = new Image("/cam/ressources/herbe.jpg");
@@ -123,14 +154,25 @@ public class MainController {
     	context.drawImage(bg, rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
     }
     
+    /**
+     * Permet d'ecrire un message sur la console se situant a droite de l'interface
+     * @param message le message a ecrire
+     */
     public static void writeConsole(String message) {
     	console.setText(console.getText() + "\n" + message);
     }
     
+    /**
+     * Permet d'effacer tout sur la console
+     */
     public static void clearConsole() {
     	console.setText("");
     }
     
+    /**
+     * Permet d'ecrire un texte sur l'indicateur de situant en bas de l'interface
+     * @param message le message a ecrire
+     */
     public static void setTextIndicator(String message) {
     	indicateur.setText(message);
     }

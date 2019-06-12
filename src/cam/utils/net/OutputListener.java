@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
 
+/**
+ * Permet d'envoyer un message a la connexion distante a tout moment grace au multi-Threading
+ * @author allan
+ */
 public class OutputListener implements Runnable{
 
 	private Connexion connexion;

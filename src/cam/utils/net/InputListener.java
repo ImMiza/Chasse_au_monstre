@@ -2,6 +2,10 @@ package cam.utils.net;
 
 import java.io.IOException;
 
+/**
+ * Permet de recevoir un message de la connexion distante a tout moment grace au multi-Threading
+ * @author allan
+ */
 public class InputListener implements Runnable{
 
 	private Connexion connexion;

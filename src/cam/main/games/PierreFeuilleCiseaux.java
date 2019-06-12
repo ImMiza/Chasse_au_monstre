@@ -125,7 +125,7 @@ public class PierreFeuilleCiseaux
 	
 	/**
 	 * Permet de changer de joueur 2
-	 * @param perso1 le joueur 2
+	 * @param perso2 le joueur 2
 	 */
 	public void changeSecondPlayer(Personnage perso2) {
 		this.perso2 = perso2;

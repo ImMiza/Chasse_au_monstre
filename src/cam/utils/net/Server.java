@@ -7,6 +7,10 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * Permet de creer un serveur pour une connexion reseau
+ * @author allan
+ */
 public class Server implements Connexion{
 
 	private Socket client;
@@ -25,6 +29,11 @@ public class Server implements Connexion{
     	this.port = port;
     }
     
+    /**
+     * Permet de mettre "sur ecoute" le reseau sur laquelle se trouve le serveur pour voir si justement
+     * un client n'essaierais pas de se connecter
+     * @throws IOException si il y a rien a ecouter car null ou autre...
+     */
     public void listen() throws IOException {
     	this.client = this.server.accept();
     	this.clientAddress = this.client.getInetAddress().getAddress();

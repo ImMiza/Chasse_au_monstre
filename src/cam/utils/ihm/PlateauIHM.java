@@ -27,10 +27,9 @@ public class PlateauIHM {
 	// CONSTRUCTEURS
 	/**
 	 * Constructeur d'une instance de Plateau
-	 * @param monstre
-	 * @param chasseur
-	 * @param nbLignes
-	 * @param nbColonnes
+	 * @param monstre le monstre joueur
+	 * @param chasseur le chasseur joueur
+	 * @param cases le tableau de case du plateau
 	 */
 	public PlateauIHM(Monstre monstre, Chasseur chasseur, CaseIHM[][] cases) {
 		this.monstre = monstre;
@@ -88,8 +87,7 @@ public class PlateauIHM {
 	// METHODES
 	/**
 	 * Renvoie la liste de toutes les cases où le déplacement est possible en partant de la case mise en paramètre
-	 * @param caseDeDepart
-	 * @return uneListe
+	 * @return uneListe la liste des cases possibles
 	 */
 	public List<CaseIHM> deplacementsPossible(){
 		CaseIHM caseDeDepart = chercheCase(this.monstre.getPosition().getX(), this.monstre.getPosition().getY());
@@ -117,8 +115,8 @@ public class PlateauIHM {
 	
 	/**
 	 * Verifie que toutes les cases de maListe n'ont jamais etees visitees par le monstre
-	 * @param maListe
-	 * @return 
+	 * @param maListe la liste a verifier
+	 * @return true si elles sont toutes libres, sinon false
 	 */
 	private boolean sontToutesLibres(List<CaseIHM> maListe) {
 		for (int i = 0; i< maListe.size(); i++) {
@@ -148,8 +146,8 @@ public class PlateauIHM {
 	
 	/**
 	 * Verifie l'appartenance d'une case au plateau
-	 * @param ligne
-	 * @param colonne
+	 * @param ligne la ligne
+	 * @param colonne la colonne
 	 * @return Boolean true si la case d'indice [ligne][colonne] appartient au plateau
 	 */
 	public boolean appartientAuPlateau(int ligne, int colonne) {
@@ -170,8 +168,8 @@ public class PlateauIHM {
 	
 	/**
 	 * 
-	 * @param i
-	 * @param j
+	 * @param ligne la ligne 
+	 * @param colonne la colonne
 	 * @return Renvoie tous les deplacements diagonnaux possibles
 	 */
 	private List<CaseIHM> deplacementDiagonale(int ligne, int colonne){
@@ -184,8 +182,8 @@ public class PlateauIHM {
 	}
 	/**7
 	 * 
-	 * @param i
-	 * @param j
+	 * @param ligne la ligne
+	 * @param colonne la colonne
 	 * @return Renvoie tous les deplacements Verticaux possibles
 	 */
 	private List<CaseIHM> deplacementVertical(int ligne, int colonne){
@@ -198,8 +196,8 @@ public class PlateauIHM {
 	}
 	/**
 	 * 
-	 * @param i
-	 * @param j
+	 * @param ligne la ligne
+	 * @param colonne la colonne
 	 * @return Renvoie tous les deplacements horizontaux possibles
 	 */
 	private List<CaseIHM> deplacementHorizontal(int ligne, int colonne){
@@ -214,9 +212,8 @@ public class PlateauIHM {
 	
 	/**
 	 * Methode privee permettant de renvoyer les coordonnees de la case mise en parametre
-	 * @exception Renvoie null si la case n'appartient pas au plateau
-	 * @param uneCase
-	 * @return coordonnees
+	 * @param uneCase la case a rechercher
+	 * @return coordonnees les coordonners de la case ex: [0,0]
 	 */
 	private int[] chercheCase(CaseIHM uneCase) {
 		for (int i = 0; i<this.plateau.length; i++) {
@@ -231,10 +228,9 @@ public class PlateauIHM {
 	
 	/**
 	 * Methode privee permettant de renvoyer la case de coordonees rentrees en parametre
-	 * @exception renvoie null si les coordonnees ne sont pas valides(n'appartiennent pas au plateau)
-	 * @param i
-	 * @param j
-	 * @return
+	 * @param i la position en i
+	 * @param j la position en j
+	 * @return la case a cette position, sinon false
 	 */
 	public CaseIHM chercheCase(int i, int j) {
 		if((i<this.plateau.length && j<this.plateau[0].length) && (i>=0 && j>=0)) {

@@ -1,0 +1,11 @@
+cam.main
+cam.main.games
+cam.utils.cases
+cam.utils.ihm
+cam.utils.ihm.menu
+cam.utils.ihm.menu.events
+cam.utils.net
+cam.utils.personnages
+cam.utils.personnages.ia
+cam.utils.plateau
+junit

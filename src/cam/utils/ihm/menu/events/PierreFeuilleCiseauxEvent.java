@@ -35,7 +35,7 @@ public class PierreFeuilleCiseauxEvent {
     
     /**
      * Setter de choixChasseur
-     * @param choixChasseur
+     * @param cChasseur le choix du chasseur
      */
     public static void setChoixChasseur(int cChasseur) {
         choixChasseur = cChasseur;
@@ -43,7 +43,7 @@ public class PierreFeuilleCiseauxEvent {
 
     /**
      * Setter de choixMonstre
-     * @param choixMonstre
+     * @param cMonstre le choix du monstre
      */
     public static void setChoixMonstre(int cMonstre) {
         choixMonstre = cMonstre;
@@ -51,7 +51,7 @@ public class PierreFeuilleCiseauxEvent {
 
     /**
      * Getter de choixChasseur
-     * @return
+     * @return le choix du chasseur
      */
     public static int getChoixChasseur() {
         return choixChasseur;
@@ -59,7 +59,7 @@ public class PierreFeuilleCiseauxEvent {
 
     /**
      * Getter de choixMonstre
-     * @return
+     * @return le choix du monstre
      */
     public static int getChoixMonstre() {
         return choixMonstre;

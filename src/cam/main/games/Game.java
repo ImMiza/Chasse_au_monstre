@@ -95,7 +95,7 @@ public abstract class Game {
 	
 	/**
 	 * Permet de remettre a zero le plateau et de vider la console de droite et l'indicateur
-	 * @param isForMonster
+	 * @param isForMonster true si on clean pour le monstre et sauvegarder dans ses affaires, false l'inverse
 	 */
 	public void clearAll(boolean isForMonster) {
 		clearMap();

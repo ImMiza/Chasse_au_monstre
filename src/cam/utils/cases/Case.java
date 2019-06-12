@@ -52,7 +52,7 @@ public class Case {
 	
 	/**
 	 * Permet de changer le biome d'une case 
-	 * @param nouveau biome
+	 * @param b biome
 	 */
 	public void setBiome(Biome b) {
 		this.biomeCase = b;

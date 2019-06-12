@@ -136,7 +136,7 @@ public class ParametresEvent {
     
     /**
      * Méthode privée permettant de vérifier que le String donné en paramètre est un nombre entier.
-     * @param Chaine de caractères à tester
+     * @param s de caractères à tester
      * @return true si la chaine de caractères testée est un entier.
      */
     private boolean isInteger(String s) {

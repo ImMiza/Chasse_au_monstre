@@ -8,6 +8,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+/**
+ * Permet de creer un client pour une connexion reseau
+ * @author allan
+ */
 public class Client implements Connexion {
 	
     private Socket socket;
@@ -18,6 +22,12 @@ public class Client implements Connexion {
     private PrintWriter writer;
     private BufferedReader reader;
     
+    /**
+     * @param address l'adresse ip de la machine a joindre <em>ex: 192.168.1.1</em>
+     * @param port le port sur lequel communiquer
+     * @throws UnknownHostException si le client est introuvable
+     * @throws IOException si le client est introuvable donc rien a ecire au destinataire
+     */
     public Client(String address, int port) throws UnknownHostException, IOException
     {
     	this.address = address;
