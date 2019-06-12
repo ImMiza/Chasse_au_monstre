@@ -57,6 +57,5 @@ public class HardHunter extends HunterIA{
 		}
 		System.out.println(p);
 		return p;
-	}
-	//A AJOUTER : CHANGEMENT DE CASE APRES PFC 
+	} 
 }

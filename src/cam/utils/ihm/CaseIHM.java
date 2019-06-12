@@ -1,5 +1,10 @@
 package cam.utils.ihm;
 
+/**
+ * Classe qui permet de gérer les cases de jeu pour une partie avec l'interface graphique du jeu
+ * @author Allan Boukhebza
+ */
+
 import cam.utils.cases.Case;
 import cam.utils.personnages.Position;
 import javafx.scene.shape.Rectangle;
