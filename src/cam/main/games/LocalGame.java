@@ -16,6 +16,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+/**
+ * Classe fille heritant de Game
+ * Cette classe permet de creer une partie avec 2 joueurs réels
+ * @author allan
+ */
 public class LocalGame extends Game {
 
 	private Chasseur HunterPlayer;
@@ -26,6 +31,12 @@ public class LocalGame extends Game {
 	private boolean tourMonster;
 	
 
+	/**
+	 * constructeur qui permet de creer une partie avec 2 joueurs réels
+	 * @param monsterName le nom du monstre
+	 * @param hunterName le nom du chasseur
+	 * @param cases le tableau de case du plateau
+	 */
 	public LocalGame(String monsterName, String hunterName, CaseIHM[][] cases)
 	{
 		nbPiege = 3;

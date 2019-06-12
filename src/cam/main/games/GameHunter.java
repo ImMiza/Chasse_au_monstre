@@ -20,6 +20,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+/**
+ * Classe fille heritant de Game
+ * Cette classe permet de creer une partie en incarnant le chasseur contre un bot Monstre
+ * @author allan
+ */
 public class GameHunter extends Game
 {
 
@@ -29,6 +34,12 @@ public class GameHunter extends Game
 	private Chasseur joueur;
 	private MonstreIA ia;
 	
+	/**
+	 * constructeur qui permet de creer une partie en incarnant le chasseur contre un bot Monstre
+	 * @param hunterName le nom du chasseur
+	 * @param botLevel le niveau du bot monstre (1: facile | 2: normal | 3: difficile)
+	 * @param cases le tableau de case du plateau
+	 */
 	public GameHunter(String hunterName, int botLevel, CaseIHM[][] cases)
 	{
 		nbPiege = 3;
@@ -68,6 +79,7 @@ public class GameHunter extends Game
 		}
 	}
 	
+	@Override
 	public void placeMonster() {
 		ia.placeMonster(plateau);
 	}

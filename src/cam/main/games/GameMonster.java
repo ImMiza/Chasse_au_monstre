@@ -17,6 +17,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Classe fille heritant de Game
+ * Cette classe permet de creer une partie en incarnant le monstre contre un bot Chasseur
+ * @author allan
+ */
 public class GameMonster extends Game
 {
 
@@ -25,6 +30,12 @@ public class GameMonster extends Game
 	private Monstre joueur;
 	private HunterIA ia;
 	
+	/**
+	 * constructeur qui permet de creer une partie en incarnant le monstre contre un bot Chasseur
+	 * @param hunterName le nom du chasseur
+	 * @param botLevel le niveau du bot monstre (1: facile | 2: normal | 3: difficile)
+	 * @param cases le tableau de case du plateau
+	 */
 	public GameMonster(String monsterName, int botLevel, CaseIHM[][] cases)
 	{
 		monsterPlace = false;
@@ -72,7 +83,7 @@ public class GameMonster extends Game
 			plateau.getMonstre().setX(c.getCase().getPosition().getX());
 			plateau.getMonstre().setY(c.getCase().getPosition().getY());
 			
-			MainController.drawMonster(c.getCase().getPosition().getX(), c.getCase().getPosition().getY());
+			printMonsterMap(true);
 			
 			MainController.writeConsole("Le monstre est pose");
 			
@@ -133,8 +144,8 @@ public class GameMonster extends Game
 		CaseIHM c = MainController.lastCase;
 		
 		if(plateau.deplacerMonstre(c)) {
-			MainController.removeMonster(plateau.getMonstrePositionLast().getX(), plateau.getMonstrePositionLast().getY());
-			MainController.drawMonster(plateau.getMonstre().getPosition().getX(), plateau.getMonstre().getPosition().getY());
+			clearMap();
+			printMonsterMap(true);
 			
 			if(plateau.sontToutesVisitee()) {
 				MainController.writeConsole("Partie Terminee !");

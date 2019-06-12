@@ -13,6 +13,10 @@ import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+/**
+ * Classe mere permettant de creer les deroulements des differents mode de jeu
+ * @author allan
+ */
 public abstract class Game {
 	
 	protected int tour;
@@ -38,16 +42,34 @@ public abstract class Game {
 		tour = 1;
 	}
 	
+	/**
+	 * Appeler par les events de MainController, permet d'executer le deroulement du jeu
+	 */
 	public abstract void execute();
 	
+	/**
+	 * Permet de placer les pieges du chasseur
+	 */
 	public abstract void placePiege();
 	
+	/**
+	 * Permet de placer le monstre
+	 */
 	public abstract void placeMonster();
 	
+	/**
+	 * Permet d'executer les actions du chasseur
+	 */
 	public abstract void tourHunter();
 	
+	/**
+	 * Permet d'executer les actions du monstre
+	 */
 	public abstract void tourMonster();
 	
+	/**
+	 * Permet de mettre a jours les tours visités des cases
+	 */
 	protected void updateTourVisited() {
 		for (int i = 0; i < plateau.getPlateau().length; i++) {
 			for (int j = 0; j < plateau.getPlateau()[0].length; j++) {
@@ -58,6 +80,10 @@ public abstract class Game {
 		}
 	}
 	
+	/**
+	 * Permet de creer une temporisatin avec une fenetre modal 
+	 * @param message le message a afficher sur la fenetre
+	 */
 	public void temporisation(String message) {
 		MainController.canClick = false;
 		
@@ -67,6 +93,10 @@ public abstract class Game {
 		MainController.canClick = true;
 	}
 	
+	/**
+	 * Permet de remettre a zero le plateau et de vider la console de droite et l'indicateur
+	 * @param isForMonster
+	 */
 	public void clearAll(boolean isForMonster) {
 		clearMap();
 		
@@ -83,6 +113,9 @@ public abstract class Game {
 		MainController.setTextIndicator("");
 	}
 	
+	/**
+	 * permet de remettre a zero le plateau
+	 */
 	public void clearMap() {
 		GraphicsContext context = MainController.plateau.getGraphicsContext2D();
 		Image image = new Image("/cam/ressources/herbe.jpg");
@@ -96,6 +129,10 @@ public abstract class Game {
 		}
 	}
 	
+	/**
+	 * Permet d'afficher le plateau du monstre avec sa console et son indicateur
+	 * @param withPossibilityCase true si on veut afficher les deplacement possibles du monstre, sinon false
+	 */
 	public void printAllMonster(boolean withPossibilityCase) {
 		printMonsterMap(withPossibilityCase);
 		
@@ -103,6 +140,10 @@ public abstract class Game {
 		MainController.setTextIndicator(this.indicatorMonsterPlayer);
 	}
 	
+	/**
+	 * Permet d'afficher le plateau du monstre
+	 * @param withPossibilityCase true si on veut afficher les deplacement possibles du monstre, sinon false
+	 */
 	public void printMonsterMap(boolean withPossibilityCase) {
 		GraphicsContext context = MainController.plateau.getGraphicsContext2D();
 		
@@ -128,6 +169,9 @@ public abstract class Game {
 		MainController.drawMonster(plateau.getMonstre().getPosition().getX(), plateau.getMonstre().getPosition().getY());
 	}
 	
+	/**
+	 * Permet d'afficher le plateau du chasseur avec sa console et son indicateur
+	 */
 	public void printAllHunter() {
 		printHunterMap();
 		
@@ -135,6 +179,9 @@ public abstract class Game {
 		MainController.setTextIndicator(this.indicatorHunterPlayer);
 	}
 	
+	/**
+	 * Permet d'afficher le plateau du chasseur
+	 */
 	public void printHunterMap() {
 		GraphicsContext context = MainController.plateau.getGraphicsContext2D();
 		Image effect = new Image("/cam/ressources/herbe_possible.jpg");
@@ -154,11 +201,17 @@ public abstract class Game {
 		MainController.drawHunter(plateau.getChasseur().getPosition().getX(), plateau.getChasseur().getPosition().getY());
 	}
 	
+	/**
+	 * @return le plateau de jeu
+	 */
 	public PlateauIHM getPlateau()
 	{
 		return plateau;
 	}
 	
+	/**
+	 * @return le tour actuel du jeu
+	 */
 	public int getTour()
 	{
 		return tour;
