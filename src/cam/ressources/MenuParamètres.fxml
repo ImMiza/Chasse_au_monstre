@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -11,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="anchor" stylesheets="@backgroundCssMenu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cam.utils.ihm.menu.events.ParametresEvent">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="anchor" stylesheets="@backgroundCssMenu.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cam.utils.ihm.menu.events.ParametresEvent">
    <top>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Paramètres" BorderPane.alignment="CENTER">
          <font>
@@ -66,7 +71,7 @@
             <HBox>
                <children>
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
-                  <Label text="Set déplacements du monstre" textAlignment="CENTER" HBox.hgrow="ALWAYS" />
+                  <Label text="Modifier déplacements du monstre" textAlignment="CENTER" HBox.hgrow="ALWAYS" />
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets bottom="10.0" />
