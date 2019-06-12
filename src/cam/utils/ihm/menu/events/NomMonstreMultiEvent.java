@@ -9,6 +9,8 @@ package cam.utils.ihm.menu.events;
 import java.io.IOException;
 
 import cam.main.Launcher;
+import cam.main.games.LocalGame;
+import cam.utils.ihm.MainController;
 import cam.utils.ihm.menu.MenuIHM;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,18 +31,14 @@ public class NomMonstreMultiEvent {
     @FXML
     /**
      * Permet, lorsque l'on clique sur le bouton Valider, de donner récupérer le choix de nom du monstre entré par le joueur dans l'espace de texte
-     * et d'accéder au menu de choix réseau
+     * et d'accéder a la partie
      * @param Click de souris sur le bouton Valider
      * @throws IOException
      */
     void goNextMenu(MouseEvent event) throws IOException {
     	MenuIHM.setNomMonstre(txtFieldNomMonstre.getText());
     	
-    	FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/cam/ressources/MenuChoixReseau.fxml"));
-        Parent perso = loader.load();
-    	Scene scene = new Scene(perso);
-     	Launcher.getPrimaryStage().setScene(scene);
+    	MainController.game = new LocalGame(MenuIHM.getNomChasseur(), MenuIHM.getNomMonstre(), MainController.cases);
 
     }
 
