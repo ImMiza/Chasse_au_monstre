@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cam.utils.cases.Case;
+import cam.utils.ihm.CaseIHM;
 import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Monstre;
 import cam.utils.personnages.Position;
@@ -33,10 +34,10 @@ public class EasyMonster extends MonstreIA{
 		
 		while(!end) {
 			List<Position> posPossibles = new ArrayList<Position>();
-			List<Case> casePossibles = plateau.deplacementsPossible();
+			List<CaseIHM> casePossibles = plateau.deplacementsPossible();
 			
 			for(int j=0 ; j<casePossibles.size() ; j++) {
-				posPossibles.add(casePossibles.get(j).getPosition());
+				posPossibles.add(casePossibles.get(j).getCase().getPosition());
 			}
 			
 			//POSSIBILITE DE JOUER AVEC LES COORDONNEES POUR FAIRE DES PATTERNES DIFFERENTS (a reflechir pour ia normale)

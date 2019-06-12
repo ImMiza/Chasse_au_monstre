@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 import cam.utils.cases.Case;
+import cam.utils.ihm.CaseIHM;
 import cam.utils.ihm.PlateauIHM;
 import cam.utils.personnages.Position;
 
@@ -27,9 +28,9 @@ public class RandomMonster extends MonstreIA{
 	 * possibles du monstre au moment de son tour de jeu
 	 */
 	public Position ChoosePosition(PlateauIHM plateau) {
-		List<Case> cases = plateau.deplacementsPossible();
+		List<CaseIHM> cases = plateau.deplacementsPossible();
 		Collections.shuffle(cases);
-		return cases.get(0).getPosition();
+		return cases.get(0).getCase().getPosition();
 	}
 
 }
